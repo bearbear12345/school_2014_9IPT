@@ -1,40 +1,128 @@
-@charset "utf-8";
-/* Header, body and footer elements */
-/* Header */
-#header {
-	background-color: #9DDDDC;
+@charset utf-8;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+.content {
+margin-top:10px;
 }
-/* Body */
+
 body {
-	text-align: center;
+text-align:center;
 }
-/* Footer */
+
+#header {
+background-color:#86CEE4;
+position:absolute;
+top:0;
+left:0;
+right:0;
+z-index:100;
+}
+
+#body {
+margin-top:150px;
+}
+
 #footer {
-	background-color: #9DDDDC;
+background-color:#86CEE4;
+position:absolute;
+left:0;
+right:0;
 }
-/* Navigation Bar elements */
-#navigation-bar {
-	text-align: center;
-}
+
 #navigation-bar ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	display: inline-block;
+list-style:none;
+line-height:1;
+display:block;
+zoom:1;
+margin:0;
+padding:0;
 }
-#navigation-bar li {
-	float: left;
+
+#navigation-bar ul li {
+float:left;
+display:block;
+padding:0;
 }
-#navigation-bar a {
-	display: block;
-	font-family: helvetica; /* Helvetica, why are you so beautiful? */
-	font-weight: bold;
-	width: 60px;
-	margin: 0;
-	text-transform: uppercase;
-	padding: 9px 18px 9px;
+
+#navigation-bar ul li a {
+color:#fff;
+text-decoration:none;
+display:block;
+font-family:'Open Sans', sans-serif;
+font-weight:700;
+text-transform:uppercase;
+font-size:14px;
+position:relative;
+-webkit-transition:color .25s;
+-moz-transition:color .25s;
+-ms-transition:color .25s;
+-o-transition:color .25s;
+transition:color .25s;
+padding:15px 25px;
 }
-#navigation-bar a:hover {
-	background-color: #9DDDDC;
-	color: #FFFFFF;
+
+#navigation-bar ul li a:after {
+content:'';
+display:block;
+position:absolute;
+right:-3px;
+top:19px;
+height:6px;
+width:6px;
+background:#fff;
+opacity:.5;
+}
+
+#navigation-bar ul li a:before {
+content:'';
+display:block;
+position:absolute;
+left:0;
+bottom:0;
+height:3px;
+width:0;
+background:#333;
+-webkit-transition:width .25s;
+-moz-transition:width .25s;
+-ms-transition:width .25s;
+-o-transition:width .25s;
+transition:width .25s;
+}
+
+/* Hide separator - Andrew */
+#navigation-bar ul li.last > a:after,#navigation-bar ul li:last-child > a:after {
+display:none;
+}
+
+#navigation-bar ul li a:hover,#navigation-bar ul li.active a {
+color:#333;
+}
+
+#navigation-bar ul li a:hover:before,#navigation-bar ul li.active a:before {
+width:100%;
+}
+
+/*If desktop (screen) and the max width is up to 768 CSS pixels*/
+@media screen and max-width 768px{
+  #navigation-bar ul li {
+  float:none;
+  }
+
+  #navigation-bar ul li a {
+  width:100%;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  }
+
+  #navigation-bar ul li a:before {
+  height:1px;
+  background:#fff;
+  width:100%;
+  opacity:.2;
+  }
+
+  #navigation-bar ul li a:after,#navigation-bar ul li.last > a:before,#navigation-bar ul li:last-child > a:before {
+  display:none;
+  }
+}
