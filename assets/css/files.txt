@@ -1,0 +1,2 @@
+jquery.nivo.slider.pack.js - http://dev7studios.com/plugins/nivo-slider
+nivo-slider-theme.css - http://dev7studios.com/plugins/nivo-slider

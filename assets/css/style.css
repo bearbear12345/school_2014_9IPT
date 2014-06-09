@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* Header, body and footer elements */
+/* Header */
+#header {
+	background-color: #9DDDDC;
+}
+/* Body */
+body {
+	text-align: center;
+}
+/* Footer */
+#footer {
+	background-color: #9DDDDC;
+}
+/* Navigation Bar elements */
+#navigation-bar {
+	text-align: center;
+}
+#navigation-bar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	display: inline-block;
+}
+#navigation-bar li {
+	float: left;
+}
+#navigation-bar a {
+	display: block;
+	font-family: helvetica; /* Helvetica, why are you so beautiful? */
+	font-weight: bold;
+	width: 60px;
+	margin: 0;
+	text-transform: uppercase;
+	padding: 9px 18px 9px;
+}
+#navigation-bar a:hover {
+	background-color: #9DDDDC;
+	color: #FFFFFF;
