@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Broken Hill Surf Shop Online</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <!-- -->
+    <script type="text/javascript">
+      // Get page parameters - Andrew
+      // Place in header
+      var parameters = window.location.toString();
+      parameters = parameters.substring(parameters.indexOf("?")+1).split("&");
+    </script>
+  </head>
+  <body>
+    <!--Header (Logo) and Navigation Bar-->
+    <div id="header">
+      <header class="header">
+        <a href="index.html"><img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo"/></a>
+        <!--START Navigation Bar-->
+        <div id="navigation-bar">
+          <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="last"><a href="#news">News</a></li>
+          </ul>
+        </div>
+        <!--END Navigation Bar-->
+      </header>
+    </div>
+    <div id="content">
+      <h1>
+        <script type="text/javascript">
+          document.write('<img src="../assets/images/products/'+parameters[0]+'/product.png" alt="Product Image" />');
+          document.writeln(parameters[0]);
+        </script>
+      </h1>
+    </div>
+  </body>
+</html>

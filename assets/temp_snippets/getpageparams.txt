@@ -1,0 +1,6 @@
+<script type="text/javascript">
+// Get page parameters - Andrew
+// Place in header
+var parameters = window.location.toString();
+parameters = parameters.substring(parameters.indexOf("=")+1);
+</script>
