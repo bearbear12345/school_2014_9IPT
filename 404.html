@@ -24,10 +24,18 @@
       </header>
     </div>
     <div id="content">
-      <div id="four_oh_four"></div>
-      <p class="four_oh_four"><a href="index.html">
-        Let's try again?</a>
-      </p>
+      <div id="four_oh_four" class="four_oh_four">
+      <hr>
+      <p><a href="index.html">
+        Return to the homepage</a></p>
+        <script type="text/javascript">
+		if (document.referrer != "") {
+			document.write('<a href="javascript:history.back()">Click here to go back</a>');
+			
+		}
+		</script>
+
+</div>
     </div>
   </body>
 </html>
