@@ -35,6 +35,10 @@
         <script type="text/javascript">
           document.write('<img src="../assets/products/'+parameters[0]+'/product.png" alt="Product Image" />');
           document.write(parameters[0]);
+          
+          jQuery.get('http://bearbear12345.github.io/school_ipt_as3/assets/products/'+parameters[0]+'info.txt', function(data) {
+    alert(data);
+});
         </script> 
       </h1>
     </div>
