@@ -1,2 +1,1 @@
 jquery.nivo.slider.pack.js - http://dev7studios.com/plugins/nivo-slider
-accessdb.js - http://accessdb.sourceforge.net/

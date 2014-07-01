@@ -43,16 +43,15 @@ body {
 	margin-top: 200px;
 }
 
-#pcontent {
-	margin-top: 200px;
-}
-
 #footer {
 	background-color: #86CEE4;
 	position: absolute;
 	left: 0;
 	right: 0;
+	bottom: 0;
 }
+
+
 
 .headergradient {
 	background: #86cee4; /* Old browsers */
@@ -208,7 +207,7 @@ body {
 	font-family:'Open Sans', sans-serif;
 	font-weight:700;
 	text-transform:uppercase;
-	font-size:10px;
+	font-size:12px;
 	position:relative;
 	-webkit-transition:color .25s;
 	-moz-transition:color .25s;

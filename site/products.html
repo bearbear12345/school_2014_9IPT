@@ -33,27 +33,46 @@
 <!--START Product Navigation Bar-->
         <div id="product-navigation-bar">
           <ul>
-            <li class="active"><a href="">Surfing</a></li>
-            <li><a href="">Clothing</a></li>
-            <li><a href="">Protection</a></li>
-            <li><a href="">Scuba Gear</a></li>
-            <li><a href="">Snorkeling Gear</a></li>
-            <li><a href="">Recreation</a></li>
-            <li><a href="">Water Recreation</a></li>
-            <li class="last"><a href="">Accessories</a></li>
+            <li id="product_category_surfing"><a href="">Surfing</a></li>
+            <li id="product_category_clothing"><a href="">Clothing</a></li>
+            <li id="product_category_protection"><a href="">Protection</a></li>
+            <li id="product_category_scubasnorkeling_gear"><a href="">Scuba/Snorkeling Gear</a></li>
+            <li id="product_category_recreation"><a href="">Recreation</a></li>
+            <li id="product_category_accessory"class="last"><a href="">Accessories</a></li>
+            <script>
+			//Set product category
+document.getElementById('product_category_clothing').className += ' active'
+			</script>
           </ul>
         </div>
 <!--END Product Navigation Bar-->
       </header>
     </div>
-    <div id="pcontent">
+    <div id="content">
       <h1>
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <script type="text/javascript">
-          document.write('<img src="../assets/products/'+parameters[0]+'/product.png" alt="Product Image" />');
-          document.write(parameters[0]);
+          //document.write('<img src="../assets/products/'+parameters[0]+'/product.png" alt="Product Image" />');
+          //document.write(parameters[0]);
+		  console.log('<img src="../assets/products/'+parameters[0]+'/product.png" alt="Product Image" />');
+          console.log(parameters[0]);
         </script> 
       </h1>
     </div>
     
+        <div id="footer">
+       <!--SITEMAP-->
+       <div>
+       </div>
+      <footer>© 2014 BearTech & Ryan Oo</footer>
+    </div>
   </body>
 </html>
