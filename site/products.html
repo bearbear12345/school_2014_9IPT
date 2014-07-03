@@ -1,125 +1,84 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-    <meta charset="utf-8">
-    <title>Broken Hill Surf Shop Online</title>
-    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <script type="text/javascript">
-	  var hasargs;
-      var parameters = window.location.toString();
-      if (parameters.indexOf("?") + 1 != 0) { //If there are parameters
-          hasargs = true; 
-		  parameters = parameters.substring(parameters.indexOf("?") + 1).split("&");
-          var img = new Image();
-          img.onload = function () {
-		  }
-		  img.onerror = function () {
-              console.log('Page not found! Redirecting...');
-              document.location.href = '404.html';
-          }
-          img.src = '../assets/products/' + parameters[0] + '/product.png';
-      
-      
-          var xmlhttp;
-          var productinfo;
-          if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
-              xmlhttp = new XMLHttpRequest();
-          } else { // code for IE6, IE5
-              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-          }
-          xmlhttp.onreadystatechange = function () {
-              if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                  //document.getElementById(variable).innerHTML=xmlhttp.responseText;
-                  productinfo = xmlhttp.responseText.split('\n');
-				  // productinfo[0] -> Name
-				  // productinfo[1] -> Price
-				  // productinfo[2] -> Stock
-				  // productinfo[3] -> Description
-              }
-          }
-          xmlhttp.open("GET", "../assets/products/" + parameters[0] + "/info.txt", true);
-          xmlhttp.send();
-      
-      
-      } else {
-          // Show product listing maybe?
-		  hasargs = false;
-      }
-    </script>
-    </head>
-    <body onload="finishload()">
-<!-- --> 
-<!--Header (Logo) and Navigation Bar-->
-<div id="pheader">
-      <header class="header">
-    <div class="headergradient"> <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> 
-          <!--START Navigation Bar-->
-          <div id="navigation-bar">
-        <ul>
-              <li><a href="home.html">Home</a> </li>
-              <li class="active"><a href="products.html">Products</a> </li>
-              <li><a href="#about">About</a> </li>
-              <li><a href="#contact">Contact</a> </li>
-              <li class="last"><a href="#news">News</a> </li>
-            </ul>
-      </div>
-        </div>
-    <!--END Navigation Bar--> 
-    <!--START Product Navigation Bar-->
-    <div id="product-navigation-bar">
+
+<head>
+  <meta charset="utf-8">
+  <title>Broken Hill Surf Shop Online</title>
+  <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  <script src="../assets/js/main.js"></script>
+</head>
+
+<body onload="finishload()">
+  <!-- -->
+  <!--Header (Logo) and Navigation Bar-->
+  <div id="pheader">
+    <header class="header">
+      <div class="headergradient">
+        <a href="home.html">
+          <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" />
+        </a>
+        <!--START Navigation Bar-->
+        <div id="navigation-bar">
           <ul>
-        <li id="product_category_surfing"><a href="">Surfing</a></li>
-        <li id="product_category_clothing"><a href="">Clothing</a></li>
-        <li id="product_category_protection"><a href="">Protection</a></li>
-        <li id="product_category_scubasnorkeling_gear"><a href="">Scuba/Snorkeling Gear</a></li>
-        <li id="product_category_recreation"><a href="">Recreation</a></li>
-        <li id="product_category_accessory" class="last"><a href="">Accessories</a></li>
-      </ul>
+            <li><a href="home.html">Home</a> 
+            </li>
+            <li class="active"><a href="products.html">Products</a> 
+            </li>
+            <li><a href="#about">About</a> 
+            </li>
+            <li><a href="#contact">Contact</a> 
+            </li>
+            <li class="last"><a href="#news">News</a> 
+            </li>
+          </ul>
         </div>
-    <!--END Product Navigation Bar--> 
-  </header>
-    </div>
-<div id="pcontent">
-      <div id="product_location">Home > Products > Category > <u><b>PRODUCT</b></u> </div>
-      <div id="products">
-    <div class="productimage"> <img id="productimage" src="../assets/images/placeholders/290x582.png" alt="Product Image"> </div>
-    <div class="producttext">
-          <div class="productinfo_upper"> 
-        <!--Wrapper -->
-        <div id="productname">Product Name</div>
-        <div>Price: <span id="productdatabaseinfo_price">$$$</span> <br>
-              Stock: <span id="productdatabaseinfo_stock">Stock Amount</span> </div>
       </div>
-          <div id="productdescription">Product Description</div>
-        </div>
+      <!--END Navigation Bar-->
+      <!--START Product Navigation Bar-->
+      <div id="product-navigation-bar">
+        <ul>
+          <li id="product_category_surfing"><a href="">Surfing</a>
+          </li>
+          <li id="product_category_clothing"><a href="">Clothing</a>
+          </li>
+          <li id="product_category_protection"><a href="">Protection</a>
+          </li>
+          <li id="product_category_scubasnorkeling_gear"><a href="">Scuba/Snorkeling Gear</a>
+          </li>
+          <li id="product_category_recreation"><a href="">Recreation</a>
+          </li>
+          <li id="product_category_accessory" class="last"><a href="">Accessories</a>
+          </li>
+        </ul>
+      </div>
+      <!--END Product Navigation Bar-->
+    </header>
   </div>
+  <div id="pcontent">
+    <div id="product_location">Home > Products > Category > <u><b>PRODUCT</b></u> 
     </div>
-<div id="footer"> 
-      <!--SITEMAP-->
-      <div></div>
-      <footer>© 2014 Andrew Wong & Ryan Oo</footer>
+    <div id="products">
+      <div class="productimage">
+        <img id="productimage" src="../assets/images/placeholders/290x582.png" alt="Product Image">
+      </div>
+      <div class="producttext">
+        <div class="productinfo_upper">
+          <!--Wrapper -->
+          <div id="productname">Product Name</div>
+          <div>Price: <span id="productdatabaseinfo_price">$$$</span> 
+            <br>Stock: <span id="productdatabaseinfo_stock">Stock Amount</span> 
+          </div>
+        </div>
+        <div id="productdescription">Product Description</div>
+      </div>
     </div>
-<script>
-	function finishload() {
-      if (hasargs) {
-          document.getElementById('pcontent').style.display = "inherit";
-		  document.getElementById('product_location').innerHTML="Home > Products > " + productinfo[0].substring(productinfo[0].indexOf(';')+1) + " > <u><b>" + productinfo[0].substring(0,productinfo[0].indexOf(';')) + "</b></u>"
-		  if (productinfo[1].contains(';')) {
-			  //Discount
-			  priceinfo = productinfo[1].split(';');
-			  			  document.getElementById('productdatabaseinfo_price').innerHTML = "<strike>$" + priceinfo[0]+"</strike> $"+priceinfo[2]+"<br>"+priceinfo[1] + "% discount";
-		  } else {
-			  //No discount
-			  document.getElementById('productdatabaseinfo_price').innerHTML=productinfo[1];
-		  }
-		  document.getElementById('productdatabaseinfo_stock').innerHTML=productinfo[2];
-		  document.getElementById('productdescription').innerHTML=productinfo[3];
-      }
-	}
-       //Set product category
-      document.getElementById('product_category_surfing').className += ' active';
-      document.getElementById('productimage').src = "../assets/products/" + parameters[0] + "/product.png";
-    </script>
+  </div>
+  <div id="footer">
+    <!--SITEMAP-->
+    <div></div>
+    <footer>© 2014 Andrew Wong & Ryan Oo</footer>
+  </div>
 </body>
+
 </html>
