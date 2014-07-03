@@ -7,8 +7,18 @@
   <link rel="shortcut icon" href="../assets/images/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
   <script src="../assets/js/main.js"></script>
+  <script>
+    var hasargs;
+    var productinfo;
+    var parameters = window.location.toString();
+    beginload();
+    if (hasargs) {
+      loadproduct(parameters[0]);
+    }
+  </script>
 </head>
-<body onload="finishload()">
+
+<body onLoad="replace();">
   <!-- -->
   <!--Header (Logo) and Navigation Bar-->
   <div id="pheader">

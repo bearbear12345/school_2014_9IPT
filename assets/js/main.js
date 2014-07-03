@@ -34,22 +34,24 @@ function loadproduct(productcode) {
 }
 
 function replace() {
-  productcategory = productinfo[0].substring(productinfo[0].indexOf(';') + 1).toLowerCase();
-  productname = productinfo[0].substring(0, productinfo[0].indexOf(';'));
-  document.getElementById('pcontent').style.display = "inherit";
-  document.getElementById('product_location').innerHTML = "<a href='site.html'>Home</a> > <a href='products'>Products</a> > <a href='" + productcategory + "'>" + productinfo[0].substring(productinfo[0].indexOf(';') + 1) + "</a> > <b>" + productname + "</b>";
-  document.getElementById('productname').innerHTML = productname
-  if (productinfo[1].indexOf(";") > -1) {
-    //Discount
-    priceinfo = productinfo[1].split(';');
-    document.getElementById('productdatabaseinfo_price').innerHTML = "<strike>$" + priceinfo[0] + "</strike> $" + priceinfo[2] + "<br>" + priceinfo[1] + "% discount";
-  } else {
-    //No discount
-    document.getElementById('productdatabaseinfo_price').innerHTML = "$" + productinfo[1];
+  if (hasargs) {
+    productcategory = productinfo[0].substring(productinfo[0].indexOf(';') + 1).toLowerCase();
+    productname = productinfo[0].substring(0, productinfo[0].indexOf(';'));
+    document.getElementById('pcontent').style.display = "inherit";
+    document.getElementById('product_location').innerHTML = "<a href='site.html'>Home</a> > <a href='products'>Products</a> > <a href='" + productcategory + "'>" + productinfo[0].substring(productinfo[0].indexOf(';') + 1) + "</a> > <b>" + productname + "</b>";
+    document.getElementById('productname').innerHTML = productname
+    if (productinfo[1].indexOf(";") > -1) {
+      //Discount
+      priceinfo = productinfo[1].split(';');
+      document.getElementById('productdatabaseinfo_price').innerHTML = "<strike>$" + priceinfo[0] + "</strike> $" + priceinfo[2] + "<br>" + priceinfo[1] + "% discount";
+    } else {
+      //No discount
+      document.getElementById('productdatabaseinfo_price').innerHTML = "$" + productinfo[1];
+    }
+    document.getElementById('productdatabaseinfo_stock').innerHTML = productinfo[2];
+    document.getElementById('productdescription').innerHTML = productinfo[3];
+    //Set product category
+    document.getElementById('product_category_' + productcategory.substring(0, (productcategory.length - 1))).className += ' active';; //Can't find the zero-width space
+    document.getElementById('productimage').src = "../assets/products/" + parameters[0] + "/product.png";
   }
-  document.getElementById('productdatabaseinfo_stock').innerHTML = productinfo[2];
-  document.getElementById('productdescription').innerHTML = productinfo[3];
-  //Set product category
-  document.getElementById('product_category_' + productcategory.substring(0, (productcategory.length - 1))).className += ' active';; //Can't find the zero-width space
-  document.getElementById('productimage').src = "../assets/products/" + parameters[0] + "/product.png";
 }
