@@ -104,7 +104,7 @@
 	function finishload() {
       if (hasargs) {
           document.getElementById('pcontent').style.display = "inherit";
-		  document.getElementById('productname').innerHTML=productinfo[0];
+		  document.getElementById('product_location').innerHTML="Home > Products > " + productinfo[0].substring(productinfo[0].indexOf(';')+1) + " > <u><b>" + productinfo[0].substring(0,productinfo[0].indexOf(';')) + "</b></u>"
 		  if (productinfo[1].contains(';')) {
 			  //Discount
 			  priceinfo = productinfo[1].split(';');
