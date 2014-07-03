@@ -43,8 +43,7 @@ function loadfof() {
   }
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      alert(xmlhttp.responseText);
-	  
+      document.getElementById('kiritoproskillz').innerHTML = xmlhttp.responseText;
       // productinfo[0] -> Name
       // productinfo[1] -> Price
       // productinfo[2] -> Stock
