@@ -53,8 +53,8 @@ body {
 #productimage {
 	width: 290px;
 	height: 582px;
-	border-color: #A7A7A7;
 	border: 1px solid;
+	border-color: #A7A7A7;
 }
 .productimage {
 	/* left side */
@@ -71,7 +71,7 @@ body {
 }
 #product_location {
 	border-color: #A7A7A7;
-	border: 3px groove;
+	border: 2px;
 	text-transform: uppercase;
 	width: 100%;
 }
