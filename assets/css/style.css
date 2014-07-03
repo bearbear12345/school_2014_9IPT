@@ -27,6 +27,7 @@ body {
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	margin: 0 auto;
+
 }
 #header {
 	background-color: #86CEE4;
@@ -80,6 +81,8 @@ body {
 	margin: 202px auto;
 	width: 1000px;
 	text-align: center;
+		/* Javascript change */
+		display: none;
 }
 #footer {
 	background-color: #86CEE4;

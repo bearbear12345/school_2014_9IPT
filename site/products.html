@@ -32,6 +32,7 @@
               if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                   //document.getElementById(variable).innerHTML=xmlhttp.responseText;
                   productinfo = xmlhttp.responseText;
+				  alert(productinfo);
               }
           }
           xmlhttp.open("GET", "../assets/products/" + parameters[0] + "/info.txt", true);
@@ -109,8 +110,8 @@
       <footer>© 2014 Andrew Wong & Ryan Oo</footer>
     </div>
     <script>
-      if (!hasparams) {
-          document.getElementById('pcontent').style.display = "none";
+      if (hasparams) {
+          document.getElementById('pcontent').style.display = "inherit";
       }
        //Set product category
       document.getElementById('product_category_surfing').className += ' active';
