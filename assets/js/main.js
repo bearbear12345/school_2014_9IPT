@@ -7,7 +7,6 @@ function beginload() {
       console.log('Page not found! Redirecting...');
 	  loadfof();
 	  //document.location.href = '404.html';
-	  loadfof();
     }
     img.src = '../assets/products/' + parameters[0] + '/product.png';
   } else {
