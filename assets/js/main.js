@@ -51,7 +51,7 @@ function replace() {
     document.getElementById('productdatabaseinfo_stock').innerHTML = productinfo[2];
     document.getElementById('productdescription').innerHTML = productinfo[3];
     //Set product category
-    document.getElementById('product_category_' + productcategory.substring(0, (productcategory.length - 1))).className += ' active';; //Can't find the zero-width space
+    document.getElementById('product_category_' + productcategory).className += ' active'; //Can't find the zero-width space
     document.getElementById('productimage').src = "../assets/products/" + parameters[0] + "/product.png";
   }
 }
