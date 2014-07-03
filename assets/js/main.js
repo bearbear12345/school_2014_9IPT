@@ -34,10 +34,10 @@
       hasargs = false;
     }
 
-    function finishload() {
+//    function finishload() {
       if (hasargs) {
         document.getElementById('pcontent').style.display = "inherit";
-        document.getElementById('product_location').innerHTML = "Home > Products > " + productinfo[0].substring(productinfo[0].indexOf(';') + 1) + " > <u><b>" + productinfo[0].substring(0, productinfo[0].indexOf(';')) + "</b></u>";
+        document.getElementById('product_location').innerHTML = "<a href='site.html'>Home</a> > <a href='products'>Products</a> > " + productinfo[0].substring(productinfo[0].indexOf(';') + 1) + " > <u><b>" + productinfo[0].substring(0, productinfo[0].indexOf(';')) + "</b></u>";
         document.getElementById('productname').innerHTML = productinfo[0].substring(0, productinfo[0].indexOf(';'));
         if (productinfo[1].contains(';')) {
           //Discount
@@ -53,4 +53,4 @@
       //Set product category
       document.getElementById("product_category_" + productinfo[0].substring(productinfo[0].indexOf(';') + 1).toLowerCase()).className += ' active';
       document.getElementById('productimage').src = "../assets/products/" + parameters[0] + "/product.png";
-    }
+//    }
