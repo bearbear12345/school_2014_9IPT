@@ -5,7 +5,8 @@ function beginload() {
     var img = new Image();
     img.onerror = function () {
       console.log('Page not found! Redirecting...');
-	  document.location.href = '404.html';
+	  loadfof();
+	  //document.location.href = '404.html';
 	  loadfof();
     }
     img.src = '../assets/products/' + parameters[0] + '/product.png';
@@ -43,7 +44,7 @@ function loadfof() {
   }
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      document.getElementById('kiritoproskillz').innerHTML = xmlhttp.responseText;
+      return document.getElementById('kiritoproskillz').innerHTML = xmlhttp.responseText;
     }
   }
   xmlhttp.open("GET", "404.html", false);
