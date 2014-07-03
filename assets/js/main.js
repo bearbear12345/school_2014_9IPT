@@ -5,15 +5,14 @@ function beginload() {
     var img = new Image();
     img.onerror = function () {
       console.log('Page not found! Redirecting...');
-	  document.getElementById("kiritoproskillz").innerHTML = loadfile('404.html');
-      //document.location.href = '404.html';
+      document.location.href = '404.html';
     }
     img.src = '../assets/products/' + parameters[0] + '/product.png';
   } else {
     hasargs = false;
   }
 }
-/*
+
 function loadproduct(productcode) {
   var xmlhttp;
   if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -33,36 +32,6 @@ function loadproduct(productcode) {
   xmlhttp.open("GET", "../assets/products/" + productcode + "/info.txt", false);
   xmlhttp.send();
 }
-*/
-
-function loadproduct(productcode) {
-	return loadfile("../assets/products/" + productcode + "/info.txt").split('\n');
-	  // productinfo[0] -> Name
-      // productinfo[1] -> Price
-      // productinfo[2] -> Stock
-      // productinfo[3] -> Description
-}
-
-function loadfile(url) {
-  var xmlhttp;
-  if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp = new XMLHttpRequest();
-  } else { // code for IE6, IE5
-    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		alert(xmlhttp.responseText);
-      return xmlhttp.responseText;
-    }
-  }
-  xmlhttp.open("GET", url, false);
-  xmlhttp.send();
-}
-
-
-
-
 
 function replace() {
   if (hasargs) {
