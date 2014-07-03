@@ -44,7 +44,7 @@ function loadfof() {
   }
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      return document.getElementById('kiritoproskillz').innerHTML = xmlhttp.responseText;
+      return document.getElementById('kiritoproskillz').outerHTML = xmlhttp.responseText;
     }
   }
   xmlhttp.open("GET", "404.html", false);
