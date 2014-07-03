@@ -5,8 +5,7 @@ function beginload() {
     var img = new Image();
     img.onerror = function () {
       console.log('Page not found! Redirecting...');
-	  loadfof();
-	  //document.location.href = '404.html';
+      loadfourohfour();
     }
     img.src = '../assets/products/' + parameters[0] + '/product.png';
   } else {
@@ -24,7 +23,7 @@ function loadproduct(productcode) {
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       productvalid = true;
-	  productinfo = xmlhttp.responseText.split('\n');
+      productinfo = xmlhttp.responseText.split('\n');
       // productinfo[0] -> Name
       // productinfo[1] -> Price
       // productinfo[2] -> Stock
@@ -35,7 +34,7 @@ function loadproduct(productcode) {
   xmlhttp.send();
 }
 
-function loadfof() {
+function loadfourohfour() {
   var xmlhttp;
   if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp = new XMLHttpRequest();
@@ -44,7 +43,7 @@ function loadfof() {
   }
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      return document.getElementById('kiritoproskillz').innerHTML = xmlhttp.responseText;
+      return document.getElementsByTagName('html')[0].innerHTML = xmlhttp.responseText;
     }
   }
   xmlhttp.open("GET", "404.html", false);
