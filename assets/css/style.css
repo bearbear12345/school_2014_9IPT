@@ -53,6 +53,8 @@ body {
 #productimage {
 	width: 290px;
 	height: 582px;
+	border-color: #A7A7A7;
+	border: 1px solid;
 }
 .productimage {
 	/* left side */
@@ -78,24 +80,25 @@ body {
 }
 #content {
 	margin: 140px auto;
-	width: 1000px;
+	width: 960px;
 	text-align: center;
 	background-color: #86CEE4;
 }
 #pcontent {
 	/* above height = 187px */
 	margin: 202px auto;
-	width: 1000px;
+	width: 960px;
 	text-align: center;
 	/* Javascript change */
-	display: none;
+	/*display: none; */
 }
 #footer {
 	background-color: #86CEE4;
 	position: absolute;
+	height: 80px;
 	left: 0;
-	right: 0;
 	bottom: 0;
+	width: 100%
 }
 .productinfo_upper {
 	border: 2px solid;
