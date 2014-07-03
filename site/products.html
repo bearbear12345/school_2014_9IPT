@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-<meta charset="utf-8">
-<title>Broken Hill Surf Shop Online</title>
-<link rel="shortcut icon" href="../assets/images/favicon.ico" />
-<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-<script type="text/javascript">
+    <head>
+    <meta charset="utf-8">
+    <title>Broken Hill Surf Shop Online</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <script type="text/javascript">
 	  var hasargs;
       var parameters = window.location.toString();
       if (parameters.indexOf("?") + 1 != 0) { //If there are parameters
@@ -47,28 +47,28 @@
 		  hasargs = false;
       }
     </script>
-</head>
-<body onload="finishload()">
+    </head>
+    <body onload="finishload()">
 <!-- --> 
 <!--Header (Logo) and Navigation Bar-->
 <div id="pheader">
-  <header class="header">
+      <header class="header">
     <div class="headergradient"> <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> 
-      <!--START Navigation Bar-->
-      <div id="navigation-bar">
+          <!--START Navigation Bar-->
+          <div id="navigation-bar">
         <ul>
-          <li><a href="home.html">Home</a> </li>
-          <li class="active"><a href="products.html">Products</a> </li>
-          <li><a href="#about">About</a> </li>
-          <li><a href="#contact">Contact</a> </li>
-          <li class="last"><a href="#news">News</a> </li>
-        </ul>
+              <li><a href="home.html">Home</a> </li>
+              <li class="active"><a href="products.html">Products</a> </li>
+              <li><a href="#about">About</a> </li>
+              <li><a href="#contact">Contact</a> </li>
+              <li class="last"><a href="#news">News</a> </li>
+            </ul>
       </div>
-    </div>
+        </div>
     <!--END Navigation Bar--> 
     <!--START Product Navigation Bar-->
     <div id="product-navigation-bar">
-      <ul>
+          <ul>
         <li id="product_category_surfing"><a href="">Surfing</a></li>
         <li id="product_category_clothing"><a href="">Clothing</a></li>
         <li id="product_category_protection"><a href="">Protection</a></li>
@@ -76,30 +76,30 @@
         <li id="product_category_recreation"><a href="">Recreation</a></li>
         <li id="product_category_accessory" class="last"><a href="">Accessories</a></li>
       </ul>
-    </div>
+        </div>
     <!--END Product Navigation Bar--> 
   </header>
-</div>
+    </div>
 <div id="pcontent">
-  <div id="product_location">Home > Products > Category > <u><b>PRODUCT</b></u> </div>
-  <div id="products">
+      <div id="product_location">Home > Products > Category > <u><b>PRODUCT</b></u> </div>
+      <div id="products">
     <div class="productimage"> <img id="productimage" src="../assets/images/placeholders/290x582.png" alt="Product Image"> </div>
     <div class="producttext">
-      <div class="productinfo_upper"> 
+          <div class="productinfo_upper"> 
         <!--Wrapper -->
         <div id="productname">(Product Name)</div>
         <div>Price: <span id="productdatabaseinfo_price"></span> <br>
-          Stock: <span id="productdatabaseinfo_stock"></span> </div>
+              Stock: <span id="productdatabaseinfo_stock"></span> </div>
       </div>
-      <div id="productdescription">(Product Description)</div>
-    </div>
+          <div id="productdescription">(Product Description)</div>
+        </div>
   </div>
-</div>
+    </div>
 <div id="footer"> 
-  <!--SITEMAP-->
-  <div></div>
-  <footer>© 2014 Andrew Wong & Ryan Oo</footer>
-</div>
+      <!--SITEMAP-->
+      <div></div>
+      <footer>© 2014 Andrew Wong & Ryan Oo</footer>
+    </div>
 <script>
 	function finishload() {
       if (hasargs) {
@@ -108,10 +108,10 @@
 		  if (productinfo[1].contains(';')) {
 			  //Discount
 			  priceinfo = productinfo[1].split(';');
-			  document.getElementById('productdatabaseinfo_price').innerHTML=productinfo[0];
+			  			  document.getElementById('productdatabaseinfo_price').innerHTML = "<strike>$" + priceinfo[0]+"</strike> $"+priceinfo[2]+"<br>Discount: " + priceinfo[1];
 		  } else {
 			  //No discount
-			  document.getElementById('productdatabaseinfo_price').innerHTML = "<strike>$" + priceinfo[0]+"</strike> $"+priceinfo[2]+"<br>Discount: " + priceinfo[1];
+			  document.getElementById('productdatabaseinfo_price').innerHTML=productinfo[1];
 		  }
 		  document.getElementById('productdatabaseinfo_stock').innerHTML=productinfo[2];
 		  document.getElementById('productdescription').innerHTML=productinfo[3];
