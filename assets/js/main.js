@@ -33,6 +33,26 @@ function loadproduct(productcode) {
   xmlhttp.send();
 }
 
+function loadfof() {
+  var xmlhttp;
+  if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+  } else { // code for IE6, IE5
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      document.getElementById('kiritoproskillz').innerHTML = xmlhttp.responseText;
+      // productinfo[0] -> Name
+      // productinfo[1] -> Price
+      // productinfo[2] -> Stock
+      // productinfo[3] -> Description
+    }
+  }
+  xmlhttp.open("GET", "404.html", false);
+  xmlhttp.send();
+}
+
 function replace() {
   if (hasargs) {
     productcategory = productinfo[0].substring(productinfo[0].indexOf(';') + 1).toLowerCase();
