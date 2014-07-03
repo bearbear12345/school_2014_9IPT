@@ -108,7 +108,7 @@
 		  if (productinfo[1].contains(';')) {
 			  //Discount
 			  priceinfo = productinfo[1].split(';');
-			  			  document.getElementById('productdatabaseinfo_price').innerHTML = "<strike>$" + priceinfo[0]+"</strike> $"+priceinfo[2]+"<br>Discount: " + priceinfo[1];
+			  			  document.getElementById('productdatabaseinfo_price').innerHTML = "<strike>$" + priceinfo[0]+"</strike> $"+priceinfo[2]+"<br>"+priceinfo[1] + "% discount";
 		  } else {
 			  //No discount
 			  document.getElementById('productdatabaseinfo_price').innerHTML=productinfo[1];
