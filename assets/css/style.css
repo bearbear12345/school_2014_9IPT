@@ -81,8 +81,8 @@ body {
 	margin: 202px auto;
 	width: 1000px;
 	text-align: center;
-		/* Javascript change */
-		display: none;
+	/* Javascript change */
+	display: none;
 }
 #footer {
 	background-color: #86CEE4;
@@ -95,13 +95,13 @@ body {
 	border: 2px solid;
 	border-color: #A7A7A7;
 }
-.productname {
+#productname {
 	border-bottom: 1px solid;
 	border-color: #A7A7A7;
 	font-weight: bold;
 	font-size: 30px;
 }
-.productdescription {
+#productdescription {
 	margin-top: 15px;
 	border: 2px solid;
 	border-color: #A7A7A7;
