@@ -92,7 +92,7 @@ body {
 	width: 900px;
 	text-align: center;
 	/* Javascript change */
-	/*display: none;*/
+	display: none;
 }
 #footer {
 	background-color: #86CEE4;
