@@ -23,7 +23,8 @@ function loadproduct(productcode) {
   }
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      productinfo = xmlhttp.responseText.split('\n');
+      productvalid = true;
+	  productinfo = xmlhttp.responseText.split('\n');
       // productinfo[0] -> Name
       // productinfo[1] -> Price
       // productinfo[2] -> Stock
@@ -51,7 +52,7 @@ function loadfof() {
 }
 
 function replace() {
-  if (hasargs) {
+  if (productvalid) {
     productcategory = productinfo[0].substring(productinfo[0].indexOf(';') + 1).toLowerCase();
     productname = productinfo[0].substring(0, productinfo[0].indexOf(';'));
     document.getElementById('product_location').innerHTML = "<a href='site.html'>Home</a> > <a href='products'>Products</a> > <a href='" + productcategory + "'>" + productinfo[0].substring(productinfo[0].indexOf(';') + 1) + "</a> > <b>" + productname + "</b>";
