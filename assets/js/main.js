@@ -35,7 +35,7 @@
     }
 
     function finishload() {
-      if (hasargs) {
+      if (window.hasargs) {
         document.getElementById('pcontent').style.display = "inherit";
         document.getElementById('product_location').innerHTML = "<a href='site.html'>Home</a> > <a href='products'>Products</a> > <a href='"+productinfo[0].substring(productinfo[0].indexOf(';') + 1).toLowerCase()+"'>" + productinfo[0].substring(productinfo[0].indexOf(';') + 1) + "</a> > <b>" + productinfo[0].substring(0, productinfo[0].indexOf(';')) + "</b>";
         document.getElementById('productname').innerHTML = productinfo[0].substring(0, productinfo[0].indexOf(';'));
