@@ -50,7 +50,7 @@
       }
     </script>
   </head>
-  <body>
+  <body onload="finishload()">
     <!-- -->
     <!--Header (Logo) and Navigation Bar-->
     <div id="pheader">
@@ -115,6 +115,7 @@
       <footer>© 2014 Andrew Wong & Ryan Oo</footer>
     </div>
     <script>
+	function finishload() {
       if (hasargs) {
           document.getElementById('pcontent').style.display = "inherit";
 		  document.getElementById('productname').innerHTML=productinfo[0];
@@ -122,6 +123,7 @@
 		  document.getElementById('productdatabaseinfo_stock').innerHTML=productinfo[2];
 		  document.getElementById('productdescription').innerHTML=productinfo[3];
       }
+	}
        //Set product category
       document.getElementById('product_category_surfing').className += ' active';
       document.getElementById('productimage').src = "../assets/products/" + parameters[0] + "/product.png";
