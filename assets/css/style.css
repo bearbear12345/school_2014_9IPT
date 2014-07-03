@@ -70,8 +70,8 @@ body {
 	padding-top: 15px;
 }
 #product_location {
-	border-color: #A7A7A7;
 	border: 2px;
+	border-color: #A7A7A7;
 	text-transform: uppercase;
 	width: 100%;
 }
