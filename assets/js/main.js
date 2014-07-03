@@ -5,7 +5,8 @@ function beginload() {
     var img = new Image();
     img.onerror = function () {
       console.log('Page not found! Redirecting...');
-      document.location.href = '404.html';
+      loadfof();
+	  //document.location.href = '404.html';
     }
     img.src = '../assets/products/' + parameters[0] + '/product.png';
   } else {
