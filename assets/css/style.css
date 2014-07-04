@@ -2,312 +2,327 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
 @import url(http://fonts.googleapis.com/css?family=Lato:400italic);
 /* START GLOBAL CSS */
-body {
-	/* Align text to the center; set the font to Lato, set margins to 0 (window/container edge) */
-	text-align: center;
-	font-family: 'Lato', sans-serif;
-	margin: 0 auto;
+html, body {
+  /* Align text to the center; set the font to Lato, set margins to 0 (window/container edge) */
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  margin: 0 auto;
+  padding:0;
+  height:100%;
+}
+#container {
+  min-height:100%;
+  position:relative;
 }
 a:visited {
-	/* Make visited links remain blue, instead of turning purple */
-	color: blue;
+  /* Make visited links remain blue, instead of turning purple */
+  color: blue;
 }
 a {
-	/* Remove underline from hyperlinks */
-	text-decoration: none;
+  /* Remove underline from hyperlinks */
+  text-decoration: none;
 }
 .header {
-	/* Move element 10 pixels down??? */
-	margin-top: 10px;
+  /* Move element 10 pixels down??? */
+  margin-top: 10px;
 }
 .headergradient {
-	/* Gradient for the header, from #86cee4 to #85b9e2 */
-	background: #86cee4; /* Old browsers */
-	background: -moz-linear-gradient(top, #86cee4 0%, #85b9e2 100%); /* Firefox 3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #86cee4), color-stop(100%, #85b9e2)); /* Chrome & Safari 4+ */
-	background: -webkit-linear-gradient(top, #86cee4 0%, #85b9e2 100%); /* Chrome 10+ & Safari 5.1+ */
-	background: -o-linear-gradient(top, #86cee4 0%, #85b9e2 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #86cee4 0%, #85b9e2 100%); /* Internet Explorer 10+ */
-	background: linear-gradient(to bottom, #86cee4 0%, #85b9e2 100%); /* W3C */
+  /* Gradient for the header, from #86cee4 to #85b9e2 */
+  background: #86cee4; /* Old browsers */
+  background: -moz-linear-gradient(top, #86cee4 0%, #85b9e2 100%); /* Firefox 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #86cee4), color-stop(100%, #85b9e2)); /* Chrome & Safari 4+ */
+  background: -webkit-linear-gradient(top, #86cee4 0%, #85b9e2 100%); /* Chrome 10+ & Safari 5.1+ */
+  background: -o-linear-gradient(top, #86cee4 0%, #85b9e2 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #86cee4 0%, #85b9e2 100%); /* Internet Explorer 10+ */
+  background: linear-gradient(to bottom, #86cee4 0%, #85b9e2 100%); /* W3C */
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86cee4', endColorstr='#85b9e2', GradientType=0 ); /* Internet Explorer 6,7,8,9 */
 }
 .logo {
-	/* Set logo width and height */
-	width: 300px;
-	height: 82px;
+  /* Set logo width and height */
+  width: 300px;
+  height: 82px;
+}
+#footer_wrapper {
+  /* Set footer _background_ colour to #86CEE4, keep footer at bottom of page */
+  background-color: #86CEE4;
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px 0;
 }
 #footer {
-	/* Set footer _background_ colour to #86CEE4, keep footer at bottom of page */
-	background-color: #86CEE4;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	padding: 10px 0;
+  width: 900px;
+  margin: 0 auto;
+}
+#infocolumns div {
+   float: left;
+   margin: 0;
+   width: 33%;
 }
 /* GLOBAL -> START Navigation Bar CSS */
 /* css motto - "whatever works" */
 #navigation-bar ul {
-	list-style: none;
-	line-height: 1;
-	display: inline-block;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  line-height: 1;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 #navigation-bar ul li {
-	float: left;
-	display: inline-block;
-	padding: 0;
+  float: left;
+  display: inline-block;
+  padding: 0;
 }
 #navigation-bar ul li a {
-	/* Set the font of list items with the <a> tag (all of them though) to Open Sans, with the colour white, on font size 14, using font weight 700 (bold); Set all characters to upper case */
-	color: #fff;
-	text-decoration: none;
-	display: block;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size: 14px;
-	position: relative;
-	padding: 15px 25px;
+  /* Set the font of list items with the <a> tag (all of them though) to Open Sans, with the colour white, on font size 14, using font weight 700 (bold); Set all characters to upper case */
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: relative;
+  padding: 15px 25px;
 }
 #navigation-bar ul li a:after {
-	/* Selected list item underlining */
-	content: '';
-	display: block;
-	position: absolute;
-	right: -3px;
-	top: 19px;
-	height: 6px;
-	width: 6px;
-	background: #fff;
-	opacity: .5;
+  /* Selected list item underlining */
+  content: '';
+  display: block;
+  position: absolute;
+  right: -3px;
+  top: 19px;
+  height: 6px;
+  width: 6px;
+  background: #fff;
+  opacity: .5;
 }
 #navigation-bar ul li a:before {
-	/* Selected list item animation */
-	content: '';
-	display: block;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	height: 3px;
-	width: 0;
-	background: #333;
-	-webkit-transition: width .25s;
-	-moz-transition: width .25s;
-	-ms-transition: width .25s;
-	-o-transition: width .25s;
-	transition: width .25s;
+  /* Selected list item animation */
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: #333;
+  -webkit-transition: width .25s;
+  -moz-transition: width .25s;
+  -ms-transition: width .25s;
+  -o-transition: width .25s;
+  transition: width .25s;
 }
 #navigation-bar ul li.last > a:after, #navigation-bar ul li:last-child > a:after {
-	/* Hides separator for the last item in the list */
-	display: none;
+  /* Hides separator for the last item in the list */
+  display: none;
 }
 #navigation-bar ul li a:hover, #navigation-bar ul li.active a {
-	/* Change selected list item's font/text colour to #333 (grey) */
-	color: #333;
+  /* Change selected list item's font/text colour to #333 (grey) */
+  color: #333;
 }
 #navigation-bar ul li a:hover:before, #navigation-bar ul li.active a:before {
-	/* Set current list item (the current page) underline */
-	width: 100%;
+  /* Set current list item (the current page) underline */
+  width: 100%;
 }
 /* GLOBAL -> END Navigation Bar CSS */
 /* END GLOBAL CSS */
 
 /* START Excluding Product Page CSS */
 #header {
-	/* Set background colour to #86CEE4 and always stay ontop */
-	background-color: #86CEE4;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 100;
-	height: 140px;
+  /* Set background colour to #86CEE4 and always stay ontop */
+  background-color: #86CEE4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 140px;
 }
 #content {
-	/* Set background colour to #86CEE4, shadow around edge of container*/
-	margin: 140px auto;
-	padding-top: 30px;
-	width: 900px;
-	background-color: #86CEE4;
-	box-shadow: 0px 0px 8px #888888;
+  /* Set background colour to #86CEE4, shadow around edge of container*/
+  margin: 140px auto;
+  padding-top: 30px;
+  width: 900px;
+  background-color: #86CEE4;
+  box-shadow: 0px 0px 8px #888888;
 }
 /* END Excluding Product Page CSS */
 
 /* START Product Page Specific CSS */
 #pheader {
-	/* Header for the product page; extra height for the product navigation bar */
-	background-color: #86CEE4;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 100;
-	height: 187px;
+  /* Header for the product page; extra height for the product navigation bar */
+  background-color: #86CEE4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 187px;
 }
 #productimage {
-	/* Styling for the product image; set dimensions to 290x582 and create a 1 px border with the colour #A7A7A7 */
-	width: 290px;
-	height: 582px;
-	border: 1px solid;
-	border-color: #A7A7A7;
+  /* Styling for the product image; set dimensions to 290x582 and create a 1 px border with the colour #A7A7A7 */
+  width: 290px;
+  height: 582px;
+  border: 1px solid;
+  border-color: #A7A7A7;
 }
 .productimage {
-	/* left side */
-	width: 450px;
-	float: left;
+  /* left side */
+  width: 450px;
+  float: left;
 }
 .producttext {
-	/* right side */
-	width: 450px;
-	float: right;
+  /* right side */
+  width: 450px;
+  float: right;
 }
 #products {
-	/* Padding */
-	padding-top: 15px;
+  /* Padding */
+  padding-top: 15px;
 }
 #product_location {
-	/* Style for the product location bar; Create 2px border with the colour #A7A7A7, capitalise every letter */
-	border: 2px solid;
-	border-color: #A7A7A7;
-	text-transform: uppercase;
-	width: 100%;
+  /* Style for the product location bar; Create 2px border with the colour #A7A7A7, capitalise every letter */
+  border: 2px solid;
+  border-color: #A7A7A7;
+  text-transform: uppercase;
+  width: 100%;
 }
 #product_location a {
-	/* Remove underline from links */
-	text-decoration: none;
+  /* Remove underline from links */
+  text-decoration: none;
 }
 #pcontent {
-	/* above height = 187px */
-	margin: 202px auto;
-	width: 900px;
-	/* Javascript changes the below value to inherit on page load */
-	display: none;
+  /* above height = 187px */
+  margin: 202px auto;
+  width: 900px;
+  /* Javascript changes the below value to inherit on page load */
+  _display: none;
 }
 /* Same thing as the navigation bar, but without the underline animation */
 .productinfo_upper {
-	/* Separate Name, Price and Stock from Description */
-	border: 2px solid;
-	border-color: #A7A7A7;
+  /* Separate Name, Price and Stock from Description */
+  border: 2px solid;
+  border-color: #A7A7A7;
 }
 #productname {
-	/* Set the product name to size 30 and make bold. */
-	border-bottom: 1px solid;
-	border-color: #A7A7A7;
-	font-weight: 700;
-	font-size: 30px;
+  /* Set the product name to size 30 and make bold. */
+  border-bottom: 1px solid;
+  border-color: #A7A7A7;
+  font-weight: 700;
+  font-size: 30px;
 }
 #productdescription {
-	margin-top: 15px;
-	border: 2px solid;
-	border-color: #A7A7A7;
+  margin-top: 15px;
+  border: 2px solid;
+  border-color: #A7A7A7;
 }
 #product-navigation-bar {
-	background-color: #333;
+  background-color: #333;
 }
 #product-navigation-bar ul {
-	list-style: none;
-	line-height: 1;
-	display: inline-block;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  line-height: 1;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 #product-navigation-bar ul li {
-	float: left;
-	display: inline-block;
-	padding: 0;
+  float: left;
+  display: inline-block;
+  padding: 0;
 }
 #product-navigation-bar ul li a {
-	color: #fff;
-	text-decoration: none;
-	display: block;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size: 12px;
-	position: relative;
-	-webkit-transition: color .5s;
-	-moz-transition: color .5s;
-	-ms-transition: color .5s;
-	-o-transition: color .5s;
-	transition: color .5s;
-	padding: 15px 25px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  position: relative;
+  -webkit-transition: color .5s;
+  -moz-transition: color .5s;
+  -ms-transition: color .5s;
+  -o-transition: color .5s;
+  transition: color .5s;
+  padding: 15px 25px;
 }
 #product-navigation-bar ul li a:after {
-	content: '';
-	display: block;
-	position: absolute;
-	right: -3px;
-	top: 5px;
-	height: 35px;
-	width: 6px;
-	background: #FFF;
-	opacity: .5;
+  content: '';
+  display: block;
+  position: absolute;
+  right: -3px;
+  top: 5px;
+  height: 35px;
+  width: 6px;
+  background: #FFF;
+  opacity: .5;
 }
 #product-navigation-bar ul li.last > a:after, #product-navigation-bar ul li:last-child > a:after {
-	display: none;
+  display: none;
 }
 #product-navigation-bar ul li a:hover, #product-navigation-bar ul li.active a {
-	color: #86CEE4;
+  color: #86CEE4;
 }
 #product-navigation-bar ul li a:hover:before, #product-navigation-bar ul li.active a:before {
-	width: 100%;
+  width: 100%;
 }
 /* END Product Page Specific CSS */
 
 /* If desktop (screen) and the max width is up to 768 CSS pixels */
 @media screen and (max-width: 768px) {
 #navigation-bar ul li {
-	float: none;
+  float: none;
 }
 #navigation-bar ul li a {
-	width: 100%;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 #navigation-bar ul li a:before {
-	height: 1px;
-	background: #fff;
-	width: 100%;
-	opacity: .2;
+  height: 1px;
+  background: #fff;
+  width: 100%;
+  opacity: .2;
 }
 #navigation-bar ul li a:after, #navigation-bar ul li.last > a:before, #navigation-bar ul li:last-child > a:before {
-	display: none;
+  display: none;
 }
 /* merge conditional styles with product navigation bar */
 #product-navigation-bar ul li {
-	float: none;
+  float: none;
 }
 #product-navigation-bar ul li a {
-	width: 100%;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 #product-navigation-bar ul li a:before {
-	height: 1px;
-	background: #fff;
-	width: 100%;
-	opacity: .2;
+  height: 1px;
+  background: #fff;
+  width: 100%;
+  opacity: .2;
 }
 #product-navigation-bar ul li a:after, #product-navigation-bar ul li.last > a:before, #product-navigation-bar ul li:last-child > a:before {
-	display: none;
+  display: none;
 }
 }
 /* START 404.html specific CSS */
 #four_oh_four:before {
-	/* Image location for the 404 image */
-	content: url('../images/404.png');
+  /* Image location for the 404 image */
+  content: url('../images/404.png');
 }
 .four_oh_four {
-	/* Set font size of the "go back/home" text */
-	font-size: 48px;
-	line-height: 15px;
+  /* Set font size of the "go back/home" text */
+  font-size: 48px;
+  line-height: 15px;
 }
 #four_oh_four_content {
-	margin: 150px auto;
-	text-align: center;
+  margin: 150px auto;
+  text-align: center;
 }
 /* END 404.html CSS */
