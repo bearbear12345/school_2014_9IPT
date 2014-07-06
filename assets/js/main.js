@@ -30,7 +30,7 @@ function loadproduct(productcode) {
       // productinfo[3] -> Description
     }
   }
-  xmlhttp.open("GET", "../assets/products/" + productcode + "/info.txt", false);
+  xmlhttp.open("GET", "../assets/products/" + productcode + "/info.txt", true);
   xmlhttp.send();
 }
 
@@ -52,7 +52,7 @@ function loadfourohfour() {
 
 function replace() {
   if (productvalid) {
-    productcategory = productinfo[0].substring(productinfo[0].indexOf(';') + 1).toLowerCase();
+    productcategory = productinfo[0].substring(productinfo[0].indexOf(';') + 1).toLowerCase().trim(); //Seems to be a zero-width character somewhere, although trimming fixes the issue.
     productname = productinfo[0].substring(0, productinfo[0].indexOf(';'));
     document.getElementById('product_location').innerHTML = "<a href='site.html'>Home</a> > <a href='products'>Products</a> > <a href='" + productcategory + "'>" + productinfo[0].substring(productinfo[0].indexOf(';') + 1) + "</a> > <b>" + productname + "</b>";
     document.getElementById('productname').innerHTML = productname
@@ -67,9 +67,9 @@ function replace() {
     document.getElementById('productdatabaseinfo_stock').innerHTML = productinfo[2];
     document.getElementById('productdescription').innerHTML = productinfo[3];
     //Set product category
-    document.getElementById('product_category_' + productcategory).className += ' active'; //Can't find the zero-width space
+    document.getElementById('product_category_' + productcategory).className += ' active';
     document.getElementById('productimage').src = "../assets/products/" + parameters[0] + "/product.jpg";
     document.getElementById('pcontent').style.display = "inherit";
-	$("#productbarcode").barcode(parameters[0], "code128");
+    $("#productbarcode").barcode(parameters[0], "code128");
   }
 }
