@@ -220,9 +220,13 @@ a {
 	border-color: #A7A7A7;
 	margin-top: 15px;
 }
+#productdescription {
+	margin-bottom: 5px;
+}
 #productbarcode_wrapper {
-	width: 100px;
-	margin: 0 auto;
+	border-top: 2px solid;
+	padding-top: 5px;
+	padding-bottom: 10px;
 }
 #productname {
 	/* Set the product name to size 30 and make bold. */
