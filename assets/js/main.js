@@ -7,7 +7,7 @@ function beginload() {
       console.log('Page not found! Redirecting...');
       loadfourohfour();
     }
-    img.src = '../assets/products/' + parameters[0] + '/product.png';
+    img.src = '../assets/products/' + parameters[0] + '/product.jpg';
   } else {
     hasargs = false;
   }
@@ -68,7 +68,7 @@ function replace() {
     document.getElementById('productdescription').innerHTML = productinfo[3];
     //Set product category
     document.getElementById('product_category_' + productcategory).className += ' active'; //Can't find the zero-width space
-    document.getElementById('productimage').src = "../assets/products/" + parameters[0] + "/product.png";
+    document.getElementById('productimage').src = "../assets/products/" + parameters[0] + "/product.jpg";
     document.getElementById('pcontent').style.display = "inherit";
   }
 }
