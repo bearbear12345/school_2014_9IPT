@@ -214,17 +214,18 @@ a {
 	border: 2px solid;
 	border-color: #A7A7A7;
 }
+.productinfo_lower {
+	/* Separate Description from Name, Price and Stock */
+	border: 2px solid;
+	border-color: #A7A7A7;
+	margin-top: 15px;
+}
 #productname {
 	/* Set the product name to size 30 and make bold. */
 	border-bottom: 1px solid;
 	border-color: #A7A7A7;
 	font-weight: 700;
 	font-size: 30px;
-}
-#productdescription {
-	margin-top: 15px;
-	border: 2px solid;
-	border-color: #A7A7A7;
 }
 #product-navigation-bar {
 	background-color: #333;

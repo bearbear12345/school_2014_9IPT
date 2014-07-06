@@ -70,5 +70,6 @@ function replace() {
     document.getElementById('product_category_' + productcategory).className += ' active'; //Can't find the zero-width space
     document.getElementById('productimage').src = "../assets/products/" + parameters[0] + "/product.jpg";
     document.getElementById('pcontent').style.display = "inherit";
+	$("#productbarcode").barcode(parameters[0], "code128");
   }
 }

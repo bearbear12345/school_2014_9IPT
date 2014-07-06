@@ -1,1 +1,2 @@
 jquery.nivo.slider.pack.js - http://dev7studios.com/plugins/nivo-slider
+jquery.barcode.min.js - rename - http://www.jqueryscript.net/other/Simple-jQuery-Based-Barcode-Generator-Barcode.html
