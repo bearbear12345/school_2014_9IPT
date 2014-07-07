@@ -1,19 +1,20 @@
 function beginload() {
-  if (parameters.indexOf("?") + 1 != 0) { //If there are parameters
-    hasargs = true;
-    parameters = parameters.substring(parameters.indexOf("?") + 1).split("&");
-    var img = new Image();
-    img.onerror = function () {
-      console.log('Page not found! Redirecting...');
-      loadfourohfour();
+    if (parameters.indexOf("?") + 1 != 0) { //If there are parameters
+      hasargs = true;
+      parameters = parameters.substring(parameters.indexOf("?") + 1).split("&");
+      var img = new Image();
+      img.onerror = function () {
+        console.log('Page not found! Redirecting...');
+        loadfourohfour();
+      }
+      img.src = 'products/' + parameters[0] + '/product.jpg';
+    } else {
+      hasargs = false;
     }
-    img.src = '../assets/products/' + parameters[0] + '/product.jpg';
-  } else {
-    hasargs = false;
   }
-}
-
+  /*
 function loadproduct(productcode) {
+	// Webserver only
   var xmlhttp;
   if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp = new XMLHttpRequest();
@@ -31,10 +32,48 @@ function loadproduct(productcode) {
     }
   }
   xmlhttp.open("GET", "../assets/products/" + productcode + "/info.txt", true);
+  //xmlhttp.open("GET", "products/" + productcode + "/info.txt", true);
   xmlhttp.send();
+}
+*/
+
+function loadpath(url, callback) {
+  result = document.createElement("iframe");
+  result.src = url;
+  result.style.height = 0;
+  result.style.height = 0;
+  result.style.display = "none";
+  result.onload = function () {
+    callback();
+  };
+  document.head.appendChild(result);
+}
+
+function loadproduct(productcode) {
+  loadpath("products/" + productcode + "/info.txt", loadproduct_cont);
+}
+
+function loadproduct_cont() {
+  productinfo = result.contentWindow.document.body.innerHTML.replace(/(<([^>]+)>)/ig, "").split("\n");
+  // productinfo[0] -> Name
+  // productinfo[1] -> Price
+  // productinfo[2] -> Stock
+  // productinfo[3] -> Description
+  productvalid = true;
+  document.head.removeChild(result);
 }
 
 function loadfourohfour() {
+  loadpath("404.html", loadfourohfour_cont);
+}
+
+function loadfourohfour_cont() {
+    document.body.innerHTML = result.contentWindow.document.body.innerHTML;
+    document.head.removeChild(result);
+  }
+  /*
+function loadfourohfour() {
+  // Webserver only
   var xmlhttp;
   if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp = new XMLHttpRequest();
@@ -49,6 +88,7 @@ function loadfourohfour() {
   xmlhttp.open("GET", "404.html", false);
   xmlhttp.send();
 }
+*/
 
 function replace() {
   if (productvalid) {
@@ -59,12 +99,12 @@ function replace() {
     if (productinfo[1].indexOf(";") > -1) {
       //Discount
       priceinfo = productinfo[1].split(';');
-      document.getElementById('productdatabaseinfo_price').innerHTML = "<strike>$" + priceinfo[0] + "</strike> $" + priceinfo[2] + "<br>" + priceinfo[1] + "% discount";
+      document.getElementById('productdatabaseinfo_price').innerHTML = "Price: <strike>$" + priceinfo[0] + "</strike> $" + priceinfo[2] + "<br>" + priceinfo[1] + "% discount";
     } else {
       //No discount
-      document.getElementById('productdatabaseinfo_price').innerHTML = "$" + productinfo[1];
+      document.getElementById('productdatabaseinfo_price').innerHTML = "Price: $" + productinfo[1];
     }
-    document.getElementById('productdatabaseinfo_stock').innerHTML = productinfo[2];
+    document.getElementById('productdatabaseinfo_stock').innerHTML = "Stock: " + productinfo[2];
     document.getElementById('productdescription').innerHTML = productinfo[3];
     //Set product category
     document.getElementById('product_category_' + productcategory).className += ' active';
