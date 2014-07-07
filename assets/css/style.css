@@ -206,7 +206,7 @@ a {
 	margin: 202px auto;
 	width: 900px;
 	/* Javascript changes the below value to inherit on page load */
-	_display: none;
+	display: none;
 }
 /* Same thing as the navigation bar, but without the underline animation */
 .productinfo_upper {
