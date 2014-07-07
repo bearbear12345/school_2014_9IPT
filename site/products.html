@@ -1,104 +1,103 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-  <meta charset="utf-8">
-  <title>Broken Hill Surf Shop Online</title>
-  <link rel="shortcut icon" href="../assets/images/favicon.ico" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-  <script src="../assets/js/main.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
-  <script src="../assets/js/jquery.barcode.min.js"></script>
-  <script>
-    var hasargs;
-	var productvalid = false;
-    var productinfo;
-    var parameters = window.location.toString();
-    beginload();
-    if (hasargs) {
-      loadproduct(parameters[0]);
-    }
-  </script>
-  </head>
-
-  <body onLoad="replace();">
-  <div id="container"> 
-    <!-- --> 
-    <!--Header (Logo) and Navigation Bar-->
-    <div id="pheader">
-      <header class="header">
-        <div class="headergradient"> <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> 
-          <!--START Navigation Bar-->
-          <div id="navigation-bar">
-            <ul>
-              <li><a href="home.html">Home</a> </li>
-              <li class="active"><a href="products.html">Products</a> </li>
-              <li><a href="about.html">About</a> </li>
-              <li><a href="contact.html">Contact</a> </li>
-              <li class="last"><a href="news.html">News</a> </li>
-            </ul>
-          </div>
-        </div>
-        <!--END Navigation Bar--> 
-        <!--START Product Navigation Bar-->
-        <div id="product-navigation-bar">
+<head>
+<meta charset="utf-8">
+<title>Broken Hill Surf Shop Online</title>
+<link rel="shortcut icon" href="../assets/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+<script src="../assets/js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/jquery.barcode.min.js"></script>
+<script>
+      var hasargs;
+      var productvalid = false;
+      var productinfo;
+      var parameters = window.location.toString();
+      beginload();
+      if (hasargs) {
+        loadproduct(parameters[0]);
+      }
+    </script>
+</head>
+<body onLoad="replace();">
+<div id="container"> 
+  <!-- --> 
+  <!--Header (Logo) and Navigation Bar-->
+  <div id="pheader">
+    <header class="header">
+      <div class="headergradient"> <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> 
+        <!--START Navigation Bar-->
+        <div id="navigation-bar">
           <ul>
-            <li id="product_category_surfing"><a href="">Surfing</a> </li>
-            <li id="product_category_clothing"><a href="">Clothing</a> </li>
-            <li id="product_category_protection"><a href="">Protection</a> </li>
-            <li id="product_category_scubasnorkeling_gear"><a href="">Scuba/Snorkeling Gear</a> </li>
-            <li id="product_category_recreation"><a href="">Recreation</a> </li>
-            <li id="product_category_accessory" class="last"><a href="">Accessories</a> </li>
+            <li><a href="home.html">Home</a> </li>
+            <li class="active"><a href="products.html">Products</a> </li>
+            <li><a href="about.html">About</a> </li>
+            <li><a href="contact.html">Contact</a> </li>
+            <li class="last"><a href="news.html">News</a> </li>
           </ul>
         </div>
-        <!--END Product Navigation Bar--> 
-      </header>
-    </div>
-    <div id="pcontent">
-      <div id="product_location">Home > Products > Category > <u><b>PRODUCT</b></u> </div>
-      <div id="products">
-        <div class="productimage"> <img id="productimage" src="../assets/images/placeholders/290x582.png" alt="Product Image"> </div>
-        <div class="producttext">
-          <div class="productinfo_upper"> 
-            <!--Wrapper -->
-            <div id="productname">Product Name</div>
-            <div>Price: <span id="productdatabaseinfo_price">$$$</span> <br>
-              Stock: <span id="productdatabaseinfo_stock">Stock Amount</span> </div>
-          </div>
-          <div class="productinfo_lower">
-            <div id="productdescription">Product Description</div>
-            <div id="productbarcode_wrapper">
-              <div id="productbarcode_wrapper_subwrapper">
-                <div id="productbarcode"></div>
-              </div>
+      </div>
+      <!--END Navigation Bar--> 
+      <!--START Product Navigation Bar-->
+      <div id="product-navigation-bar">
+        <ul>
+          <li id="product_category_surfing"><a href="">Surfing</a> </li>
+          <li id="product_category_clothing"><a href="">Clothing</a> </li>
+          <li id="product_category_protection"><a href="">Protection</a> </li>
+          <li id="product_category_scubasnorkeling_gear"><a href="">Scuba/Snorkeling Gear</a> </li>
+          <li id="product_category_recreation"><a href="">Recreation</a> </li>
+          <li id="product_category_accessory" class="last"><a href="">Accessories</a> </li>
+        </ul>
+      </div>
+      <!--END Product Navigation Bar--> 
+    </header>
+  </div>
+  <div id="pcontent">
+    <div id="product_location"></div>
+    <div id="products">
+      <div class="productimage"> <img id="productimage"> </div>
+      <div class="producttext">
+        <div class="productinfo_upper"> 
+          <!--Wrapper -->
+          <div id="productname"></div>
+          <div id="productdatabaseinfo_price"></div>
+          <div id="productdatabaseinfo_stock"></div>
+        </div>
+        <div class="productinfo_lower">
+          <div id="productdescription"></div>
+          <div id="productbarcode_wrapper">
+            <div id="productbarcode_wrapper_subwrapper">
+              <div id="productbarcode"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="footer_wrapper">
-      <div id="footer"> 
-        <!--SITEMAP-->
-        <div id="infocolumns">
-          <div class="column">
-            <h1>site</h1>
-            <p>new</p>
-          </div>
-          <div class="column">
-            <h1>about</h1>
-            <p>new</p>
-          </div>
-          <div class="column">
-            <h1>contact</h1>
-            <ul>
-              <li>email: contact@brokenhillsurf.com.au</li>
-              <li>facebook: brokenhillsurfshop</li>
-              <li>twitter: @brokenhillsurfshop</li>
-            </ul>
-          </div>
+  </div>
+  <div id="footer_wrapper">
+    <div id="footer"> 
+      <!--SITEMAP-->
+      <div id="infocolumns">
+        <div class="column">
+          <h1>site</h1>
+          <p>new</p>
         </div>
-        <footer>© 2014 Andrew Wong & Ryan Oo</footer>
+        <div class="column">
+          <h1>about</h1>
+          <p>new</p>
+        </div>
+        <div class="column">
+          <h1>contact</h1>
+          <ul>
+            <li>email: contact@brokenhillsurf.com.au</li>
+            <li>facebook: brokenhillsurfshop</li>
+            <li>twitter: @brokenhillsurfshop</li>
+          </ul>
+        </div>
       </div>
+      <footer>© 2014 Andrew Wong & Ryan Oo</footer>
     </div>
   </div>
+</div>
 </body>
 </html>
