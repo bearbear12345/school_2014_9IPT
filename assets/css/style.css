@@ -245,7 +245,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b9e2', end
 }
 #productdescription {
 	margin-bottom: 5px;
-	padding-bottom: 5px;
+	padding: 5px;
 }
 #productbarcode_wrapper {
 	padding-top: 5px;
