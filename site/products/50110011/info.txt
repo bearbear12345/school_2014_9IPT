@@ -1,0 +1,4 @@
+Oxygen Tank;Scuba/Snorkeling Gear
+80;20;64
+1
+Scuba equipment used to provide oxygen to the diver.
