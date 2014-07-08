@@ -27,7 +27,7 @@ function loadproduct(productcode) {
       productinfo = xmlhttp.responseText.split('\n');
       // productinfo[0] -> Name
       // productinfo[1] -> Price
-      // productinfo[2] -> Stock
+      // productinfo[2] -> Availability
       // productinfo[3] -> Description
     }
   }
@@ -57,7 +57,7 @@ function loadproduct_cont() {
   productinfo = result.contentWindow.document.body.innerHTML.replace(/(<([^>]+)>)/ig, "").split("\n");
   // productinfo[0] -> Name
   // productinfo[1] -> Price
-  // productinfo[2] -> Stock
+  // productinfo[2] -> Availability
   // productinfo[3] -> Description
   productvalid = true;
   document.head.removeChild(result);
@@ -104,7 +104,12 @@ function replace() {
       //No discount
       document.getElementById('productdatabaseinfo_price').innerHTML = "Price: $" + productinfo[1];
     }
-    document.getElementById('productdatabaseinfo_stock').innerHTML = "Stock: " + productinfo[2];
+	if (productinfo[2] != 0) {
+		document.getElementById('productdatabaseinfo_availability').innerHTML = "Availability: <span style='color: green';>Product In Stock</span>";
+	} else {
+		document.getElementById('productdatabaseinfo_availability').innerHTML = "Availability: <span style='color: red';>Product Out Of Stock</span>";
+	}
+    
     document.getElementById('productdescription').innerHTML = productinfo[3];
     //Set product category
     document.getElementById('product_category_' + productcategory).className += ' active';
