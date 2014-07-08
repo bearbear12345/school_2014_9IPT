@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
+  <head>
     <meta charset="utf-8">
     <title>Broken Hill Surf Shop Online</title>
     <link rel="shortcut icon" href="../assets/images/favicon.ico" />
@@ -18,14 +18,15 @@
         loadproduct(parameters[0]);
       }
     </script>
-    </head>
-    <body onLoad="replace();">
-    <div id="container"> 
+  </head>
+  <body onLoad="replace();">
+    <div id="container">
       <!-- --> 
       <!--Header (Logo) and Navigation Bar-->
       <div id="pheader">
-        <header class="header">
-          <div class="headergradient"> <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> 
+        <div class="header">
+          <div class="headergradient">
+            <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> 
             <!--START Navigation Bar-->
             <div id="navigation-bar">
               <ul>
@@ -50,21 +51,21 @@
             </ul>
           </div>
           <!--END Product Navigation Bar--> 
-        </header>
+        </div>
       </div>
       <div id="pcontent">
         <div id="product_location"></div>
         <div id="products">
           <div class="productimage"> <img id="productimage"> </div>
           <div class="producttext">
-            <div class="productinfo_upper"> 
+            <div class="productinfo_upper">
               <!--Wrapper -->
-              <div id="productname"></div>
+              <div id="productname" class="borderbottom"></div>
               <div id="productdatabaseinfo_price"></div>
               <div id="productdatabaseinfo_availability"></div>
             </div>
             <div class="productinfo_lower">
-              <div id="productdescription"></div>
+              <div id="productdescription" class="borderbottom"></div>
               <div id="productbarcode_wrapper">
                 <div id="productbarcode_wrapper_subwrapper">
                   <div id="productbarcode"></div>
@@ -74,30 +75,37 @@
           </div>
         </div>
       </div>
-      <div id="footer_wrapper">
-        <div id="footer"> 
+      <div id="footer_wrapper" class="footergradient">
+        <div id="footer">
           <!--SITEMAP-->
-          <div id="infocolumns">
-            <div class="column">
+          <div id="infocolumns" class="borderbottom_nocolour">
+            <div>
               <h1>site</h1>
-              <p>new</p>
+              <p><a href="home.html">home</a> </p>
+              <p><a href="products.html">products</a> </p>
+              <p><a href="about.html">about</a> </p>
+              <p><a href="contact.html">contact</a> </p>
+              <p><a href="news.html">news</a> </p>
             </div>
-            <div class="column">
-              <h1>about</h1>
-              <p>new</p>
+            <div>
+              <h1>products</h1>
+              <p><a href="surfing">surfing</a> </p>
+              <p><a href="clothing">clothing</a> </p>
+              <p><a href="protection">protection</a> </p>
+              <p><a href="scubasnorkelpnggear">scuba/snorkeling gear</a> </p>
+              <p><a href="recreation">recreation</a> </p>
+              <p><a href="accessories">accessories</a> </p>
             </div>
-            <div class="column">
+            <div>
               <h1>contact</h1>
-              <ul>
-                <li>email: contact@brokenhillsurf.com.au</li>
-                <li>facebook: brokenhillsurfshop</li>
-                <li>twitter: @brokenhillsurfshop</li>
-              </ul>
+              <p>email: contact@brokenhillsurf.com.au</p>
+              <p>facebook: brokenhillsurfshop</p>
+              <p>twitter: @brokenhillsurfshop</p>
             </div>
           </div>
-          <footer>Â© 2014 Andrew Wong & Ryan Oo</footer>
         </div>
+        <p>© 2014 Andrew Wong & Ryan Oo</p>
       </div>
     </div>
-</body>
+  </body>
 </html>
