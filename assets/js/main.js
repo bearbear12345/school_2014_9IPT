@@ -14,7 +14,7 @@ function beginload() {
   }
   /*
 function loadproduct(productcode) {
-	// Webserver only
+   // Webserver only
   var xmlhttp;
   if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp = new XMLHttpRequest();
@@ -94,9 +94,13 @@ function replace() {
   if (productvalid) {
     productcategory = productinfo[0].substring(productinfo[0].indexOf(';') + 1).toLowerCase().trim(); //Seems to be a zero-width character somewhere, although trimming fixes the issue.
     productname = productinfo[0].substring(0, productinfo[0].indexOf(';'));
-    document.getElementById('product_location').innerHTML = "<a href='home.html'><img style='margin-right: 2px; padding-bottom: 4px; vertical-align: middle;' src='../assets/images/home.png' alt='Home logo'/>Home</a> > <a href='products.html'>Products</a> > <a href='" + productcategory + "'>" + productinfo[0].substring(productinfo[0].indexOf(';') + 1) + "</a> > <b>" + productname + "</b>";
+    if (productcategory == 'scuba/snorkeling gear') {
+      document.getElementById('product_location').innerHTML = "<a href='home.html'><img style='margin-right: 2px; padding-bottom: 4px; vertical-align: middle;' src='../assets/images/home.png' alt='Home logo'/>Home</a> > <a href='products.html'>Products</a> > <a href='scubasnorkelinggear'>" + productinfo[0].substring(productinfo[0].indexOf(';') + 1) + "</a> > <b>" + productname + "</b>";
+    } else {
+      document.getElementById('product_location').innerHTML = "<a href='home.html'><img style='margin-right: 2px; padding-bottom: 4px; vertical-align: middle;' src='../assets/images/home.png' alt='Home logo'/>Home</a> > <a href='products.html'>Products</a> > <a href='" + productcategory + "'>" + productinfo[0].substring(productinfo[0].indexOf(';') + 1) + "</a> > <b>" + productname + "</b>";
+    }
     document.getElementById('productname').innerHTML = productname;
-	document.getElementById('productcode').innerHTML = "Product Code: " + parameters[0];
+    document.getElementById('productcode').innerHTML = "Product Code: " + parameters[0];
     if (productinfo[1].indexOf(";") > -1) {
       //Discount
       priceinfo = productinfo[1].split(';');
@@ -105,17 +109,20 @@ function replace() {
       //No discount
       document.getElementById('productdatabaseinfo_price').innerHTML = "Price: $" + productinfo[1];
     }
-	if (productinfo[2] != 0) {
-		document.getElementById('productdatabaseinfo_availability').innerHTML = "Availability: <span style='color: green';>Product In Stock</span>";
-	} else {
-		document.getElementById('productdatabaseinfo_availability').innerHTML = "Availability: <span style='color: red';>Product Out Of Stock</span>";
-	}
-    
+    if (productinfo[2] != 0) {
+      document.getElementById('productdatabaseinfo_availability').innerHTML = "Availability: <span style='color: green';>Product In Stock</span>";
+    } else {
+      document.getElementById('productdatabaseinfo_availability').innerHTML = "Availability: <span style='color: red';>Product Out Of Stock</span>";
+    }
     document.getElementById('productdescription').innerHTML = productinfo[3];
     //Set product category
-    document.getElementById('product_category_' + productcategory).className += ' active';
+    if (productcategory == 'scuba/snorkeling gear') {
+      document.getElementById('product_category_scubasnorkeling_gear').className += ' active';
+    } else {
+      document.getElementById('product_category_' + productcategory).className += ' active';
+    }
     document.getElementById('productimage').src = "products/" + parameters[0] + "/product.jpg";
-    document.getElementById('pcontent').style.display = "inherit";
     $("#productbarcode").barcode(parameters[0], "code128");
+    document.getElementById('pcontent').style.display = "inherit";
   }
 }
