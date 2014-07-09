@@ -1,0 +1,4 @@
+Sunglassess;Accessories
+15;30;10.50
+1
+Sunglasses to protect your eyes from the harsh brightness of the sun.

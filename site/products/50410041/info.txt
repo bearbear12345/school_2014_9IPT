@@ -1,0 +1,4 @@
+Swimming Trunks;Clothing
+20;20;16
+1
+If board shorts aren't your preference, then you could buy swimming trunks, allowing you legs to breathe.

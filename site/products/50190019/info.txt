@@ -1,0 +1,4 @@
+Buoyancy Compensator;Scuba/Snorkeling Gear
+350;20;280
+1
+Also known as a 'buoyancy control device' or 'BCD', the buoyancy compensator creates neutral buoyancy underwater and positive bouyancy on land, stopping the diver from floating whilst underwater, or sinking while on land.

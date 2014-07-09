@@ -1,0 +1,4 @@
+Two-man Canoe;Recreation
+450;10;405
+1
+If you prefer to paddle with a friend, the two man canoe is the product for you, with comfortable seats and a streamlined shape, you and your friend can canoe with ease.

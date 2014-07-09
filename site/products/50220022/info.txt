@@ -1,0 +1,4 @@
+Snokeling Vest;Scuba/Snorkeling Gear
+60
+1
+Bodyware that keeps the user wearer while the head is underwater.

@@ -1,0 +1,4 @@
+Regulator;Scuba/Snorkeling Gear
+249
+0
+Referred to as a diving regulator, the (pressure) regulator reduces pressurized breathing gas to ambient pressure and delivers it to the diver, allowing the diver to breath comfortably while underwater.
