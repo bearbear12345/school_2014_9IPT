@@ -243,6 +243,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b9e2', end
 	border-color: #A7A7A7;
 	margin-top: 15px;
 }
+#productname {
+	/* Set the product name to size 30 and make bold. */
+	font-weight: 700;
+	font-size: 30px;
+}
+#productcode {
+	font-size: 12px;
+}
 #productdescription {
 	margin-bottom: 5px;
 	padding: 5px;
@@ -254,11 +262,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b9e2', end
 #productbarcode_wrapper_subwrapper {
 	width: 100px;
 	margin: 0 auto;
-}
-#productname {
-	/* Set the product name to size 30 and make bold. */
-	font-weight: 700;
-	font-size: 30px;
 }
 #product-navigation-bar {
 	background-color: #333;
