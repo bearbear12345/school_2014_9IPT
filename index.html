@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Broken Hill Surf Shop Online</title>
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <style type="text/css">
-      .wholepage {
-      top: 0px;
-      left: 0px;
-      bottom: 0px;
-      right: 0px;
-      border: 0;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      position: fixed;
-      text-align: center;
-      font-family: 'Lato', sans-serif;
-      }
-      .errorpage {
-      background-color: #CCC;
-      color: #77787A;
-      font-size: 36px;
-      }
-    </style>
-  </head>
-  <body>
-    <noscript>
-      <style type="text/css" >
-        .container {
-        display: none
-        }
-      </style>
-      <div class="wholepage errorpage" >
-        <h1>JavaScript is disabled!</h1>
-        <hr color="#77787A" />
-        <p style="font-size: 24px;">JavaScript is required to browse Broken Hill Surf Shop.<br />
-          Please enable JavaScript to continue!
-        </p>
-        <p>If you do not know how to enable JavaScript, please <a href="http://www.enable-javascript.com/" target="_blank">click here</a>.</p>
-      </div>
-    </noscript>
-    <div class="container">
-      <iframe class="wholepage" src="site/home.html">
-        <div class="wholepage errorpage">
-          <h1>Oh No! Your Browser!</h1>
-          <hr color="#77787A" />
-          <p style="font-size: 24px;">You are using an outdated web browser.<br />
-            Please upgrade your web browser to continue browsing Broken Hill Surf Shop.
-          </p>
-          <p style="font-size: 72px">Consider using</p>
-          <p><a href="http://www.mozilla.org/firefox/"><img src="assets/images/badbrowser_assets/firefox.png" height="150" alt="Mozilla Firefox logo" /></a></p>
-          <p><a href="http://www.google.com/chrome"><img src="assets/images/badbrowser_assets/chrome.png" height="150" alt="Google Chrome logo" /></a></p>
-        </div>
-      </iframe>
-    </div>
-  </body>
+<head>
+<meta charset="utf-8">
+<title>Broken Hill Surf Shop Online</title>
+<link rel="shortcut icon" href="assets/images/favicon.ico" />
+<style type="text/css">
+.wholepage {
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	border: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	position: fixed;
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+}
+.errorpage {
+	background-color: #CCC;
+	color: #77787A;
+	font-size: 36px;
+}
+</style>
+</head>
+<body>
+<noscript>
+<style type="text/css" >
+#container {
+display: none
+}
+</style>
+<div class="wholepage errorpage" >
+  <h1>JavaScript is disabled!</h1>
+  <hr color="#77787A" />
+  <p style="font-size: 24px;">JavaScript is required to browse Broken Hill Surf Shop.<br />
+    Please enable JavaScript to continue! </p>
+  <p>If you do not know how to enable JavaScript, please <a href="http://www.enable-javascript.com/" target="_blank">click here</a>.</p>
+</div>
+</noscript>
+<div id="container">
+  <iframe class="wholepage" src="site/home.html">
+  <div class="wholepage errorpage">
+    <h1>Oh No! Your Browser!</h1>
+    <hr color="#77787A" />
+    <p style="font-size: 24px;">You are using an outdated web browser.<br />
+      Please upgrade your web browser to continue browsing Broken Hill Surf Shop.<br />
+      <a href="site/home.html">Click here</a> to <b>attempt</b> to continue loading</p>
+    <p style="font-size: 72px">Consider using</p>
+    <p><a href="http://www.mozilla.org/firefox/"><img src="assets/images/badbrowser_assets/firefox.png" height="150" alt="Mozilla Firefox logo" /></a></p>
+    <p><a href="http://www.google.com/chrome"><img src="assets/images/badbrowser_assets/chrome.png" height="150" alt="Google Chrome logo" /></a></p>
+  </div>
+  </iframe>
+</div>
+<div id="ie" style="display: none;" class="wholepage errorpage">
+  <h1>IE Sucks</h1>
+  <hr color="#77787A" />
+  <p style="font-size: 24px;">Unfortunately, Internet Explorer just doesn't work. (Styles get broken)<br />
+    Please use a different web browser to continue browsing Broken Hill Surf Shop.<br />
+    To view a partially working online copy, <a href="http://bearbear12345.github.io/school_ipt_as3">click here.</a></p>
+  <p style="font-size: 72px">Consider using</p>
+  <p><a href="http://www.mozilla.org/firefox/"><img src="assets/images/badbrowser_assets/firefox.png" height="150" alt="Mozilla Firefox logo" /></a></p>
+  <p><a href="http://www.google.com/chrome"><img src="assets/images/badbrowser_assets/chrome.png" height="150" alt="Google Chrome logo" /></a></p>
+</div>
+<script>
+if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) { document.getElementById('container').style.display = "none"; document.getElementById('ie').style.display = "inherit";}
+</script>
+</body>
 </html>

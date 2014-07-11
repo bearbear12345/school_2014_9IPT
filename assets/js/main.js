@@ -23,7 +23,7 @@ function loadproduct(productcode) {
   }
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      productvalid = true;
+      productready = true;
       productinfo = xmlhttp.responseText.split('\n');
       // productinfo[0] -> Name
       // productinfo[1] -> Price
@@ -40,9 +40,9 @@ function loadproduct(productcode) {
 function loadpath(url, callback) {
   result = document.createElement("iframe");
   result.src = url;
-  result.style.height = 0;
-  result.style.height = 0;
-  result.style.display = "none";
+  //result.style.height = 0;
+  //result.style.height = 0;
+  //result.style.display = "none";
   result.onload = function () {
     callback();
   };
@@ -50,16 +50,25 @@ function loadpath(url, callback) {
 }
 
 function loadproduct(productcode) {
-  loadpath("products/" + productcode + "/info.txt", loadproduct_cont);
+  loadpath("products" + productcode + "/info.txt", loadproduct_cont);
 }
 
 function loadproduct_cont() {
-  productinfo = result.contentWindow.document.body.innerHTML.replace(/(<([^>]+)>)/ig, "").split("\n");
+  productready = true;
+  try {
+    productinfo = result.contentWindow.document.body.innerHTML.replace(/(<([^>]+)>)/ig, "").split("\n");
+  } catch (e) {
+    // Cross domain error, most likely
+   //
+   // Just chrome???
+   // - "SecurityError: Blocked a frame with origin "null" from accessing a cross-origin frame."
+    productready = false;
+	//redirect to static content page???????????????????????????????????????
+  }
   // productinfo[0] -> Name
   // productinfo[1] -> Price
   // productinfo[2] -> Availability
   // productinfo[3] -> Description
-  productvalid = true;
   document.head.removeChild(result);
 }
 
@@ -91,7 +100,7 @@ function loadfourohfour() {
 */
 
 function replace() {
-  if (productvalid) {
+  if (productready) {
     productcategory = productinfo[0].substring(productinfo[0].indexOf(';') + 1).toLowerCase().trim(); //Seems to be a zero-width character somewhere, although trimming fixes the issue.
     productname = productinfo[0].substring(0, productinfo[0].indexOf(';'));
     if (productcategory == 'scuba/snorkeling gear') {
