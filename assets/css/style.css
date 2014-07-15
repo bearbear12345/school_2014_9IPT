@@ -15,12 +15,13 @@ html, body {
 	position: relative;
 }
 a:visited {
-	/* Make visited links remain blue, instead of turning purple */
-	color: blue;
+	/* Make visited links remain black, instead of turning purple */
+	color: black;
 }
 a {
 	/* Remove underline from hyperlinks */
 	text-decoration: none;
+	color: black;
 }
 .header {
 	/* Move element 10 pixels down??? */
@@ -47,7 +48,6 @@ a {
 	background-color: #86CEE4;
 	position: absolute;
 	bottom: 0;
-	margin: 0 auto;
 	width: 100%;
 }
 .footergradient {
@@ -62,8 +62,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b9e2', end
 }
 #footer {
 	width: 900px;
-	height: 150px;
-	margin: 0 auto;
+	height: 145px;
 }
 #footer a {
 	color: #000;
@@ -85,12 +84,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b9e2', end
 	line-height: 5px;
 	margin: 12px;
 }
-.borderbottom_nocolour {
-	border-bottom: 1px solid;
-}
 .borderbottom {
 	border-bottom: 1px solid;
+}
+.borderc {
 	border-color: #A7A7A7;
+}
+.nomargin {
+	margin: 0 auto;
 }
 /* GLOBAL -> START Navigation Bar CSS */
 /* css motto - "whatever works" */
@@ -176,6 +177,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b9e2', end
 	/* Set background colour to #86CEE4, shadow around edge of container*/
 	margin: 140px auto;
 	padding-top: 30px;
+	padding-bottom: 180px;
 	width: 900px;
 	background-color: #86CEE4;
 	box-shadow: 0px 0px 8px #888888;
@@ -261,7 +263,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b9e2', end
 }
 #productbarcode_wrapper_subwrapper {
 	width: 100px;
-	margin: 0 auto;
 }
 #product-navigation-bar {
 	background-color: #333;
