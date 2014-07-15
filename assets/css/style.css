@@ -184,6 +184,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b9e2', end
 }
 /* END Excluding Product Page CSS */
 
+/* START Home Page Specific CSS */
+.himage {
+	border: 1px solid;
+	border-color: #A7A7A7;
+	height:150px;
+	width:150px
+}
+/* END Home Page Specific CSS */
+
 /* START Product Page Specific CSS */
 #pheader {
 	/* Header for the product page; extra height for the product navigation bar */
