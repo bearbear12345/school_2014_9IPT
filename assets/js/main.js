@@ -50,7 +50,7 @@ function loadpath(url, callback) {
 }
 
 function loadproduct(productcode) {
-  loadpath("products" + productcode + "/info.txt", loadproduct_cont);
+  loadpath("products/" + productcode + "/info.txt", loadproduct_cont);
 }
 
 function loadproduct_cont() {
@@ -59,11 +59,11 @@ function loadproduct_cont() {
     productinfo = result.contentWindow.document.body.innerHTML.replace(/(<([^>]+)>)/ig, "").split("\n");
   } catch (e) {
     // Cross domain error, most likely
-   //
-   // Just chrome???
-   // - "SecurityError: Blocked a frame with origin "null" from accessing a cross-origin frame."
+    //
+    // Just chrome???
+    // - "SecurityError: Blocked a frame with origin "null" from accessing a cross-origin frame."
     productready = false;
-	//redirect to static content page???????????????????????????????????????
+    //redirect to static content page???????????????????????????????????????
   }
   // productinfo[0] -> Name
   // productinfo[1] -> Price
