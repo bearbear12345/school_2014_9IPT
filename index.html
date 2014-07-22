@@ -64,8 +64,17 @@ display: none
   <p><a href="http://www.mozilla.org/firefox/"><img src="assets/images/badbrowser_assets/firefox.png" height="150" alt="Mozilla Firefox logo" /></a></p>
   <p><a href="http://www.google.com/chrome"><img src="assets/images/badbrowser_assets/chrome.png" height="150" alt="Google Chrome logo" /></a></p>
 </div>
+<div id="notfirefoxwarning" style="display: none;" class="wholepage errorpage">
+<p>For the purpose of this assignment, please switch to <strong>Firefox</strong></p>
+<p>Internet Explorer simply just does not work, and the styles are not functioning as normal</p>
+<p>On the other hand, Google Chrome does function normally with the styles, however the javascript used in this site does not work locally due to much tighter cross-origin policies. This prevents the product page's javscript from loading the product information</p>
+<p>If you are using another browser (Opera? I don't know), I apologize for the inconvenience, however as I have only confirmed the site to be fully functioning on Mozilla Firefix, some elements of this site may not work</p>
+<p>Otherwise, welcome to Broken Hill Surf Shop and enjoy your stay!</p>
+<p>Regards, Andrew Wong</p>
+</div>
 <script>
-if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) { document.getElementById('container').style.display = "none"; document.getElementById('ie').style.display = "inherit";}
+if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) { document.getElementById('container').style.display = "none"; document.getElementById('ie').style.display = "inherit"; }
+else if (window.location.protocol == 'file:' && window.mozInnerScreenX == null) { document.getElementById('container').style.display = "none"; document.getElementById('notfirefoxwarning').style.display = "inherit"; }
 </script>
 </body>
 </html>
