@@ -12,7 +12,8 @@ function beginload() {
       hasargs = false;
     }
   }
-  /*
+
+/*
 function loadproduct(productcode) {
    // Webserver only
   var xmlhttp;
@@ -40,9 +41,9 @@ function loadproduct(productcode) {
 function loadpath(url, callback) {
   result = document.createElement("iframe");
   result.src = url;
-  //result.style.height = 0;
-  //result.style.height = 0;
-  //result.style.display = "none";
+  result.style.height = 0;
+  result.style.height = 0;
+  result.style.display = "none";
   result.onload = function () {
     callback();
   };
@@ -58,12 +59,13 @@ function loadproduct_cont() {
   try {
     productinfo = result.contentWindow.document.body.innerHTML.replace(/(<([^>]+)>)/ig, "").split("\n");
   } catch (e) {
+	/* Redundant as the index wrapper blocks chrome (Local file issue only)
     // Cross domain error, most likely
     //
     // Just chrome???
     // - "SecurityError: Blocked a frame with origin "null" from accessing a cross-origin frame."
+	*/
     productready = false;
-    //redirect to static content page???????????????????????????????????????
   }
   // productinfo[0] -> Name
   // productinfo[1] -> Price
@@ -80,6 +82,7 @@ function loadfourohfour_cont() {
     document.body.innerHTML = result.contentWindow.document.body.innerHTML;
     document.head.removeChild(result);
   }
+  
   /*
 function loadfourohfour() {
   // Webserver only
@@ -134,4 +137,30 @@ function replace() {
     $("#productbarcode").barcode(parameters[0], "code128");
     document.getElementById('pcontent').style.display = "inherit";
   }
+}
+
+//Utility snippets from my previous projects - Andrew Wong
+Array.prototype.add=function(item) {
+  this[this.length]=item;
+  return this;
+}
+Array.prototype.remove=function(item, selector) {
+  array=[];
+  if (typeof selector === 'undefined') {
+    for (var a=0; a<this.length;a++) {
+      if (a==this.indexOf(item)) continue;
+      array.add(this[a]);
+    }
+  } else {
+	  var tmparray=[];
+      for (var b=0; b<this.length;b++) {
+        if (this[b]!=item) continue;
+        tmparray.add(b);
+      }
+	  for (var c=0; c<this.length;c++) {
+		if (c==tmparray[selector]) continue;
+        array.add(this[c]);
+      }
+  }
+  return array;
 }
