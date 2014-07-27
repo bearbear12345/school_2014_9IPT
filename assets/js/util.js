@@ -52,9 +52,3 @@ Array.prototype.getOccurences = function() {
 Array.prototype.countOccurence = function(item) {
 	return this.getOccurences()[item];
 }
-Object.prototype.size = function() {
-	var size = 0;
-	for (key in this)
-		if (this.hasOwnProperty(key)) size++;
-	return size;
-}
