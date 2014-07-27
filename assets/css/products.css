@@ -1,0 +1,115 @@
+/* START Product Page Specific CSS */
+#cheader {
+	/* Header for the product page; extra height for the product navigation bar */
+	background-color: #86CEE4;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 180px;
+}
+#productimage {
+	/* Styling for the product image; set dimensions to 290x582 and create a 1 px border with the colour #A7A7A7 */
+	width: 290px;
+	height: 582px;
+	border: 1px solid;
+	border-color: #A7A7A7;
+}
+.productimage {
+	/* left side */
+	width: 450px;
+	float: left;
+}
+.producttext {
+	/* right side */
+	width: 450px;
+	float: right;
+}
+#products {
+	/* Padding */
+	padding-top: 15px;
+}
+#product_location {
+	/* Style for the product location bar; Create 2px border with the colour #A7A7A7, capitalise every letter */
+	border: 2px solid;
+	border-color: #A7A7A7;
+	text-transform: uppercase;
+	width: 100%;
+}
+#product_location a {
+	/* Remove underline from links */
+	text-decoration: none;
+}
+#ccontent {
+	/* above height = 187px */
+	margin: 202px auto;
+	width: 900px;
+	/* Javascript change */
+	display: none;
+}
+/* Same thing as the navigation bar, but without the underline animation */
+.productinfo_upper {
+	/* Separate Name, Price and Stock from Description */
+	border: 2px solid;
+	border-color: #A7A7A7;
+}
+.productinfo_lower {
+	/* Separate Description from Name, Price and Stock */
+	border: 2px solid;
+	border-color: #A7A7A7;
+	margin-top: 15px;
+}
+#productname {
+	/* Set the product name to size 30 and make bold. */
+	font-weight: 700;
+	font-size: 30px;
+}
+#productcode {
+	font-size: 12px;
+}
+#productdescription {
+	margin-bottom: 5px;
+	padding: 5px;
+}
+#productbarcode_wrapper {
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+#productbarcode_wrapper_subwrapper {
+	width: 100px;
+}
+#product-navigation-bar {
+	background-color: #333;
+	margin-top: -7px;
+}
+#product-navigation-bar ul li a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 12px;
+	position: relative;
+	-webkit-transition: color .5s;
+	-moz-transition: color .5s;
+	-ms-transition: color .5s;
+	-o-transition: color .5s;
+	transition: color .5s;
+	padding: 15px 25px;
+}
+#product-navigation-bar ul li a:after {
+	content: '';
+	display: block;
+	position: absolute;
+	right: -3px;
+	top: 5px;
+	height: 35px;
+	width: 6px;
+	background: #FFF;
+	opacity: .5;
+}
+#product-navigation-bar ul li a:hover, #product-navigation-bar ul li.active a {
+	color: #86CEE4;
+}
+/* END Product Page Specific CSS */

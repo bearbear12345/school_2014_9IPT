@@ -1,0 +1,15 @@
+/* START Home Page Specific CSS */
+.himage {
+	border: 1px solid;
+	border-color: #A7A7A7;
+	height: 150px;
+	width: 150px
+}
+#database {
+	/* Align database 420 pixels (420/900 - Not on the browser window edge) left from center */
+	position: absolute;
+	left: 50%;
+	margin-left: -420px;
+	top: 10px;
+}
+/* END Home Page Specific CSS */

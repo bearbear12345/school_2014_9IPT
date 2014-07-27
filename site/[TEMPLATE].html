@@ -1,55 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
+    <meta charset="utf-8">
     <title>Broken Hill Surf Shop Online</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/cart.js"></script>
   </head>
-  <body onload="showDocument();">
-    <style type="text/css">
-      #four_oh_four:before {
-	    /* Image location for the 404 image */
-	    content: url('../assets/images/404.png');
-      }
-      .four_oh_four {
-	    /* Set font size of the "go back/home" text */
-	    font-size: 48px;
-	    line-height: 15px;
-      }
-      #four_oh_four_content {
-	    margin: 150px auto;
-        text-align: center;
-      }
-	</style>
+  <body onload="document.getElementById('container').style.display = 'inherit';">
     <div id="container">
-      <!--Header (Logo) and Navigation Bar-->
       <div id="header">
-        <header class="header">
+        <header class="header headergradient">
           <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> 
-          <!--START Navigation Bar--> 
-          <!--Well on this page it isn't a navigation bar -->
+          <!--START Navigation Bar-->
           <div id="navigation-bar">
             <ul>
-              <li><a>What</a> </li>
-              <li><a>Did</a> </li>
-              <li><a>You</a> </li>
-              <li class="last"><a>Do</a> </li>
+              <li><a href="home.html">Home</a> </li>
+              <li><a href="products.html">Products</a> </li>
+              <li><a href="about.html">About</a> </li>
+              <li><a href="contact.html">Contact</a> </li>
+              <li class="last"><a href="news.html">News</a> </li>
             </ul>
           </div>
           <!--END Navigation Bar--> 
         </header>
       </div>
-      <div id="four_oh_four_content">
-        <div id="four_oh_four" class="four_oh_four">
-          <hr />
-          <p><a href="home.html">Return to the homepage</a> </p>
-          <script type="text/javascript">
-            if (document.referrer != "") {
-            	document.write('<a href="javascript:history.back()">Click here to go back</a>');
-            }
-          </script> 
-        </div>
-      </div>
+      <div id="content"></div>
       <div id="footer_wrapper" class="footergradient nomargin">
         <div id="footer" class="nomargin">
           <!--SITEMAP-->

@@ -5,7 +5,11 @@
     <title>Broken Hill Surf Shop Online</title>
     <link rel="shortcut icon" href="../assets/images/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <script src="../assets/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/products.css">
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/page_products.js"></script>
+    <script src="../assets/js/product.js"></script>
     <script src="../assets/js/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/jquery.barcode.min.js"></script>
     <script>
@@ -13,17 +17,17 @@
       var productready = false;
       var productinfo;
       var parameters = window.location.toString();
-      beginload();
+      beginLoad();
       if (hasargs) {
-        loadproduct(parameters[0]);
+        loadProduct(parameters[0]);
       }
     </script>
   </head>
-  <body onLoad="replace();">
+  <body onLoad="finishLoad();">
     <div id="container">
       <!-- --> 
       <!--Header (Logo) and Navigation Bar-->
-      <div id="pheader">
+      <div id="cheader">
         <div class="header">
           <div class="headergradient">
             <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> 
@@ -53,7 +57,7 @@
           <!--END Product Navigation Bar--> 
         </div>
       </div>
-      <div id="pcontent">
+      <div id="ccontent">
         <div id="product_location"></div>
         <div id="products">
           <div class="productimage"> <img id="productimage"> </div>

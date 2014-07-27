@@ -5,6 +5,9 @@
     <title>Broken Hill Surf Shop Online</title>
     <link rel="shortcut icon" href="../assets/images/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/home.css">
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/cart.js"></script>
     <!--jQuery -->
     <script src="../assets/js/jquery.min.js" type="text/javascript"></script>
     <!--
@@ -24,7 +27,7 @@
       });
     </script>
   </head>
-  <body>
+  <body onload="showDocument();">
     <div id="container">
       <!--Header (Logo) and Navigation Bar-->
       <div id="header">
@@ -37,6 +40,7 @@
           </div>
           <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a>
           <div id="hcart"><a href="">Shopping Cart (<span id="cart_count">0</span>)</a></div>
+          <script type="text/javascript">cart.updateCartCount(true);</script>
           <!--START Navigation Bar-->
           <div id="navigation-bar">
             <ul>
