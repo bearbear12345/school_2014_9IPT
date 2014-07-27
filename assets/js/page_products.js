@@ -11,7 +11,7 @@ function beginLoad() {
 		} else hasargs = false;
 	}
 
-function loadourohfour() {
+function loadfourohfour() {
 	loadPath("404.html", loadfourohfour_cont);
 }
 
@@ -60,5 +60,8 @@ function finishLoad() {
 		document.getElementById('productimage').src = "products/" + parameters[0] + "/product.jpg";
 		$("#productbarcode").barcode(parameters[0], "code128");
 		document.getElementById('ccontent').style.display = "inherit";
+		delete hasargs;
+		delete productinfo;
+		delete productready;
 	}
 }

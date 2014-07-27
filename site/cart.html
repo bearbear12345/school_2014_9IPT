@@ -10,8 +10,10 @@
     <script src="../assets/js/cart.js"></script>
     <script src="../assets/js/product.js"></script>
     <script src="../assets/js/page_cart.js"></script>
+    <script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+    <script>beginLoad();</script>
   </head>
-  <body onload="showDocument(); beginLoad();">
+  <body onload="showDocument();">
     <div id="container">
       <div id="header">
         <header class="header headergradient">
@@ -32,8 +34,8 @@
       <div id="ccontent">
       <table align="center" border=1>
         <!-- Second column houses the product image -->
-        <tr bgcolor=white><th>Product Code</th><th></th><th>Product Name</th><th>Product Description</th><th>Quantity</th><th>Price</th></tr>
-        <script>populateTable();</script>
+        <tr bgcolor=white><th>Code</th><th>Image</th><th>Product Name</th><th>Product Description</th><th>Quantity</th><th>Price</th></tr>
+        <script>createTable();</script>
       </table>
       </div>
       <div id="footer_wrapper" class="footergradient nomargin">
