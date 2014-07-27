@@ -94,16 +94,22 @@ a {
 .nomargin {
 	margin: 0 auto;
 }
+#hcart {
+	position: absolute;
+	right: 50%;
+	margin-right: -420px;
+	top: 10px;
+}
 /* GLOBAL -> START Navigation Bar CSS */
 /* css motto - "whatever works" */
-#navigation-bar ul {
+#navigation-bar ul, #product-navigation-bar ul {
 	list-style: none;
 	line-height: 1;
 	display: inline-block;
 	margin: 0;
 	padding: 0;
 }
-#navigation-bar ul li {
+#navigation-bar ul li, #product-navigation-bar ul li {
 	float: left;
 	display: inline-block;
 	padding: 0;
@@ -148,7 +154,7 @@ a {
 	-o-transition: width .25s;
 	transition: width .25s;
 }
-#navigation-bar ul li.last > a:after, #navigation-bar ul li:last-child > a:after {
+#navigation-bar ul li.last > a:after, #product-navigation-bar ul li.last > a:after, #navigation-bar ul li:last-child > a:after, #product-navigation-bar ul li:last-child > a:after {
 	/* Hides separator for the last item in the list */
 	display: none;
 }
@@ -156,7 +162,7 @@ a {
 	/* Change selected list item's font/text colour to #333 (grey) */
 	color: #333;
 }
-#navigation-bar ul li a:hover:before, #navigation-bar ul li.active a:before {
+#navigation-bar ul li a:hover:before, #product-navigation-bar ul li a:hover:before, #navigation-bar ul li.active a:before, #product-navigation-bar ul li.active a:before {
 	/* Set current list item (the current page) underline */
 	width: 100%;
 }
@@ -173,16 +179,6 @@ a {
 	right: 0;
 	height: 140px;
 	z-index: 10;
-}
-#database {
-	/* Align database 420 pixels (420/900 - Not on the browser window edge) left from center */
-	position: absolute;
-	left: 50%;
-	margin-left: -420px;
-	top: 10px;
-}
-#database p {
-	margin: 0 auto;
 }
 #content {
 	/* Set background colour to #86CEE4, shadow around edge of container*/
@@ -201,6 +197,13 @@ a {
 	border-color: #A7A7A7;
 	height: 150px;
 	width: 150px
+}
+#database {
+	/* Align database 420 pixels (420/900 - Not on the browser window edge) left from center */
+	position: absolute;
+	left: 50%;
+	margin-left: -420px;
+	top: 10px;
 }
 /* END Home Page Specific CSS */
 
@@ -288,18 +291,6 @@ a {
 	background-color: #333;
 	margin-top: -7px;
 }
-#product-navigation-bar ul {
-	list-style: none;
-	line-height: 1;
-	display: inline-block;
-	margin: 0;
-	padding: 0;
-}
-#product-navigation-bar ul li {
-	float: left;
-	display: inline-block;
-	padding: 0;
-}
 #product-navigation-bar ul li a {
 	color: #fff;
 	text-decoration: none;
@@ -327,109 +318,29 @@ a {
 	background: #FFF;
 	opacity: .5;
 }
-#product-navigation-bar ul li.last > a:after, #product-navigation-bar ul li:last-child > a:after {
-	display: none;
-}
 #product-navigation-bar ul li a:hover, #product-navigation-bar ul li.active a {
 	color: #86CEE4;
-}
-#product-navigation-bar ul li a:hover:before, #product-navigation-bar ul li.active a:before {
-	width: 100%;
 }
 /* END Product Page Specific CSS */
 
 /* If desktop (screen) and the max width is up to 768 CSS pixels */
 @media screen and (max-width: 768px) {
-	
-	/*
-	    #navigation-bar ul li {
-	    float: none;
-    }
-    #navigation-bar ul li a {
-    	width: 100%;
-    	-moz-box-sizing: border-box;
-    	-webkit-box-sizing: border-box;
-    	box-sizing: border-box;
-    }
-    #navigation-bar ul li a:before {
-    	height: 1px;
-    	background: #fff;
-    	width: 100%;
-    	opacity: .2;
-    }
-    #navigation-bar ul li a:after, #navigation-bar ul li.last > a:before, #navigation-bar ul li:last-child > a:before {
-	    display: none;
-    }
-    /* merge conditional styles with product navigation bar *\/
-    #product-navigation-bar ul li {
-    	float: none;
-    }
-    #product-navigation-bar ul li a {
-    	width: 100%;
-    	-moz-box-sizing: border-box;
-    	-webkit-box-sizing: border-box;
-    	box-sizing: border-box;
-    }
-    #product-navigation-bar ul li a:before {
-    	height: 1px;
-    	background: #fff;
-    	width: 100%;
-    	opacity: .2;
-    }
-    #product-navigation-bar ul li a:after, #product-navigation-bar ul li.last > a:before, #product-navigation-bar ul li:last-child > a:before {
-    	display: none;
-    }
-}
-	*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-    #navigation-bar ul li {
-	    float: none;
-    }
-    #navigation-bar ul li a {
-    	width: 100%;
-    	-moz-box-sizing: border-box;
-    	-webkit-box-sizing: border-box;
-    	box-sizing: border-box;
-    }
-    #navigation-bar ul li a:before {
-    	height: 1px;
-    	background: #fff;
-    	width: 100%;
-    	opacity: .2;
-    }
-    #navigation-bar ul li a:after, #navigation-bar ul li.last > a:before, #navigation-bar ul li:last-child > a:before {
-	    display: none;
-    }
-    /* merge conditional styles with product navigation bar */
-    #product-navigation-bar ul li {
-    	float: none;
-    }
-    #product-navigation-bar ul li a {
-    	width: 100%;
-    	-moz-box-sizing: border-box;
-    	-webkit-box-sizing: border-box;
-    	box-sizing: border-box;
-    }
-    #product-navigation-bar ul li a:before {
-    	height: 1px;
-    	background: #fff;
-    	width: 100%;
-    	opacity: .2;
-    }
-    #product-navigation-bar ul li a:after, #product-navigation-bar ul li.last > a:before, #product-navigation-bar ul li:last-child > a:before {
-    	display: none;
-    }
+   #navigation-bar ul li, #product-navigation-bar ul li {
+      float: none;
+   }
+   #navigation-bar ul li a, #product-navigation-bar ul li a {
+      width: 100%;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+   }
+   #navigation-bar ul li a:before, #product-navigation-bar ul li a:before {
+      height: 1px;
+      background: #fff;
+      width: 100%;
+      opacity: .2;
+   }
+   #navigation-bar ul li a:after, #product-navigation-bar ul li a:after, #navigation-bar ul li.last > a:before, #product-navigation-bar ul li.last > a:before, #navigation-bar ul li:last-child > a:before, #product-navigation-bar ul li:last-child > a:before {
+      display: none;
+   }
 }
