@@ -13,7 +13,8 @@ var cart = {
 	},
 	//Booleans
 	isEmpty: function() {
-		return this.getLength() == 0;
+		if (localStorage.getItem('cart')=='' || this.getLength()== 0) return true;
+		return false;
 	},
 	//Methods
 	updateCartCount: function(showCart, force) {
@@ -52,10 +53,11 @@ var cart = {
 		productcode = productcode.toString();
 		var temp = this.readCart();
 		if (temp.length == 0) return false;
-		if (typeof updateCartCount !== 'undefined' && updateCartCount) {
-			localStorage.setItem('cart', temp.remove(productcode).sort());
-			return this.updateCartCount();
-		} else localStorage.setItem('cart', temp.remove(productcode).sort());
+			console.log(temp);
+			temp = temp.remove(productcode).sort();
+			console.log(temp);
+			localStorage.setItem('cart', temp);
+			if (typeof updateCartCount !== 'undefined' && updateCartCount) this.updateCartCount();
 	},
 	removeAllFromCart: function(productcode, updateCartCount) {
 		productcode = productcode.toString();

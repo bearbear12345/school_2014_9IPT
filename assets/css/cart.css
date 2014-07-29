@@ -1,19 +1,23 @@
-#ccontent {
+#ccontent, #nocart {
 	/* Set background colour to #86CEE4, shadow around edge of container*/
 	margin: 140px auto;
 	padding-top: 30px;
 	padding-bottom: 180px;
 	width: 900px;
 }
-#cart {
+#nocart p {
+	font-size: 36px;
+	font-weight: 700;
+}
+.cart {
 	border: 2px solid;
 	border-collapse: collapse;
 }
-#cart td {
+.cart td {
 	border: 1px solid;
 	padding: 5px;
 }
-#cart th {
+.cart th {
 	border: 1px solid;
 	border-bottom: 2px solid;
 	padding: 5px;
@@ -25,10 +29,54 @@
 	padding-left: 5px;
 }
 #checkout_navigation {
+	margin-top: 20px;
 	text-align: right;
 }
 #checkout_navigation span {
-	border: 1px solid;
+	border: 2px solid;
 	padding: 5px;
-	font-weight: bold;
+	font-weight: 700;
+}
+#confirm_background_overlay {
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 1001;
+	-moz-opacity: 0.8;
+	opacity: .80;
+	filter: alpha(opacity=80);
+}
+#confirm_foreground {
+	display: none;
+	position: fixed;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 16px;
+	border: 6px solid grey;
+	border-radius: 30px;
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+}
+@media (max-width: 900px) {
+  #confirm_foreground {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 95%;
+	height: 100%;
+	padding: 16px;
+	border: 6px solid grey;
+	border-radius: 30px;
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+  }
 }

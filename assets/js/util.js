@@ -37,6 +37,7 @@ Array.prototype.remove = function(item, selector) {
 				array.add(this[c]);
 			}
 		}
+		if (array[0] == "") return [];
 		return array;
 	}
 

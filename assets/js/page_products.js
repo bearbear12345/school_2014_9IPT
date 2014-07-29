@@ -107,6 +107,7 @@ function finishLoad() {
 		} else document.getElementById('productdatabaseinfo_price').innerHTML = "Price: $" + productinfo[1]; //No discount
 		if (productinfo[2] != 0) document.getElementById('productdatabaseinfo_availability').innerHTML = "Availability: <span style='color: green';>Product In Stock</span>";
 		else document.getElementById('productdatabaseinfo_availability').innerHTML = "Availability: <span style='color: red';>Product Out Of Stock</span>";
+		if (document.getElementById('productdatabaseinfo_availability').innerHTML.indexOf('Out') != -1) document.getElementById('productaddtocart').style.display = 'none';
 		document.getElementById('productdescription').innerHTML = productinfo[3];
 		if (productcategory == 'scuba/snorkeling gear') document.getElementById('product_category_scubasnorkeling_gear').className += ' active'; //Set product category
 		else document.getElementById('product_category_' + productcategory).className += ' active';

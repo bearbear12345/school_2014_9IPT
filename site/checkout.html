@@ -5,10 +5,13 @@
     <title>Broken Hill Surf Shop Online</title> <!-- Set the title of the webpage to Broken Hill Surf Shop Online -->
     <link rel="shortcut icon" href="../assets/images/favicon.ico" /> <!-- Set the favourite icon (Website image in the tabs) -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> <!-- Import global style sheets -->
-    <script src="../assets/js/util.js"></script> <!-- Import JavaScript utility scripts -->
-    <script src="../assets/js/cart.js"></script> <!-- Import JavaScript shopping cart scripts -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/cart.css"> <!-- Import cart page specific CSS -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/checkout.css"> <!-- Import checkout(s) page specific CSS -->
+    <script src="../assets/js/util.js" type="text/javascript"></script> <!-- Import JavaScript utility scripts -->
+    <script src="../assets/js/cart.js" type="text/javascript"></script> <!-- Import JavaScript shopping cart scripts -->
+    <script src="../assets/js/page_checkout.js" type="text/javascript"></script> <!-- Import JavaScript checkout page scripts -->
   </head> <!-- Close HEAD tag -->
-  <body onLoad="showDocument();"> <!-- BODY tag; when the page finishes loading, call the function showDocument() function (found in the util.js) file). -->
+  <body onLoad="populateCountries('country', 'state');showDocument();"> <!-- BODY tag; when the page finishes loading, call the function showDocument() function (found in the util.js) file). -->
     <div id="container"> <!-- Wrapper div (For an anchored footer) -->
 <!-- #################################### -->
 <!-- # Header (Logo) and Navigation Bar # -->
@@ -16,8 +19,6 @@
       <div id="header"> <!-- Header wrapper (Style defines the height and width, and other properties) -->
         <div class="header headergradient"> <!-- Header class (inside wrapper) with gradient -->
           <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> <!-- Logo image with link back to homepage -->
-          <div id="hcart"><a href="">Shopping Cart (<span id="cart_count">0</span>)</a></div> <!-- Shopping cart div (Will usually only appear if there are items in the cart -->
-          <script type="text/javascript">cart.updateCartCount(true);</script> <!-- Update id _cart_count_ (Previous line) -->
 <!-- START Navigation Bar -->
           <div id="navigation-bar"> <!-- Styles for navigation bar list -->
             <ul> <!-- Create unordered list -->
@@ -31,7 +32,45 @@
 <!-- END Navigation Bar --> 
         </div> <!-- Close header class -->
       </div> <!-- Close header wrapper -->
-      <div id="content"></div> <!-- Body wrapper (The actual content) -->
+      <div id="ccontent"> <!-- Body wrapper (The actual content) -->
+      	<div id="customer_details">
+        	<h1>Customer Details</h1>
+
+            <form>
+            	<fieldset id="details_billing">
+                	<legend>Billing Information</legend>
+            		<p><span>First name:</span> <input type="text" name="firstname"></p>
+                	<p><span>Last name:</span><input type="text" name="lastname"></p>
+	                <p><span>Address:</span><input type="text" name="address"></p>
+	                <p><span>Address 2:</span><input type="text" name="address2"></p>
+                    <p><span>Suburb:</span><input type="text" name="suburb"></p>
+	                <p><span>State:</span><select id="state" name="state" disabled><option>-- select country first --</select></p>
+	                <p><span>Postcode:</span><input type="text" name="postcode"></p>
+	                <p><span>Country:</span><select id="country" name="country" onclick="page_checkout.enableState();"></select>
+	                <p><span>Phone number:</span><input type="text" name="phonenumber"></p> <!-- "text" -->
+	                <p><span>Email address:</span><input type="text" name="email"></p>
+                </fieldset>
+                <fieldset id="details_payment">
+                	<legend>Payment Methods</legend>
+                    <p><span>Payment Type:</span><input type="radio" name="paymenttype" value="creditcard" onclick="page_checkout.changeType.creditcard();">Credit Card<input type="radio" name="paymenttype" value="paypal" onclick="page_checkout.changeType.paypal();">PayPal
+                    <div id="radio_creditcard">
+                    <p><span>Card Type:</span><select name="creditcard_type"><option selected disabled>-- card type --<option value="MASTERCARD" onclick="page_checkout.changeTo.mastercard();">Mastercard<option value="VISA" onclick="page_checkout.changeTo.visa();">Visa<option value="AMEX" onclick="page_checkout.changeTo.amex();">American Express</select></p>
+                    <p><span>Card Number:</span><input type="text" name="cc_number" disabled></p>
+                    <p><span>Expiry Date:</span>
+                    <select name="cc_expirymonth" disabled>
+                    <option selected disabled>-- month --<option value="01">01<option value="02">02<option value="03">03<option value="04">04<option value="05">05<option value="06">06<option value="07">07<option value="08">08<option value="09">09<option value="10">10<option value="11">11<option value="12">12</select>/<select name="cc_expiryyear" disabled><option selected disabled>-- year --<option value="04">2004<option value="05">2005<option value="06">2006<option value="07">2007<option value="08">2008<option value="09">2009<option value="10">2010<option value="11">2011<option value="12">2012<option value="13">2013<option value="14">2014<option value="15">2015<option value="16">2016<option value="17">2017<option value="18">2018<option value="19">2019</select></p>
+                    <p><span id="card_security_code">Security Code</span><input type="text" name="card_security_code" disabled></p>
+                    </div>
+                    <div id="radio_paypal">
+                    </div>
+                </fieldset>
+        	</form>
+                  <div id="checkout_navigation">
+  <a href="#"><span>Back</span></a>
+      <a href="#" onclick='if(validate()) location.href="checkout_confirm.html";'><span>Next</span></a>
+      </div>
+        </div>
+      </div> <!-- Close body wrapper -->
       <div id="footer_wrapper" class="footergradient nomargin"> <!-- Footer wrapper (Whole page width) -->
         <div id="footer" class="nomargin"> <!-- Footer (900px page center) -->
 <!-- START Sitemap -->

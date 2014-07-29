@@ -30,17 +30,32 @@
           <!--END Navigation Bar--> 
         </header>
       </div>
+      <!--<div id="confirm_foreground" class="nomargin">
+      <table class="cart">
+      <tr><th>Product Code</th><th>Product Name</th><th>Quantity</th></tr> 
+      </table>
+      <p> Is this order correct? </p>
+      
+      </div>
+      -->
+      <div id="confirm_background_overlay"></div>
+         <div id="nocart">
+      <p>Your cart is empty!</p>
+      <hr />
+                <p><a href="home.html">Click here to return to the homepage</a> </p> <!-- Link to home page -->
+          <script type="text/javascript">if (document.referrer != "") document.write('<p><a href="javascript:history.back()">Or click here to go back</a></p>');</script> <!-- [JavaScript] If the document was referred to from another page, show the "Go Back" link -->
+      </div>
       <div id="ccontent">
-      	<table id="cart">
+      	<table class="cart">
         	<tr><th>Code</th><th>Image</th><th>Product Name</th><th>Product Description</th><th>Quantity</th><th>Price</th><th>Subtotal</th></tr> <!-- Second column houses the product image -->
         <script>createTable();</script>
       </table>
       <p id="totalprice"></p>
       <div id="checkout_navigation">
-<!--  a href=""><span>Back</span></a> -->
-      <a href=""><span>Next</span></a>
+      <a href="checkout.html"><span>Checkout</span></a>
       </div>
       </div>
+
 			<div id="footer_wrapper" class="footergradient nomargin"> <!-- Footer wrapper (Whole page width) -->
 				<div id="footer" class="nomargin"> <!-- Footer (900px page center) -->
 <!-- SITEMAP -->
