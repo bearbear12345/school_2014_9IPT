@@ -7,21 +7,11 @@ function createTable() {
 		products_array = []
 		getProductInformation();
 		for (var i = 0; i < cart.countProducts(); i++) {
-			var product_code = Object.keys(cart.readCart().getOccurences())[i];
-			var product_quantity = cart.readCart().countOccurence(product_code);
-			/* Alternatives
-				//Now let's make this more confusing than it needs to be - jks
-				cart.readCart().countOccurence(product_code)
-				cart.readCart().getOccurences()[product_code]
-				cart.readCart().countOccurence(Object.keys(cart.readCart().getOccurences())[i])
-				cart.readCart().getOccurences()[Object.keys(cart.readCart().getOccurences())[i]]
-				*/
-			var product_name = products_array[i][0].split(';')[0];
-			//var product_description =
-			var product_price = (products_array[i][1].split(';').length == 3) ? products_array[i][1].split(';')[2] : products_array[i][1].split(';')[0];
-			document.write("<tr class='tabledata'><td>" + product_code + "</td><td><img height='75px' width='75px' src='products/" + product_code + "/product.jpg'/></td><td></td><td></td><td>" + product_quantity + "</td><td></td></tr>");
+			document.write("<tr class='tabledata'><td>" + Object.keys(cart.readCart().getOccurences())[i] + "</td><td><img height='75px' width='75px' src='products/" + Object.keys(cart.readCart().getOccurences())[i] + "/product.jpg'/></td><td></td><td></td><td><img src='../assets/images/arrow_up.png'></img>" + cart.readCart().countOccurence(Object.keys(cart.readCart().getOccurences())[i]) + "</td><td></td><td></td></tr>");
 		}
-	} else {}
+	} else {
+		document.write('cartempty');
+	}
 }
 
 function getProductInformation() {
@@ -39,6 +29,7 @@ function getProductInformation() {
 		delete temp;
 		delete products;
 		$(document.head).find('iframe').remove();
+		populateData();
 		return;
 	}
 	$('iframe#productload_iframe').attr('src', "products/" + products[0] + "/info.txt");
@@ -51,4 +42,23 @@ function getProductInformation_cont(result, products) {
 		temp = temp.remove(products[0]);
 	}
 	getProductInformation();
+}
+
+function populateData() {
+	for (var i = 0; i < cart.countProducts(); i++) {
+		product = products_array[i];
+		document.getElementsByClassName('tabledata')[i].getElementsByTagName('td')[2].innerHTML = product[0].split(';')[0];
+		document.getElementsByClassName('tabledata')[i].getElementsByTagName('td')[3].innerHTML = (product[3].split(' ').length > 36) ? ((product[3].split(' ').slice(0, 36).join(' ').slice(-1) == ",") ? product[3].split(' ').slice(0, 36).join(' ').slice(0, -1) : product[3].split(' ').slice(0, 36).join(' ')) + "..." : product[3];
+		document.getElementsByClassName('tabledata')[i].getElementsByTagName('td')[5].innerHTML = "$" + ((product[1].split(';').length == 3) ? product[1].split(';')[2] : product[1].split(';')[0]);
+		document.getElementsByClassName('tabledata')[i].getElementsByTagName('td')[6].innerHTML = "$" + document.getElementsByClassName('tabledata')[i].getElementsByTagName('td')[4].innerHTML * ((product[1].split(';').length == 3) ? product[1].split(';')[2] : product[1].split(';')[0]);
+	}
+	document.getElementById('totalprice').innerHTML = "Total: $" + getTotalCartPrice();
+}
+
+function getTotalCartPrice() {
+	var price = 0;
+	for (var i = 0; i < cart.countProducts(); i++) {
+		price += Number(document.getElementsByClassName('tabledata')[i].getElementsByTagName('td')[6].innerHTML.substr(1));
+	}
+	return price;
 }
