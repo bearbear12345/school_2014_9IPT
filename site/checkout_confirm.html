@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en-US">
 	<head>
 		<meta charset="utf-8">
 		<title>Broken Hill Surf Shop Online</title>
@@ -9,14 +9,15 @@
 		<script src="../assets/js/util.js" type="text/javascript"></script>
 		<script src="../assets/js/cart.js" type="text/javascript"></script>
 		<script src="../assets/js/page_cart.js" type="text/javascript"></script>
+		<script src="../assets/js/page_checkout_confirm.js" type="text/javascript"></script> <!-- Import JavaScript checkout page scripts -->
 		<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
-		<script>beginLoad();</script>
+		<script>beginLoad(); beginLoad_confirm();</script>
 	</head>
 	<body onload="showDocument();">
 		<div id="container">
 			<div id="header">
 				<header class="header headergradient">
-					<a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> 
+					<a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a>
 					<!--START Navigation Bar-->
 					<div id="navigation-bar">
 						<ul>
@@ -30,39 +31,81 @@
 					<!--END Navigation Bar--> 
 				</header>
 			</div>
-			<!--<div id="confirm_foreground" class="nomargin">
-				<table class="cart">
-				<tr><th>Product Code</th><th>Product Name</th><th>Quantity</th></tr> 
-				</table>
-				<p> Is this order correct? </p>
-				
-				</div>
-				-->
-			<div id="confirm_background_overlay"></div>
-			<div id="nocart">
-				<p>Your cart is empty!</p>
-				<hr />
-				<p><a href="home.html">Click here to return to the homepage</a> </p>
-				<!-- Link to home page -->
-				<script type="text/javascript">if (document.referrer != "") document.write('<p><a href="javascript:history.back()">Or click here to go back</a></p>');</script> <!-- [JavaScript] If the document was referred to from another page, show the "Go Back" link -->
+			<div id="confirm_foreground" class="nomargin">
+				<p>Your order has been sent and is now awaiting verification.</p>
+				<p>Thank you for purchasing with Broken Hill Surf Shop!</p>
+				<p><a href='home.html'>Click here to return to the Broken Hill Surf Shop home page!</a></p>
 			</div>
+			<div id="confirm_background_overlay"></div>
 			<div id="ccontent">
-				<table class="table">
-					<tr>
-						<th>Code</th>
-						<th>Image</th>
-						<th>Product Name</th>
-						<th>Product Description</th>
-						<th>Quantity</th>
-						<th>Price</th>
-						<th>Subtotal</th>
-					</tr>
-					<!-- Second column houses the product image -->
-					<script>createTable();</script>
-				</table>
-				<p id="totalprice"></p>
+				<div id="ccontent_wrapper">
+					<div id="checkout_confirm_cart">
+						<table class="table">
+							<tr>
+								<th>Code</th>
+								<th>Product Name</th>
+								<th>Quantity</th>
+								<th>Price</th>
+							</tr>
+							<!-- Second column houses the product image -->
+							<script>confirm_createTable();</script>
+							<tr class="noborder">
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><strong>Total: $<span id="checkout_totalprice"></span></strong></td>
+							</tr>
+						</table>
+					</div>
+					<div id="customerdetails">
+						<table class="table">
+							<tr>
+								<td>Name</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Billing Address</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Postcode</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Phone</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Email</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Payment</td>
+								<td></td>
+							</tr>
+							<tr class="table_creditcard">
+								<td>Credit Card Type</td>
+								<td></td>
+							</tr>
+							<tr class="table_creditcard">
+								<td>Credit Card Number</td>
+								<td></td>
+							</tr>
+							<tr class="table_creditcard">
+								<td>Credit Card Expiry Date</td>
+								<td></td>
+							</tr>
+							<tr class="table_creditcard">
+								<td>Credit Card Security Code</td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+				</div>
 				<div id="checkout_navigation">
-					<a href="checkout.html"><span>Checkout</span></a>
+					<hr />
+					<p><a href="#" onclick="history.go(-1);"><span>No, go back and review my order</span></a></p>
+					<p><a href="#" onclick="doOrder();"><span>Yes, this is correct, finish and purchase</span></a></p>
 				</div>
 			</div>
 			<div id="footer_wrapper" class="footergradient nomargin">

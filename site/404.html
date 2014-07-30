@@ -1,87 +1,148 @@
 <!DOCTYPE html> <!-- Delcare document type -->
-<html lang="en-au"> <!-- HTML tag; set language to English Australia -->
-  <head> <!-- HEAD tag -->
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" > <!-- Declare document to be a html document, and set the character set to UTF-8 -->
-    <title>Broken Hill Surf Shop Online</title> <!-- Set the title of the webpage to Broken Hill Surf Shop Online -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico" /> <!-- Set the favourite icon (Website image in the tabs) -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> <!-- Import global style sheets -->
-    <script src="../assets/js/util.js" type="text/javascript"></script> <!-- Import JavaScript utility scripts -->
-  </head> <!-- Close HEAD tag -->
-  <body onload="showDocument();"> <!-- BODY tag; when the page finishes loading, call the function showDocument() function (found in the util.js) file). -->
-    <style type="text/css"> /* STYLE tag */
-      #four_oh_four:before {
-      /* Image location for the 404 image */
-        content: url('../assets/images/404.png');
-      }
-      .four_oh_four {
-      /* Set font size of the "go back/home" text */
-        font-size: 48px;
-        line-height: 15px;
-      }
-      #four_oh_four_content {
-      /* Move content 150 pixels from the top of the page (header */
-        margin: 150px auto;
-      }
-    </style> <!-- Close STYLE tag -->
-    <div id="container"> <!-- Wrapper div (For an anchored footer) -->
-<!-- #################################### -->
-<!-- # Header (Logo) and Navigation Bar # -->
-<!-- #################################### -->
-      <div id="header"> <!-- Header wrapper (Style defines the height and width, and other properties) -->
-        <div class="header"> <!-- Header class (inside wrapper) -->
-          <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> <!-- Logo image with link back to homepage -->
-<!-- START Navigation Bar -->
-<!-- Well on this page it isn't a navigation bar -->
-          <div id="navigation-bar"> <!-- Styles for navigation bar list -->
-            <ul> <!-- Create unordered list -->
-              <li><a>What</a> </li> <!-- ... -->
-              <li><a>Did</a> </li> <!-- ... -->
-              <li><a>You</a> </li> <!-- ... -->
-              <li class="last"><a>Do</a> </li> <!-- ... -->
-          </ul> <!-- Close list -->
-          </div> <!-- Close "navigation bar" -->
-<!--END Navigation Bar--> 
-        </div> <!-- Closing header -->
-      </div> <!-- Closer header -->
-      <div id="four_oh_four_content"> <!-- Body wrapper (The actual content) -->
-        <div id="four_oh_four" class="four_oh_four"> <!-- 404 images and styles for the contents -->
-          <hr /> <!-- Draw a horizontal rule -->
-          <p><a href="home.html">Click here to return to the homepage</a> </p> <!-- Link to home page -->
-          <script type="text/javascript">if (document.referrer != "") document.write('<a href="javascript:history.back()">Or click here to go back</a>');</script> <!-- [JavaScript] If the document was referred to from another page, show the "Go Back" link -->
-        </div> <!-- Close 404 image and content -->
-      </div> <!-- Close body wrapper -->
-      <div id="footer_wrapper" class="footergradient nomargin"> <!-- Footer wrapper (Whole page width) -->
-        <div id="footer" class="nomargin"> <!-- Footer (900px page center) -->
-<!-- START Sitemap -->
-          <div id="infocolumns" class="borderbottom"> <!-- Info columns & because I don't like lists -->
-            <div> <!-- Column 1 - Sites -->
-              <h1>site</h1> <!-- Header -->
-              <p><a href="home.html">home</a> </p> <!-- Link to home page -->
-              <p><a href="products.html">products</a> </p> <!-- Link to products page -->
-              <p><a href="about.html">about</a> </p> <!-- Link to about page -->
-              <p><a href="contact.html">contact</a> </p> <!-- Link to contact page -->
-              <p><a href="news.html">news</a> </p> <!-- Link to news page -->
-            </div> <!-- Close column 1 -->
-            <div> <!-- Column 2 - Product Categories -->
-              <h1>products</h1> <!-- Header -->
-              <p><a href="surfing">surfing</a> </p> <!-- Link to surfing products -->
-              <p><a href="clothing">clothing</a> </p> <!-- Link to clothing products -->
-              <p><a href="protection">protection</a> </p> <!-- Link to protective products -->
-              <p><a href="scubasnorkelinggear">scuba/snorkeling gear</a> </p> <!-- Link to scuba and snorkeling gear -->
-              <p><a href="recreation">recreation</a> </p> <!-- Link to recreational gear -->
-              <p><a href="accessories">accessories</a> </p> <!-- Link to accessories -->
-            </div> <!-- Close column 2 -->
-<!-- END Sitemap -->
-            <div> <!-- Column 3 - Contact details -->
-              <h1>contact</h1> <!-- Header -->
-              <p>email: contact@brokenhillsurf.com.au</p> <!-- Email address - nonexistent -->
-              <p>facebook: brokenhillsurfshop</p> <!-- Facebook page name - nonexistent -->
-              <p>twitter: @brokenhillsurfshop</p> <!-- Twitter handle - nonexistent -->
-            </div> <!-- Close column 3 -->
-          </div> <!-- Close info columns -->
-        </div> <!-- Close footer -->
-        <p>&copy; 2014 Andrew Wong & Ryan Oo</p> <!-- Copyright -->
-      </div> <!-- Close footer wrapper -->
-    </div> <!-- Close wrapper div -->
-  </body> <!-- Close BODY tag -->
-</html> <!-- Close HTML tag -->
+<html lang="en-au">
+	<!-- HTML tag; set language to English Australia -->
+	<head>
+		<!-- HEAD tag -->
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8" >
+		<!-- Declare document to be a html document, and set the character set to UTF-8 -->
+		<title>Broken Hill Surf Shop Online</title>
+		<!-- Set the title of the webpage to Broken Hill Surf Shop Online -->
+		<link rel="shortcut icon" href="../assets/images/favicon.ico" />
+		<!-- Set the favourite icon (Website image in the tabs) -->
+		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+		<!-- Import global style sheets -->
+		<script src="../assets/js/util.js" type="text/javascript"></script> <!-- Import JavaScript utility scripts -->
+	</head>
+	<!-- Close HEAD tag -->
+	<body onload="showDocument();">
+		<!-- BODY tag; when the page finishes loading, call the function showDocument() function (found in the util.js) file). -->
+		<style type="text/css"> /* STYLE tag */
+			#four_oh_four:before {
+			/* Image location for the 404 image */
+			content: url('../assets/images/404.png');
+			}
+			.four_oh_four {
+			/* Set font size of the "go back/home" text */
+			font-size: 48px;
+			line-height: 15px;
+			}
+			#four_oh_four_content {
+			/* Move content 150 pixels from the top of the page (header */
+			margin: 150px auto;
+			}
+		</style>
+		<!-- Close STYLE tag -->
+		<div id="container">
+			<!-- Wrapper div (For an anchored footer) -->
+			<!-- #################################### -->
+			<!-- # Header (Logo) and Navigation Bar # -->
+			<!-- #################################### -->
+			<div id="header">
+				<!-- Header wrapper (Style defines the height and width, and other properties) -->
+				<div class="header">
+					<!-- Header class (inside wrapper) -->
+					<a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> <!-- Logo image with link back to homepage -->
+					<!-- START Navigation Bar -->
+					<!-- Well on this page it isn't a navigation bar -->
+					<div id="navigation-bar">
+						<!-- Styles for navigation bar list -->
+						<ul>
+							<!-- Create unordered list -->
+							<li><a>What</a> </li>
+							<!-- ... -->
+							<li><a>Did</a> </li>
+							<!-- ... -->
+							<li><a>You</a> </li>
+							<!-- ... -->
+							<li class="last"><a>Do</a> </li>
+							<!-- ... -->
+						</ul>
+						<!-- Close list -->
+					</div>
+					<!-- Close "navigation bar" -->
+					<!--END Navigation Bar--> 
+				</div>
+				<!-- Closing header -->
+			</div>
+			<!-- Closer header -->
+			<div id="four_oh_four_content">
+				<!-- Body wrapper (The actual content) -->
+				<div id="four_oh_four" class="four_oh_four">
+					<!-- 404 images and styles for the contents -->
+					<hr />
+					<!-- Draw a horizontal rule -->
+					<p><a href="home.html">Click here to return to the homepage</a> </p>
+					<!-- Link to home page -->
+					<script type="text/javascript">if (document.referrer != "") document.write('<a href="javascript:history.back()">Or click here to go back</a>');</script> <!-- [JavaScript] If the document was referred to from another page, show the "Go Back" link -->
+				</div>
+				<!-- Close 404 image and content -->
+			</div>
+			<!-- Close body wrapper -->
+			<div id="footer_wrapper" class="footergradient nomargin">
+				<!-- Footer wrapper (Whole page width) -->
+				<div id="footer" class="nomargin">
+					<!-- Footer (900px page center) -->
+					<!-- START Sitemap -->
+					<div id="infocolumns" class="borderbottom">
+						<!-- Info columns & because I don't like lists -->
+						<div>
+							<!-- Column 1 - Sites -->
+							<h1>site</h1>
+							<!-- Header -->
+							<p><a href="home.html">home</a> </p>
+							<!-- Link to home page -->
+							<p><a href="products.html">products</a> </p>
+							<!-- Link to products page -->
+							<p><a href="about.html">about</a> </p>
+							<!-- Link to about page -->
+							<p><a href="contact.html">contact</a> </p>
+							<!-- Link to contact page -->
+							<p><a href="news.html">news</a> </p>
+							<!-- Link to news page -->
+						</div>
+						<!-- Close column 1 -->
+						<div>
+							<!-- Column 2 - Product Categories -->
+							<h1>products</h1>
+							<!-- Header -->
+							<p><a href="surfing">surfing</a> </p>
+							<!-- Link to surfing products -->
+							<p><a href="clothing">clothing</a> </p>
+							<!-- Link to clothing products -->
+							<p><a href="protection">protection</a> </p>
+							<!-- Link to protective products -->
+							<p><a href="scubasnorkelinggear">scuba/snorkeling gear</a> </p>
+							<!-- Link to scuba and snorkeling gear -->
+							<p><a href="recreation">recreation</a> </p>
+							<!-- Link to recreational gear -->
+							<p><a href="accessories">accessories</a> </p>
+							<!-- Link to accessories -->
+						</div>
+						<!-- Close column 2 -->
+						<!-- END Sitemap -->
+						<div>
+							<!-- Column 3 - Contact details -->
+							<h1>contact</h1>
+							<!-- Header -->
+							<p>email: contact@brokenhillsurf.com.au</p>
+							<!-- Email address - nonexistent -->
+							<p>facebook: brokenhillsurfshop</p>
+							<!-- Facebook page name - nonexistent -->
+							<p>twitter: @brokenhillsurfshop</p>
+							<!-- Twitter handle - nonexistent -->
+						</div>
+						<!-- Close column 3 -->
+					</div>
+					<!-- Close info columns -->
+				</div>
+				<!-- Close footer -->
+				<p>&copy; 2014 Andrew Wong & Ryan Oo</p>
+				<!-- Copyright -->
+			</div>
+			<!-- Close footer wrapper -->
+		</div>
+		<!-- Close wrapper div -->
+	</body>
+	<!-- Close BODY tag -->
+</html>
+<!-- Close HTML tag -->

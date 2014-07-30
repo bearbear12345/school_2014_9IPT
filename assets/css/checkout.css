@@ -22,4 +22,11 @@ form p span {
 }
 #radio_paypal {
 	display: none;
+	text-align: center;
+	margin-top: 20px auto;
+	color:#090;
+	font-weight: 700;
+}
+#radio_paypal img {
+	margin-top: 10px;
 }

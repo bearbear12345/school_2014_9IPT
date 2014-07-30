@@ -13,12 +13,12 @@ var cart = {
 	},
 	//Booleans
 	isEmpty: function() {
-		if (localStorage.getItem('cart')=='' || this.getLength()== 0) return true;
+		if (localStorage.getItem('cart') == '' || this.getLength() == 0) return true;
 		return false;
 	},
 	//Methods
 	updateCartCount: function(showCart, force) {
-		var cart_count = this.getLength();
+		var cart_count = (this.isEmpty()) ? 0 : this.getLength();
 		if (typeof showCart !== 'undefined') {
 			if (showCart) {
 				if (cart_count == 0) {
@@ -46,22 +46,19 @@ var cart = {
 		productcode = productcode.toString();
 		if (typeof updateCartCount !== 'undefined' && updateCartCount) {
 			localStorage.setItem('cart', this.readCart().add(productcode).sort());
-			this.updateCartCount();
+			this.updateCartCount(true);
 		} else localStorage.setItem('cart', this.readCart().add(productcode).sort());
 	},
 	removeFromCart: function(productcode, updateCartCount) {
 		productcode = productcode.toString();
 		var temp = this.readCart();
 		if (temp.length == 0) return false;
-			console.log(temp);
-			temp = temp.remove(productcode).sort();
-			console.log(temp);
-			localStorage.setItem('cart', temp);
-			if (typeof updateCartCount !== 'undefined' && updateCartCount) this.updateCartCount();
+		localStorage.setItem('cart', temp.remove(productcode).sort());
+		if (typeof updateCartCount !== 'undefined' && updateCartCount) this.updateCartCount(true);
 	},
 	removeAllFromCart: function(productcode, updateCartCount) {
 		productcode = productcode.toString();
-		 temp = this.readCart();
+		temp = this.readCart();
 		if (temp.length == 0) return false;
 		for (var i = 0; i < cart.readCart().countOccurence(productcode); i++) {
 			temp = temp.remove(productcode).sort();

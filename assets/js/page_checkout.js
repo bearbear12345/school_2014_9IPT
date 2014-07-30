@@ -37,9 +37,12 @@ var page_checkout = {
 	}
 }
 
-function a_error(problem, name_or_id) {
+function a_error(problem, name_or_id, isPaymentType) {
 	error += 1;
-	changeColour(problem, name_or_id, "#EEB4B4")
+	if (typeof isPaymentType !== 'undefined' && isPaymentType) {
+		document.getElementById('details_payment').getElementsByTagName('p')[0].style.color = 'red';
+		document.getElementById('details_payment').getElementsByTagName('p')[0].getElementsByTagName('span')[0].style.color = 'black';
+	} else changeColour(problem, name_or_id, "#EEB4B4");
 }
 
 function changeColour(element, name_or_id, colour) {
@@ -49,43 +52,48 @@ function changeColour(element, name_or_id, colour) {
 
 function validate() {
 		error = 0;
-		if (document.getElementsByName('firstname')[0].value == "") a_error('firstname', true);
+		if (document.getElementsByName('firstname')[0].value == "") a_error('firstname', true, '');
 		else changeColour('firstname', true, '');
-		if (document.getElementsByName('lastname')[0].value == "") a_error('lastname', true);
+		if (document.getElementsByName('lastname')[0].value == "") a_error('lastname', true, '');
 		else changeColour('lastname', true, '');
-		if (document.getElementsByName('address')[0].value == "") a_error('address', true);
+		if (document.getElementsByName('address')[0].value == "") a_error('address', true, '');
 		else changeColour('address', true, '');
-		if (document.getElementsByName('suburb')[0].value == "") a_error('suburb', true);
+		if (document.getElementsByName('suburb')[0].value == "") a_error('suburb', true, '');
 		else changeColour('suburb', true, '');
-		if (document.getElementById('state').options.selectedIndex == 0) a_error('state', false);
+		if (document.getElementById('state').options.selectedIndex == 0) a_error('state', false, '');
 		else changeColour('state', false, '');
-		var re_digit = /^\d/;
-		if (!re_digit.test(document.getElementsByName('postcode')[0].value)) a_error('postcode', true);
+		var re_digit = /^[\d ]+$/;
+		var re_postcode = /^[a-zA-Z0-9]+$/; //Apparently, according to the database, China has postcodes with letters
+		if (!re_postcode.test(document.getElementsByName('postcode')[0].value)) a_error('postcode', true, '');
 		else changeColour('postcode', true, '');
-		if (document.getElementById('country').options.selectedIndex == 0) a_error('country', false);
+		if (document.getElementById('country').options.selectedIndex == 0) a_error('country', false, '');
 		else changeColour('country', false, '');
-		if (!re_digit.test(document.getElementsByName('phonenumber')[0].value)) a_error('phonenumber', true);
+		if (!re_digit.test(document.getElementsByName('phonenumber')[0].value)) a_error('phonenumber', true, '');
 		else changeColour('phonenumber', true, '');
 		var re_email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if (!re_email.test(document.getElementsByName('email')[0].value)) a_error('email', true);
+		if (!re_email.test(document.getElementsByName('email')[0].value)) a_error('email', true, '');
 		else changeColour('email', true, '');
-		if (!document.getElementsByName('paymenttype')[0].checked && !document.getElementsByName('paymenttype')[1].checked) a_error('paymenttype', true);
+		if (!document.getElementsByName('paymenttype')[0].checked && !document.getElementsByName('paymenttype')[1].checked) a_error('paymenttype', true, true, '');
 		else changeColour('paymenttype', true, '');
 		if (document.getElementsByName('paymenttype')[0].checked) {
-			if (document.getElementsByName('creditcard_type')[0].options.selectedIndex == 0) a_error('creditcard_type', true);
+			document.getElementById('details_payment').getElementsByTagName('p')[0].style.color = 'black';
+			if (document.getElementsByName('creditcard_type')[0].options.selectedIndex == 0) a_error('creditcard_type', true, '');
 			else {
 				changeColour('creditcard_type', true, '');
-				if (!re_digit.test(document.getElementsByName('cc_number')[0].value)) a_error('cc_number', true);
+				if (!re_digit.test(document.getElementsByName('cc_number')[0].value)) a_error('cc_number', true, '');
 				else changeColour('cc_number', true, '');
-				if (document.getElementsByName('cc_expirymonth')[0].options.selectedIndex == 0) a_error('cc_expirymonth', true);
+				if (document.getElementsByName('cc_expirymonth')[0].options.selectedIndex == 0) a_error('cc_expirymonth', true, '');
 				else changeColour('cc_expirymonth', true, '');
-				if (document.getElementsByName('cc_expiryyear')[0].options.selectedIndex == 0) a_error('cc_expiryyear', true);
+				if (document.getElementsByName('cc_expiryyear')[0].options.selectedIndex == 0) a_error('cc_expiryyear', true, '');
 				else changeColour('cc_expiryyear', true, '');
-				if (document.getElementsByName('card_security_code')[0].value == "") a_error('card_security_code', true);
+				if (document.getElementsByName('card_security_code')[0].value == "") a_error('card_security_code', true, '');
 				else changeColour('card_security_code', true, '');
 			}
 		}
-		if (error == 0) location.href = 'checkout_confirm.html';
+		if (error == 0) {
+			localStorage.setItem('customerdetails', String.concat(document.getElementsByName('firstname')[0].value, ' ', document.getElementsByName('lastname')[0].value, ';', document.getElementsByName('address')[0].value, '|', (document.getElementsByName('address_two')[0].value.length > 0) ? document.getElementsByName('address_two')[0].value + '|' : '', document.getElementsByName('suburb')[0].value, '|', document.getElementById('state').value, '|', document.getElementById('country').value, ';', document.getElementsByName('postcode')[0].value, ';', document.getElementsByName('phonenumber')[0].value, ';', document.getElementsByName('email')[0].value, ';', (document.getElementsByName('paymenttype')[0].checked) ? 'creditcard;'.concat(document.getElementsByName('creditcard_type')[0].value, ';', document.getElementsByName('cc_number')[0].value, ';', document.getElementsByName('cc_expirymonth')[0].value, ';', document.getElementsByName('cc_expiryyear')[0].value, ';', document.getElementsByName('card_security_code')[0].value) : 'paypal'));
+			location.href = 'checkout_confirm.html';
+		}
 	}
 	/*
 	 * http://hostcode.sourceforge.net/dl/1303
@@ -365,7 +373,7 @@ function populateStates(countryElementId, stateElementId) {
 
 function populateCountries(countryElementId, stateElementId) {
 	// given the id of the <select> tag as function argument, it inserts <option> tags
-	var countryElement = document.getElementById(countryElementId);
+	countryElement = document.getElementById(countryElementId);
 	countryElement.length = 0;
 	countryElement.options[0] = new Option('-- select country --', '-1');
 	countryElement.options[0].disabled = true;
@@ -377,6 +385,12 @@ function populateCountries(countryElementId, stateElementId) {
 	if (stateElementId) {
 		countryElement.onchange = function() {
 			populateStates(countryElementId, stateElementId);
+			page_checkout.enableState();
 		};
 	}
+}
+
+function finishLoad() {
+	if (document.getElementsByName('paymenttype')[0].checked) page_checkout.changeType.creditcard();
+	else if (document.getElementsByName('paymenttype')[1].checked) page_checkout.changeType.paypal();
 }

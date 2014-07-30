@@ -1,119 +1,214 @@
 <!DOCTYPE html> <!-- Delcare document type -->
-<html lang="en-au"> <!-- HTML tag; set language to English Australia -->
-  <head> <!-- HEAD tag -->
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"> <!-- Declare document to be a html document, and set the character set to UTF-8 -->
-    <title>Broken Hill Surf Shop Online</title> <!-- Set the title of the webpage to Broken Hill Surf Shop Online -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico" /> <!-- Set the favourite icon (Website image in the tabs) -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> <!-- Import global style sheets -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/products.css"> <!-- Import product page specific CSS -->
-    <script src="../assets/js/util.js" type="text/javascript"></script> <!-- Import JavaScript utility scripts -->
-    <script src="../assets/js/cart.js" type="text/javascript"></script> <!-- Import JavaScript shopping cart scripts -->
-    <script src="../assets/js/page_products.js" type="text/javascript"></script> <!-- Import JavaScript product page specific scripts -->
-    <script src="../assets/js/jquery.min.js" type="text/javascript"></script> <!-- Import jQuery library. Downloaded the libary and put in locally incase the google cache servers can't be reached (eg at school; not entering proxy details -->
-    <script src="../assets/js/jquery.barcode.min.js"></script> <!-- Import jQuery barcode library -->
-    <script type="text/javascript"> <!-- SCRIPT tag -->
-      var parameters = window.location.toString(); // Store window location as the variable _parameters_
-      beginLoad(); // Call function beginLoad(), found in the page_products.js file.
-      if (hasargs) loadProduct(parameters[0]); // If the boolean _hasargs_ is _true_ (Product code entered as first parameter), call the loadProduct() function (found in the page_products.js file) passing the product code as a parameter. 
-    </script> <!-- Close SCRIPT tag -->
-  </head> <!-- Close HEAD tag -->
-  <body onLoad="finishLoad();"> <!-- BODY tag; when the page finishes loading, call the function finishLoad() function (found in the page_products.js) file). -->
-    <div id="container"> <!-- Wrapper div (For an anchored footer) -->
-<!-- #################################### -->
-<!-- # Header (Logo) and Navigation Bar # -->
-<!-- #################################### -->
-      <div id="cheader"> <!-- Header wrapper (Style defines the height and width, and other properties) -->
-        <div class="header"> <!-- Header class (inside wrapper) -->
-          <div class="headergradient"> <!-- Give background gradient to the area inside the div -->
-            <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> <!-- Logo image with link back to homepage -->
-            <div id="hcart"><a href="cart.html">Shopping Cart (<span id="cart_count">0</span>)</a></div> <!-- Shopping cart div (Will usually only appear if there are items in the cart -->
-            <script type="text/javascript">cart.updateCartCount(true);</script> <!-- Update id _cart_count_ (Previous line) -->
-<!-- START Navigation Bar -->
-            <div id="navigation-bar"> <!-- Styles for navigation bar list -->
-              <ul> <!-- Create unordered list -->
-                <li><a href="home.html">Home</a> </li> <!-- List item linking to the home page -->
-                <li class="active"><a href="products.html">Products</a> </li> <!-- List item linking to the product page; Active page -->
-                <li><a href="about.html">About</a> </li> <!-- List item linking to the about page -->
-                <li><a href="contact.html">Contact</a> </li> <!-- List item linking to the contact page -->
-                <li class="last"><a href="news.html">News</a> </li> <!-- List item linking to the news page -->
-              </ul> <!-- Close list -->
-            </div> <!-- Close navigation bar -->
-<!-- END Navigation Bar --> 
-          </div> <!-- Stop gradient -->
-<!-- START Product Navigation Bar -->
-          <div id="product-navigation-bar"> <!-- Styles for product navigation bar list -->
-            <ul> <!-- Create unordered list -->
-              <li id="product_category_surfing"><a href="surfing">Surfing</a> </li> <!-- List item linking to the surfing products -->
-              <li id="product_category_clothing"><a href="clothing">Clothing</a> </li> <!-- List item linking to the clothing products -->
-              <li id="product_category_protection"><a href="protection">Protection</a> </li> <!-- List item linking to the protection category -->
-              <li id="product_category_scubasnorkeling_gear"><a href="scubasnorkelinggear">Scuba/Snorkeling Gear</a> </li> <!-- List item linking to the scuba and snorkeling products -->
-              <li id="product_category_recreation"><a href="recreation">Recreation</a> </li> <!-- List item linking to the recreational products -->
-              <li id="product_category_accessories" class="last"><a href="accessories">Accessories</a> </li> <!-- List item linking to the accessories -->
-            </ul> <!-- Close list -->
-          </div> <!-- Close product navigation bar -->
-<!--END Product Navigation Bar--> 
-        </div> <!-- Closing header -->
-      </div> <!-- Close header -->
-      <div id="ccontent"> <!-- Body wrapper (The actual content) -->
-        <div id="product_location"></div> <!-- [JavaScript] Replace _product_location_ with the product location -->
-        <div id="products"> <!-- Product wrapper -->
-          <div class="productimage"><img id="productimage"></div> <!-- [JavaScript] Set product image url -->
-          <div class="producttext"> <!-- Product text wrapper -->
-            <div class="productinfo_upper"> <!-- Upper product text wrapper -->
-              <div id="productname"></div> <!-- [JavaScript] Set product name -->
-              <div id="productcode" class="borderbottom borderc"></div> <!-- [JavaScript] Set product code -->
-              <div id="productdatabaseinfo_price"></div> <!-- [JavaScript] Set product price -->
-              <div id="productdatabaseinfo_availability"></div> <!-- [JavaScript] Set product stock -->
-            </div> <!-- Close upper product text wrapper -->
-            <div class="productinfo_lower"> <!-- Lower product text wrapper -->
-              <div id="productdescription" class="borderbottom borderc"></div> <!-- [JavaScript] Set product description -->
-              <div id="productaddtocart" class="borderbottom borderc"> <!-- [JavaScript] Hide _productaddtocart_ if product out of stock -->
-              	<a href="javascript:void()" onclick="cart.addToCart(parameters[0],true);"> <!-- [JavaScript] Add item to cart link and update the shopping cart count (top right) -->
-                	<img src="../assets/images/addtocart.png"/> <!-- Image to the add cart button -->
-                    <span><strong>Add to cart</strong></span> <!-- Add cart text, in bold -->
-                </a> <!-- Close link -->
-              </div> <!-- Close Add To Cart div -->
-              <div id="productbarcode_wrapper"> <!-- Product barcode wrapper -->
-                <div id="productbarcode_wrapper_subwrapper" class="nomargin"> <!-- Product barcode sub wrapper -->
-                  <div id="productbarcode"></div> <!-- [JavaScript] Set barcode -->
-                </div> <!-- Close product barcode sub wrapper -->
-              </div> <!-- Close product barcode wrapper -->
-            </div> <!-- Close lower product text wrapper -->
-          </div> <!-- Close product text wrapper -->
-        </div> <!-- Close product wrapper -->
-      </div> <!-- Close body wrapper -->
-      <div id="footer_wrapper" class="footergradient nomargin"> <!-- Footer wrapper (Whole page width) -->
-        <div id="footer" class="nomargin"> <!-- Footer (900px page center) -->
-<!-- START Sitemap -->
-          <div id="infocolumns" class="borderbottom"> <!-- Info columns & because I don't like lists -->
-            <div> <!-- Column 1 - Sites -->
-              <h1>site</h1> <!-- Header -->
-              <p><a href="home.html">home</a> </p> <!-- Link to home page -->
-              <p><a href="products.html">products</a> </p> <!-- Link to products page -->
-              <p><a href="about.html">about</a> </p> <!-- Link to about page -->
-              <p><a href="contact.html">contact</a> </p> <!-- Link to contact page -->
-              <p><a href="news.html">news</a> </p> <!-- Link to news page -->
-            </div> <!-- Close column 1 -->
-            <div> <!-- Column 2 - Product Categories -->
-              <h1>products</h1> <!-- Header -->
-              <p><a href="surfing">surfing</a> </p> <!-- Link to surfing products -->
-              <p><a href="clothing">clothing</a> </p> <!-- Link to clothing products -->
-              <p><a href="protection">protection</a> </p> <!-- Link to protective products -->
-              <p><a href="scubasnorkelinggear">scuba/snorkeling gear</a> </p> <!-- Link to scuba and snorkeling gear -->
-              <p><a href="recreation">recreation</a> </p> <!-- Link to recreational gear -->
-              <p><a href="accessories">accessories</a> </p> <!-- Link to accessories -->
-            </div> <!-- Close column 2 -->
-<!-- END Sitemap -->
-            <div> <!-- Column 3 - Contact details -->
-              <h1>contact</h1> <!-- Header -->
-              <p>email: contact@brokenhillsurf.com.au</p> <!-- Email address - nonexistent -->
-              <p>facebook: brokenhillsurfshop</p> <!-- Facebook page name - nonexistent -->
-              <p>twitter: @brokenhillsurfshop</p> <!-- Twitter handle - nonexistent -->
-            </div> <!-- Close column 3 -->
-          </div> <!-- Close info columns -->
-        </div> <!-- Close footer -->
-        <p>&copy; 2014 Andrew Wong & Ryan Oo</p> <!-- Copyright -->
-      </div> <!-- Close footer wrapper -->
-    </div> <!-- Close wrapper div -->
-  </body> <!-- Close BODY tag -->
-</html> <!-- Close HTML tag -->
+<html lang="en-au">
+	<!-- HTML tag; set language to English Australia -->
+	<head>
+		<!-- HEAD tag -->
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<!-- Declare document to be a html document, and set the character set to UTF-8 -->
+		<title>Broken Hill Surf Shop Online</title>
+		<!-- Set the title of the webpage to Broken Hill Surf Shop Online -->
+		<link rel="shortcut icon" href="../assets/images/favicon.ico" />
+		<!-- Set the favourite icon (Website image in the tabs) -->
+		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+		<!-- Import global style sheets -->
+		<link rel="stylesheet" type="text/css" href="../assets/css/products.css">
+		<!-- Import product page specific CSS -->
+		<script src="../assets/js/util.js" type="text/javascript"></script> <!-- Import JavaScript utility scripts -->
+		<script src="../assets/js/cart.js" type="text/javascript"></script> <!-- Import JavaScript shopping cart scripts -->
+		<script src="../assets/js/page_products.js" type="text/javascript"></script> <!-- Import JavaScript product page specific scripts -->
+		<script src="../assets/js/jquery.min.js" type="text/javascript"></script> <!-- Import jQuery library. Downloaded the libary and put in locally incase the google cache servers can't be reached (eg at school; not entering proxy details -->
+		<script src="../assets/js/jquery.barcode.min.js"></script> <!-- Import jQuery barcode library -->
+		<script type="text/javascript"> <!-- SCRIPT tag -->
+			var parameters = window.location.toString(); // Store window location as the variable _parameters_
+			beginLoad(); // Call function beginLoad(), found in the page_products.js file.
+			if (hasargs) loadProduct(parameters[0]); // If the boolean _hasargs_ is _true_ (Product code entered as first parameter), call the loadProduct() function (found in the page_products.js file) passing the product code as a parameter. 
+		</script> <!-- Close SCRIPT tag -->
+	</head>
+	<!-- Close HEAD tag -->
+	<body onLoad="finishLoad();">
+		<!-- BODY tag; when the page finishes loading, call the function finishLoad() function (found in the page_products.js) file). -->
+		<div id="container">
+			<!-- Wrapper div (For an anchored footer) -->
+			<!-- #################################### -->
+			<!-- # Header (Logo) and Navigation Bar # -->
+			<!-- #################################### -->
+			<div id="cheader">
+				<!-- Header wrapper (Style defines the height and width, and other properties) -->
+				<div class="header">
+					<!-- Header class (inside wrapper) -->
+					<div class="headergradient">
+						<!-- Give background gradient to the area inside the div -->
+						<a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> <!-- Logo image with link back to homepage -->
+						<div id="hcart"><a href="cart.html">Shopping Cart (<span id="cart_count">0</span>)</a></div>
+						<!-- Shopping cart div (Will usually only appear if there are items in the cart -->
+						<script type="text/javascript">cart.updateCartCount(true);</script> <!-- Update id _cart_count_ (Previous line) -->
+						<!-- START Navigation Bar -->
+						<div id="navigation-bar">
+							<!-- Styles for navigation bar list -->
+							<ul>
+								<!-- Create unordered list -->
+								<li><a href="home.html">Home</a> </li>
+								<!-- List item linking to the home page -->
+								<li class="active"><a href="products.html">Products</a> </li>
+								<!-- List item linking to the product page; Active page -->
+								<li><a href="about.html">About</a> </li>
+								<!-- List item linking to the about page -->
+								<li><a href="contact.html">Contact</a> </li>
+								<!-- List item linking to the contact page -->
+								<li class="last"><a href="news.html">News</a> </li>
+								<!-- List item linking to the news page -->
+							</ul>
+							<!-- Close list -->
+						</div>
+						<!-- Close navigation bar -->
+						<!-- END Navigation Bar --> 
+					</div>
+					<!-- Stop gradient -->
+					<!-- START Product Navigation Bar -->
+					<div id="product-navigation-bar">
+						<!-- Styles for product navigation bar list -->
+						<ul>
+							<!-- Create unordered list -->
+							<li id="product_category_surfing"><a href="surfing">Surfing</a> </li>
+							<!-- List item linking to the surfing products -->
+							<li id="product_category_clothing"><a href="clothing">Clothing</a> </li>
+							<!-- List item linking to the clothing products -->
+							<li id="product_category_protection"><a href="protection">Protection</a> </li>
+							<!-- List item linking to the protection category -->
+							<li id="product_category_scubasnorkeling_gear"><a href="scubasnorkelinggear">Scuba/Snorkeling Gear</a> </li>
+							<!-- List item linking to the scuba and snorkeling products -->
+							<li id="product_category_recreation"><a href="recreation">Recreation</a> </li>
+							<!-- List item linking to the recreational products -->
+							<li id="product_category_accessories" class="last"><a href="accessories">Accessories</a> </li>
+							<!-- List item linking to the accessories -->
+						</ul>
+						<!-- Close list -->
+					</div>
+					<!-- Close product navigation bar -->
+					<!--END Product Navigation Bar--> 
+				</div>
+				<!-- Closing header -->
+			</div>
+			<!-- Close header -->
+			<div id="ccontent">
+				<!-- Body wrapper (The actual content) -->
+				<div id="product_location"></div>
+				<!-- [JavaScript] Replace _product_location_ with the product location -->
+				<div id="products">
+					<!-- Product wrapper -->
+					<div class="productimage"><img id="productimage"></div>
+					<!-- [JavaScript] Set product image url -->
+					<div class="producttext">
+						<!-- Product text wrapper -->
+						<div class="productinfo_upper">
+							<!-- Upper product text wrapper -->
+							<div id="productname"></div>
+							<!-- [JavaScript] Set product name -->
+							<div id="productcode" class="borderbottom borderc"></div>
+							<!-- [JavaScript] Set product code -->
+							<div id="productdatabaseinfo_price"></div>
+							<!-- [JavaScript] Set product price -->
+							<div id="productdatabaseinfo_availability"></div>
+							<!-- [JavaScript] Set product stock -->
+						</div>
+						<!-- Close upper product text wrapper -->
+						<div class="productinfo_lower">
+							<!-- Lower product text wrapper -->
+							<div id="productdescription" class="borderbottom borderc"></div>
+							<!-- [JavaScript] Set product description -->
+							<div id="productaddtocart" class="borderbottom borderc">
+								<!-- [JavaScript] Hide _productaddtocart_ if product out of stock -->
+								<a href="javascript:void(0);" onclick="cart.addToCart(parameters[0],true);">
+									<!-- [JavaScript] Add item to cart link and update the shopping cart count (top right) -->
+									<img src="../assets/images/addtocart.png"/> <!-- Image to the add cart button -->
+									<span><strong>Add to cart</strong></span> <!-- Add cart text, in bold -->
+								</a>
+								<!-- Close link -->
+							</div>
+							<!-- Close Add To Cart div -->
+							<div id="productbarcode_wrapper">
+								<!-- Product barcode wrapper -->
+								<div id="productbarcode_wrapper_subwrapper" class="nomargin">
+									<!-- Product barcode sub wrapper -->
+									<div id="productbarcode"></div>
+									<!-- [JavaScript] Set barcode -->
+								</div>
+								<!-- Close product barcode sub wrapper -->
+							</div>
+							<!-- Close product barcode wrapper -->
+						</div>
+						<!-- Close lower product text wrapper -->
+					</div>
+					<!-- Close product text wrapper -->
+				</div>
+				<!-- Close product wrapper -->
+			</div>
+			<!-- Close body wrapper -->
+			<div id="footer_wrapper" class="footergradient nomargin">
+				<!-- Footer wrapper (Whole page width) -->
+				<div id="footer" class="nomargin">
+					<!-- Footer (900px page center) -->
+					<!-- START Sitemap -->
+					<div id="infocolumns" class="borderbottom">
+						<!-- Info columns & because I don't like lists -->
+						<div>
+							<!-- Column 1 - Sites -->
+							<h1>site</h1>
+							<!-- Header -->
+							<p><a href="home.html">home</a> </p>
+							<!-- Link to home page -->
+							<p><a href="products.html">products</a> </p>
+							<!-- Link to products page -->
+							<p><a href="about.html">about</a> </p>
+							<!-- Link to about page -->
+							<p><a href="contact.html">contact</a> </p>
+							<!-- Link to contact page -->
+							<p><a href="news.html">news</a> </p>
+							<!-- Link to news page -->
+						</div>
+						<!-- Close column 1 -->
+						<div>
+							<!-- Column 2 - Product Categories -->
+							<h1>products</h1>
+							<!-- Header -->
+							<p><a href="surfing">surfing</a> </p>
+							<!-- Link to surfing products -->
+							<p><a href="clothing">clothing</a> </p>
+							<!-- Link to clothing products -->
+							<p><a href="protection">protection</a> </p>
+							<!-- Link to protective products -->
+							<p><a href="scubasnorkelinggear">scuba/snorkeling gear</a> </p>
+							<!-- Link to scuba and snorkeling gear -->
+							<p><a href="recreation">recreation</a> </p>
+							<!-- Link to recreational gear -->
+							<p><a href="accessories">accessories</a> </p>
+							<!-- Link to accessories -->
+						</div>
+						<!-- Close column 2 -->
+						<!-- END Sitemap -->
+						<div>
+							<!-- Column 3 - Contact details -->
+							<h1>contact</h1>
+							<!-- Header -->
+							<p>email: contact@brokenhillsurf.com.au</p>
+							<!-- Email address - nonexistent -->
+							<p>facebook: brokenhillsurfshop</p>
+							<!-- Facebook page name - nonexistent -->
+							<p>twitter: @brokenhillsurfshop</p>
+							<!-- Twitter handle - nonexistent -->
+						</div>
+						<!-- Close column 3 -->
+					</div>
+					<!-- Close info columns -->
+				</div>
+				<!-- Close footer -->
+				<p>&copy; 2014 Andrew Wong & Ryan Oo</p>
+				<!-- Copyright -->
+			</div>
+			<!-- Close footer wrapper -->
+		</div>
+		<!-- Close wrapper div -->
+	</body>
+	<!-- Close BODY tag -->
+</html>
+<!-- Close HTML tag -->

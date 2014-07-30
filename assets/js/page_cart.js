@@ -4,16 +4,16 @@ function beginLoad() {
 
 function createTable() {
 	if (!cart.isEmpty()) {
-		document.getElementById('nocart').style.display='none';
+		document.getElementById('nocart').style.display = 'none';
 		products_array = []
 		getProductInformation();
-		for (var i = 0; i < cart.countProducts(); i++) 
-			document.write("<tr class='tabledata'><td>" + Object.keys(cart.readCart().getOccurences())[i] + "</td><td><img height='75px' width='75px' src='products/" + Object.keys(cart.readCart().getOccurences())[i] + "/product.jpg'/></td><td></td><td></td><td><a href='#' onclick='changeAndUpdate(\"add\","+i+")'><img src='../assets/images/arrow_up.png'/></a><p class='nomargin'>" + cart.readCart().countOccurence(Object.keys(cart.readCart().getOccurences())[i]) + "</p><a href='#' onclick='changeAndUpdate(\"remove\","+i+")'><img src='../assets/images/arrow_down.png'/></a></td><td></td><td></td></tr>");
-		
+		for (var i = 0; i < cart.countProducts(); i++)
+			document.write("<tr class='tabledata'><td>" + Object.keys(cart.readCart().getOccurences())[i] + "</td><td><img height='75px' width='75px' src='products/" + Object.keys(cart.readCart().getOccurences())[i] + "/product.jpg'/></td><td></td><td></td><td><a href='#' onclick='changeAndUpdate(\"add\"," + i + ")'><img src='../assets/images/arrow_up.png'/></a><p class='nomargin'>" + cart.readCart().countOccurence(Object.keys(cart.readCart().getOccurences())[i]) + "</p><a href='#' onclick='changeAndUpdate(\"remove\"," + i + ")'><img src='../assets/images/arrow_down.png'/></a></td><td></td><td></td></tr>");
+
 	} else {
-		document.getElementById('ccontent').style.display='none';
-		document.getElementById('nocart').style.display='inherit';
-			}
+		document.getElementById('ccontent').style.display = 'none';
+		document.getElementById('nocart').style.display = 'inherit';
+	}
 }
 
 function changeAndUpdate(add_or_remove, rownumber) {
@@ -30,16 +30,20 @@ function changeAndUpdate(add_or_remove, rownumber) {
 			document.getElementsByClassName('tabledata')[rownumber].getElementsByTagName('td')[6].innerHTML = "$" + document.getElementsByClassName('tabledata')[rownumber].getElementsByTagName('td')[4].getElementsByTagName('p')[0].innerHTML * document.getElementsByClassName('tabledata')[rownumber].getElementsByTagName('td')[5].innerHTML.substr(1);
 		}
 	}
-	
-	document.getElementById('totalprice').innerHTML = "Total: $" + getTotalCartPrice();
+	if (cart.isEmpty()) {
+		document.getElementById('ccontent').style.display = 'none';
+		document.getElementById('nocart').style.display = 'inherit';
+	} else document.getElementById('totalprice').innerHTML = "Total: $" + getTotalCartPrice();
 }
 
-function getProductInformation() {
+function getProductInformation(callback) {
 	if (typeof products === 'undefined') {
 		temp = cart.readCart();
 	}
 	products = Object.keys(temp.getOccurences());
 	if (typeof firstproduct === 'undefined') {
+		if (typeof callback !== 'undefined') z_callback = callback;
+		else z_callback = populateData;
 		$('iframe#productload_iframe').load(function() {
 			getProductInformation_cont(this, products);
 		});
@@ -49,7 +53,8 @@ function getProductInformation() {
 		delete temp;
 		delete products;
 		$(document.head).find('iframe').remove();
-		populateData();
+		z_callback();
+		delete z_callback;
 		return;
 	}
 	$('iframe#productload_iframe').attr('src', "products/" + products[0] + "/info.txt");
@@ -77,16 +82,12 @@ function populateData() {
 
 function getTotalCartPrice() {
 	try {
-	var price = 0;
-	for (var i = 0; i < cart.countProducts(); i++) {
-		price += Number(document.getElementsByClassName('tabledata')[i].getElementsByTagName('td')[6].innerHTML.substr(1));
+		var price = 0;
+		for (var i = 0; i < cart.countProducts(); i++) {
+			price += Number(document.getElementsByClassName('tabledata')[i].getElementsByTagName('td')[6].innerHTML.substr(1));
+		}
+		return price;
+	} catch (e) {
+		console.log(e)
 	}
-	return price;
-	} catch(e) {
-	console.log(e)}
-}
-
-function showConfirm() {
-	document.getElementById('confirm_foreground').style.display='block';
-	document.getElementById('confirm_background_overlay').style.display='block';
 }

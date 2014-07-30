@@ -53,3 +53,6 @@ Array.prototype.getOccurences = function() {
 Array.prototype.countOccurence = function(item) {
 	return this.getOccurences()[item];
 }
+String.prototype.replaceAll = function(find, replace) {
+	 return this.replace(new RegExp(find, 'g'), replace);
+}
