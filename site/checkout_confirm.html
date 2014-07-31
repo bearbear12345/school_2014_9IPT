@@ -1,177 +1,110 @@
-<!DOCTYPE html>
-<html lang="en-US">
-	<head>
-		<meta charset="utf-8">
-		<title>Broken Hill Surf Shop Online</title>
-		<link rel="shortcut icon" href="../assets/images/favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-		<link rel="stylesheet" type="text/css" href="../assets/css/cart.css">
-		<script src="../assets/js/util.js" type="text/javascript"></script>
-		<script src="../assets/js/cart.js" type="text/javascript"></script>
-		<script src="../assets/js/page_cart.js" type="text/javascript"></script>
-		<script src="../assets/js/page_checkout_confirm.js" type="text/javascript"></script> <!-- Import JavaScript checkout page scripts -->
-		<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
-		<script>beginLoad(); beginLoad_confirm();</script>
-	</head>
-	<body onload="showDocument();">
-		<div id="container">
-			<div id="header">
-				<header class="header headergradient">
-					<a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a>
-					<!--START Navigation Bar-->
-					<div id="navigation-bar">
-						<ul>
-							<li><a href="home.html">Home</a> </li>
-							<li><a href="products.html">Products</a> </li>
-							<li><a href="about.html">About</a> </li>
-							<li><a href="contact.html">Contact</a> </li>
-							<li class="last"><a href="news.html">News</a> </li>
-						</ul>
-					</div>
-					<!--END Navigation Bar--> 
-				</header>
-			</div>
-			<div id="confirm_foreground" class="nomargin">
-				<p>Your order has been sent and is now awaiting verification.</p>
-				<p>Thank you for purchasing with Broken Hill Surf Shop!</p>
-				<p><a href='home.html'>Click here to return to the Broken Hill Surf Shop home page!</a></p>
-			</div>
-			<div id="confirm_background_overlay"></div>
-			<div id="ccontent">
-				<div id="ccontent_wrapper">
-					<div id="checkout_confirm_cart">
-						<table class="table">
-							<tr>
-								<th>Code</th>
-								<th>Product Name</th>
-								<th>Quantity</th>
-								<th>Price</th>
-							</tr>
-							<!-- Second column houses the product image -->
-							<script>confirm_createTable();</script>
-							<tr class="noborder">
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><strong>Total: $<span id="checkout_totalprice"></span></strong></td>
-							</tr>
-						</table>
-					</div>
-					<div id="customerdetails">
-						<table class="table">
-							<tr>
-								<td>Name</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>Billing Address</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>Postcode</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>Phone</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>Email</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>Payment</td>
-								<td></td>
-							</tr>
-							<tr class="table_creditcard">
-								<td>Credit Card Type</td>
-								<td></td>
-							</tr>
-							<tr class="table_creditcard">
-								<td>Credit Card Number</td>
-								<td></td>
-							</tr>
-							<tr class="table_creditcard">
-								<td>Credit Card Expiry Date</td>
-								<td></td>
-							</tr>
-							<tr class="table_creditcard">
-								<td>Credit Card Security Code</td>
-								<td></td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div id="checkout_navigation">
-					<hr />
-					<p><a href="#" onclick="history.go(-1);"><span>No, go back and review my order</span></a></p>
-					<p><a href="#" onclick="doOrder();"><span>Yes, this is correct, finish and purchase</span></a></p>
-				</div>
-			</div>
-			<div id="footer_wrapper" class="footergradient nomargin">
-				<!-- Footer wrapper (Whole page width) -->
-				<div id="footer" class="nomargin">
-					<!-- Footer (900px page center) -->
-					<!-- SITEMAP -->
-					<div id="infocolumns" class="borderbottom">
-						<!-- Info columns & because I don't like lists -->
-						<div>
-							<!-- Column 1 - Sites -->
-							<h1>site</h1>
-							<!-- Header -->
-							<p><a href="home.html">home</a> </p>
-							<!-- Link to home page -->
-							<p><a href="products.html">products</a> </p>
-							<!-- Link to products page -->
-							<p><a href="about.html">about</a> </p>
-							<!-- Link to about page -->
-							<p><a href="contact.html">contact</a> </p>
-							<!-- Link to contact page -->
-							<p><a href="news.html">news</a> </p>
-							<!-- Link to news page -->
-						</div>
-						<!-- Close column 1 -->
-						<div>
-							<!-- Column 2 - Product Categories -->
-							<h1>products</h1>
-							<!-- Header -->
-							<p><a href="surfing">surfing</a> </p>
-							<!-- Link to surfing products -->
-							<p><a href="clothing">clothing</a> </p>
-							<!-- Link to clothing products -->
-							<p><a href="protection">protection</a> </p>
-							<!-- Link to protective products -->
-							<p><a href="scubasnorkelinggear">scuba/snorkeling gear</a> </p>
-							<!-- Link to scuba and snorkeling gear -->
-							<p><a href="recreation">recreation</a> </p>
-							<!-- Link to recreational gear -->
-							<p><a href="accessories">accessories</a> </p>
-							<!-- Link to accessories -->
-						</div>
-						<!-- Close column 2 -->
-						<div>
-							<!-- Column 3 - Contact details -->
-							<h1>contact</h1>
-							<!-- Header -->
-							<p>email: contact@brokenhillsurf.com.au</p>
-							<!-- Email address - nonexistent -->
-							<p>facebook: brokenhillsurfshop</p>
-							<!-- Facebook page name - nonexistent -->
-							<p>twitter: @brokenhillsurfshop</p>
-							<!-- Twitter handle - nonexistent -->
-						</div>
-						<!-- Close column 3 -->
-					</div>
-					<!-- Close info columns -->
-				</div>
-				<!-- Close footer -->
-				<p>&copy; 2014 Andrew Wong & Ryan Oo</p>
-				<!-- Copyright -->
-			</div>
-			<!-- Close footer wrapper -->
-		</div>
-		<!-- Close wrapper div -->
-	</body>
-	<!-- Close BODY tag -->
-</html>
-<!-- Close HTML tag -->
+<!DOCTYPE html> <!-- Delcare document type -->
+<html lang="en-au"> <!-- HTML tag; set language to English Australia -->
+  <head> <!-- HEAD tag -->
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" > <!-- Declare document to be a html document, and set the character set to UTF-8 -->
+    <title>Broken Hill Surf Shop Online</title> <!-- Set the title of the webpage to Broken Hill Surf Shop Online -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" /> <!-- Set the favourite icon (Website image in the tabs) -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> <!-- Import global style sheets -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/cart.css"> <!-- Import cart page specific style sheet -->
+    <script src="../assets/js/util.js" type="text/javascript"></script> <!-- Import JavaScript utility scripts -->
+    <script src="../assets/js/cart.js" type="text/javascript"></script> <!-- Import JavaScript shopping cart scripts -->
+    <script src="../assets/js/page_cart.js" type="text/javascript"></script> <!-- Import JavaScript cart page specific scripts -->
+    <script src="../assets/js/page_checkout_confirm.js" type="text/javascript"></script> <!-- Import JavaScript cart confirmation page specific scripts -->
+    <script src="../assets/js/jquery.min.js" type="text/javascript"></script> <!-- Import jQuery library. Downloaded the libary and put in locally incase the google cache servers can't be reached (eg at school; not entering proxy details -->
+    <script type="text/javascript"> <!-- SCRIPT tag -->
+      beginLoad(); //Call function beginLoad(), found in the page_products.js file.
+	  beginLoad_checkout_confirm(); //Call function beginLoad_checkout_confirm(), found in the page_checkout_confirm.js file.
+    </script> <!-- Close SCRIPT tag -->
+  </head> <!-- Close HEAD tag -->
+  <body onLoad="fixFooter(); showDocument();"> <!-- BODY tag; when the page finishes loading, call the function showDocument() function (found in the util.js) file). Also calls the function fixFooter() which resolves an issue regarding the page footer and the global styles -->
+    <div id="container"> <!-- Wrapper div (For an anchored footer) -->
+<!-- #################################### -->
+<!-- # Header (Logo) and Navigation Bar # -->
+<!-- #################################### -->
+      <div id="header"> <!-- Header wrapper (Style defines the height and width, and other properties) -->
+        <div class="header headergradient"> <!-- Header class (inside wrapper) & gradient -->
+          <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> <!-- Logo image with link back to homepage -->
+<!--START Navigation Bar-->
+          <div id="navigation-bar"> <!-- Styles for navigation bar list -->
+            <ul> <!-- Create unordered list -->
+              <li><a href="home.html">Home</a> </li> <!-- List item linking to the home page -->
+              <li><a href="products.html">Products</a> </li> <!-- List item linking to the product page; Active page -->
+              <li><a href="about.html">About</a> </li> <!-- List item linking to the about page -->
+              <li><a href="contact.html">Contact</a> </li> <!-- List item linking to the contact page -->
+              <li class="last"><a href="news.html">News</a> </li> <!-- List item linking to the news page -->
+            </ul> <!-- Close list -->
+          </div> <!-- Close navigation bar -->
+<!--END Navigation Bar--> 
+        </div> <!-- Closing header -->
+      </div> <!-- Close header -->
+      <div id="confirm_foreground" class="nomargin"> <!-- Shown when the user clicks Yes -->
+        <p>Your order has been sent and is now awaiting verification.</p> <!-- ... -->
+        <p>Thank you for purchasing with Broken Hill Surf Shop!</p> <!-- ... -->
+        <p><a href='home.html'>Click here to return to the Broken Hill Surf Shop home page!</a></p> <!-- Link to the homepage -->
+      </div> <!-- Close _confirm_foreground_ -->
+      <div id="confirm_background_overlay"></div> <!-- Overlay background -->
+      <div id="ccontent"> <!-- Body wrapper (The actual content) -->
+        <div id="ccontent_wrapper"> <!-- Content excluding the navigation buttons -->
+          <div id="checkout_confirm_cart">  <!-- Cart -->
+            <table class="table"> <!-- Cart table -->
+              <tr><th>Code</th><th>Product Name</th><th>Quantity</th><th>Price</th></tr> <!-- Table headings -->
+              <script>confirm_createTable();</script> <!-- [JavaScript] Create table -->
+              <tr class="noborder"><td></td><td></td><td></td><td><strong>Total: $<span id="checkout_totalprice"></span></strong></td></tr> <!-- Total price -->
+            </table> <!-- Close cart table -->
+          </div> <!-- Close cart -->
+          <div id="customerdetails"> <!-- Customer details -->
+            <table class="table"> <!-- Customer details table -->
+              <tr><td>Name</td><td></td></tr> <!-- ... -->
+              <tr><td>Billing Address</td><td></td></tr> <!-- ... -->
+              <tr><td>Postcode</td><td></td></tr> <!-- ... -->
+              <tr><td>Phone</td><td></td></tr> <!-- ... -->
+              <tr><td>Email</td><td></td></tr> <!-- ... -->
+              <tr><td>Payment</td><td></td></tr> <!-- ... -->
+              <tr class="table_creditcard"><td>Credit Card Type</td><td></td></tr> <!-- Only shown if credit card is selected as the payment option -->
+              <tr class="table_creditcard"><td>Credit Card Number</td><td></td></tr> <!-- Only shown if credit card is selected as the payment option -->
+              <tr class="table_creditcard"><td>Credit Card Expiry Date</td><td></td></tr> <!-- Only shown if credit card is selected as the payment option -->
+              <tr class="table_creditcard"><td>Credit Card Security Code</td><td></td></tr> <!-- Only shown if credit card is selected as the payment option -->
+            </table> <!-- Close customer details table -->
+          </div> <!-- Close customer details -->
+        </div> <!-- Close content wrapper -->
+        <div id="checkout_navigation"> <!-- Navigation buttons -->
+          <hr /> <!-- Draw a horizontal rule -->
+          <p><a href="#" onclick="history.go(-1);"><span>No, go back and review my order</span></a></p> <!-- Link to go back a page -->
+          <p><a href="#" onclick="doOrder();"><span>Yes, this is correct, finish and purchase</span></a></p> <!-- Link to confirm purchase -->
+        </div> <!-- Close navigation buttons -->
+      </div> <!-- Close body wrapper -->
+      <div id="footer_wrapper" class="footergradient nomargin"> <!-- Footer wrapper (Whole page width) -->
+        <div id="footer" class="nomargin"> <!-- Footer (900px page center) -->
+<!-- START Sitemap -->
+          <div id="infocolumns" class="borderbottom"> <!-- Info columns & because I don't like lists -->
+            <div> <!-- Column 1 - Sites -->
+              <h1>site</h1> <!-- Header -->
+              <p><a href="home.html">home</a> </p> <!-- Link to home page -->
+              <p><a href="products.html">products</a> </p> <!-- Link to products page -->
+              <p><a href="about.html">about</a> </p> <!-- Link to about page -->
+              <p><a href="contact.html">contact</a> </p> <!-- Link to contact page -->
+              <p><a href="news.html">news</a> </p> <!-- Link to news page -->
+            </div> <!-- Close column 1 -->
+            <div> <!-- Column 2 - Product Categories -->
+              <h1>products</h1> <!-- Header -->
+              <p><a href="category_surfing.html">surfing</a> </p> <!-- Link to surfing products -->
+              <p><a href="category_clothing.html">clothing</a> </p> <!-- Link to clothing products -->
+              <p><a href="category_protection.html">protection</a> </p> <!-- Link to protective products -->
+              <p><a href="category_scubasnorkelinggear.html">scuba/snorkeling gear</a> </p> <!-- Link to scuba and snorkeling gear -->
+              <p><a href="category_recreation.html">recreation</a> </p> <!-- Link to recreational gear -->
+              <p><a href="category_accessories.html">accessories</a> </p> <!-- Link to accessories -->
+            </div> <!-- Close column 2 -->
+ <!-- END Sitemap -->
+            <div> <!-- Column 3 - Contact details -->
+              <h1>contact</h1> <!-- Header -->
+              <p>email: contact@brokenhillsurf.com.au</p> <!-- Email address - nonexistent -->
+              <p>facebook: brokenhillsurfshop</p> <!-- Facebook page name - nonexistent -->
+              <p>twitter: @brokenhillsurfshop</p> <!-- Twitter handle - nonexistent -->
+            </div> <!-- Close column 3 -->
+          </div> <!-- Close info columns -->
+        </div> <!-- Close footer -->
+        <p>&copy; 2014 Andrew Wong & Ryan Oo</p> <!-- Copyright -->
+      </div> <!-- Close footer wrapper -->
+    </div> <!-- Close wrapper div -->
+  </body> <!-- Close BODY tag -->
+</html> <!-- Close HTML tag -->

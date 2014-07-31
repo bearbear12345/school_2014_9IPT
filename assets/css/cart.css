@@ -1,68 +1,67 @@
 #ccontent, #nocart {
-	/* Set background colour to #86CEE4, shadow around edge of container*/
+	/* Set background colour to #86CEE4, shadow around edge of container */
 	margin: 140px auto;
 	padding-top: 30px;
 	padding-bottom: 180px;
 	width: 900px;
 }
 #nocart p {
+	/* Set p element font to bold and size 36 */
 	font-size: 36px;
 	font-weight: 700;
 }
 #ccontent_wrapper {
+	/* Spacing from the bottom */
 	margin-bottom: 20px;
 }
 #checkout_confirm_cart {
+	/* Alignment */
 	float: left;
 	margin-left: 20px;
 }
 #customerdetails {
+	/* Alignment */
 	width: 425px;
 	margin-left: 450px;
 }
-.table {
-	border: 2px solid;
-	border-collapse: collapse;
-}
-.table td {
-	border: 1px solid;
-	padding: 5px;
-}
-.table th {
-	border: 1px solid;
-	border-bottom: 2px solid;
-	padding: 5px;
-}
 #shippingcosts {
+	/* Set shipping cost font to bold */
 	border-bottom: 1px solid;
 	font-weight: 700;
 }
 #totalprice {
+	/* Styles for the total price */
 	text-align: left;
 	border: 2px solid;
 	font-size: 35px;
 	padding-left: 5px;
 }
 .noborder td {
+	/* Remove border from td elements (Total price) */
 	border: 0
 }
 #checkout_totalprice {
+	/* Set total price font to bold */
 	border: 0;
 	font-weight: 700;
 }
 #checkout_navigation {
+	/* Align buttons on the right hand side */
 	margin: 10px;
 	text-align: right;
 }
 #checkout_navigation p {
+	/* Spacing from the bottom */
 	margin-bottom: 20px;
 }
 #checkout_navigation span {
+	/* Set span element text to bold, and give it a border */
 	border: 2px solid;
 	padding: 5px;
 	font-weight: 700;
 }
 #confirm_background_overlay {
+	/* Overlay background styles */
 	display: none;
 	position: fixed;
 	top: 0%;
@@ -76,6 +75,7 @@
 	filter: alpha(opacity=80);
 }
 #confirm_foreground {
+	/* Overlay location */
 	display: none;
 	position: fixed;
 	top: 25%;
@@ -90,14 +90,17 @@
 	overflow: auto;
 }
 #confirm_foreground p {
+	/* Position paragraphs roughly in the center of the overlay */
 	position: relative;
 	top: 35%;
 }
 #confirm_foreground p a {
+	/* Set href element text to bold */
 	font-weight: 700;
 }
 @media (max-width: 900px) {
-  #confirm_foreground {
+#confirm_foreground {
+	/* Resize overlay if the width is 900px or less */
 	display: none;
 	position: fixed;
 	left: 0;
@@ -110,8 +113,9 @@
 	background-color: white;
 	z-index: 1002;
 	overflow: auto;
-  }
+}
 }
 .table_creditcard {
+	/* Hide element */
 	display: none;
 }

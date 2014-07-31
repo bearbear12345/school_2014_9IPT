@@ -1,0 +1,90 @@
+<!DOCTYPE html> <!-- Delcare document type -->
+<html lang="en-au"> <!-- HTML tag; set language to English Australia -->
+  <head> <!-- HEAD tag -->
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" /> <!-- Declare document to be a html document, and set the character set to UTF-8 -->
+    <title>Broken Hill Surf Shop Online</title> <!-- Set the title of the webpage to Broken Hill Surf Shop Online -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" /> <!-- Set the favourite icon (Website image in the tabs) -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> <!-- Import global style sheets -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/products.css"> <!-- Import product page style sheets -->
+    <script src="../assets/js/util.js"></script> <!-- Import JavaScript utility scripts -->
+    <script src="../assets/js/cart.js"></script> <!-- Import JavaScript shopping cart scripts -->
+  </head> <!-- Close HEAD tag -->
+  <body onLoad="showDocument(); fixFooter(); document.getElementById('ccontent').style.display='inherit';"> <!-- BODY tag; when the page finishes loading, call the function showDocument() function (found in the util.js) file). Also calls the function fixFooter() which resolves an issue regarding the page footer and the global styles Also show the content container -->
+    <div id="container"> <!-- Wrapper div (For an anchored footer) -->
+<!-- #################################### -->
+<!-- # Header (Logo) and Navigation Bar # -->
+<!-- #################################### -->
+      <div id="cheader"> <!-- Header wrapper (Style defines the height and width, and other properties) -->
+        <div class="header"> <!-- Header class (inside wrapper) -->
+          <div class="headergradient"> <!-- Give background gradient to the area inside the div -->
+            <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> <!-- Logo image with link back to homepage -->
+            <div id="hcart"><a href="cart.html">Shopping Cart (<span id="cart_count">0</span>)</a></div> <!-- Shopping cart div (Will usually only appear if there are items in the cart -->
+            <script type="text/javascript">cart.updateCartCount(true);</script> <!-- Update id _cart_count_ (Previous line) -->
+<!-- START Navigation Bar -->
+            <div id="navigation-bar"> <!-- Styles for navigation bar list -->
+              <ul> <!-- Create unordered list -->
+                <li><a href="home.html">Home</a> </li> <!-- List item linking to the home page -->
+                <li class="active"><a href="products.html">Products</a> </li> <!-- List item linking to the product page; Active page -->
+                <li><a href="about.html">About</a> </li> <!-- List item linking to the about page -->
+                <li><a href="contact.html">Contact</a> </li> <!-- List item linking to the contact page -->
+                <li class="last"><a href="news.html">News</a> </li> <!-- List item linking to the news page -->
+              </ul> <!-- Close list -->
+            </div> <!-- Close navigation bar -->
+<!-- END Navigation Bar --> 
+          </div> <!-- Stop gradient -->
+<!-- START Product Navigation Bar -->
+          <div id="product-navigation-bar"> <!-- Styles for product navigation bar list -->
+            <ul> <!-- Create unordered list -->
+              <li id="product_category_surfing"><a href="category_surfing.html">Surfing</a> </li> <!-- List item linking to the surfing products -->
+              <li id="product_category_clothing"><a href="category_clothing.html">Clothing</a> </li> <!-- List item linking to the clothing products -->
+              <li id="product_category_protection" class="active"><a href="category_protection.html">Protection</a> </li> <!-- List item linking to the protection category -->
+              <li id="product_category_scubasnorkeling_gear"><a href="category_scubasnorkelinggear.html">Scuba/Snorkeling Gear</a> </li> <!-- List item linking to the scuba and snorkeling products -->
+              <li id="product_category_recreation"><a href="category_recreation.html">Recreation</a> </li> <!-- List item linking to the recreational products -->
+              <li id="product_category_accessories" class="last"><a href="category_accessories.html">Accessories</a> </li> <!-- List item linking to the accessories -->
+            </ul> <!-- Close list -->
+          </div> <!-- Close product navigation bar -->
+<!--END Product Navigation Bar--> 
+        </div> <!-- Closing header -->
+      </div> <!-- Close header -->
+      <div id="ccontent"> <!-- Body wrapper (The actual content) -->
+        <table class="table"> <!-- Create product table -->
+          <tr><th>Product Code</th><th>Image</th><th>Product Name</th><th>Price</th></tr> <!-- Table headings -->
+          <tr><td><a href='products.html?50490049'>50490049</a></td><td><a href='products.html?50490049'><img height='75px' width='75px' src='products/50490049/product.jpg'/></a></td><td><a href='products.html?50490049'>Sunscreen</a></td><td><a href='products.html?50490049'>$25</a></td></tr> <!-- Table content - product 50490049 -->
+          <tr><td><a href='products.html?50500050'>50500050</a></td><td><a href='products.html?50500050'><img height='75px' width='75px' src='products/50500050/product.jpg'/></a></td><td><a href='products.html?50500050'>First Aid Kit</a></td><td><a href='products.html?50500050'>$89</a></td></tr> <!-- Table content - product 50500050 -->
+        </table> <!-- Close product table -->
+      </div> <!-- Close body wrapper -->
+      <div id="footer_wrapper" class="footergradient nomargin"> <!-- Footer wrapper (Whole page width) -->
+        <div id="footer" class="nomargin"> <!-- Footer (900px page center) -->
+<!-- START Sitemap -->
+          <div id="infocolumns" class="borderbottom"> <!-- Info columns & because I don't like lists -->
+            <div> <!-- Column 1 - Sites -->
+              <h1>site</h1> <!-- Header -->
+              <p><a href="home.html">home</a> </p> <!-- Link to home page -->
+              <p><a href="products.html">products</a> </p> <!-- Link to products page -->
+              <p><a href="about.html">about</a> </p> <!-- Link to about page -->
+              <p><a href="contact.html">contact</a> </p> <!-- Link to contact page -->
+              <p><a href="news.html">news</a> </p> <!-- Link to news page -->
+            </div> <!-- Close column 1 -->
+            <div> <!-- Column 2 - Product Categories -->
+              <h1>products</h1> <!-- Header -->
+              <p><a href="category_surfing.html">surfing</a> </p> <!-- Link to surfing products -->
+              <p><a href="category_clothing.html">clothing</a> </p> <!-- Link to clothing products -->
+              <p><a href="category_protection.html">protection</a> </p> <!-- Link to protective products -->
+              <p><a href="category_scubasnorkelinggear.html">scuba/snorkeling gear</a> </p> <!-- Link to scuba and snorkeling gear -->
+              <p><a href="category_recreation.html">recreation</a> </p> <!-- Link to recreational gear -->
+              <p><a href="category_accessories.html">accessories</a> </p> <!-- Link to accessories -->
+            </div> <!-- Close column 2 -->
+ <!-- END Sitemap -->
+            <div> <!-- Column 3 - Contact details -->
+              <h1>contact</h1> <!-- Header -->
+              <p>email: contact@brokenhillsurf.com.au</p> <!-- Email address - nonexistent -->
+              <p>facebook: brokenhillsurfshop</p> <!-- Facebook page name - nonexistent -->
+              <p>twitter: @brokenhillsurfshop</p> <!-- Twitter handle - nonexistent -->
+            </div> <!-- Close column 3 -->
+          </div> <!-- Close info columns -->
+        </div> <!-- Close footer -->
+        <p>&copy; 2014 Andrew Wong & Ryan Oo</p> <!-- Copyright -->
+      </div> <!-- Close footer wrapper -->
+    </div> <!-- Close wrapper div -->
+  </body> <!-- Close BODY tag -->
+</html> <!-- Close HTML tag -->

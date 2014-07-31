@@ -1,219 +1,111 @@
 <!DOCTYPE html> <!-- Delcare document type -->
-<html lang="en-au">
-	<!-- HTML tag; set language to English Australia -->
-	<head>
-		<!-- HEAD tag -->
-		<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-		<!-- Declare document to be a html document, and set the character set to UTF-8 -->
-		<title>Broken Hill Surf Shop Online</title>
-		<!-- Set the title of the webpage to Broken Hill Surf Shop Online -->
-		<link rel="shortcut icon" href="../assets/images/favicon.ico" />
-		<!-- Set the favourite icon (Website image in the tabs) -->
-		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-		<!-- Import global style sheets -->
-		<link rel="stylesheet" type="text/css" href="../assets/css/cart.css">
-		<!-- Import cart page specific CSS -->
-		<link rel="stylesheet" type="text/css" href="../assets/css/checkout.css">
-		<!-- Import checkout(s) page specific CSS -->
-		<script src="../assets/js/util.js" type="text/javascript"></script> <!-- Import JavaScript utility scripts -->
-		<script src="../assets/js/cart.js" type="text/javascript"></script> <!-- Import JavaScript shopping cart scripts -->
-		<script src="../assets/js/page_checkout.js" type="text/javascript"></script> <!-- Import JavaScript checkout page scripts -->
-		<script src="../assets/js/page_checkout_confirm.js" type="text/javascript"></script> <!-- Import JavaScript checkout confirmation page scripts -->
-		<script type="text/javascript">beginLoad();</script>
-	</head>
-	<!-- Close HEAD tag -->
-	<body onLoad="populateCountries('country', 'state'); finishLoad(); showDocument();">
-		<!-- BODY tag; when the page finishes loading, call the function showDocument() function (found in the util.js) file). Also enters options into the state and country dropdown selection menus. In addition, shows payment type options, depending on how the page was visited -->
-		<div id="container">
-			<!-- Wrapper div (For an anchored footer) -->
-			<!-- #################################### -->
-			<!-- # Header (Logo) and Navigation Bar # -->
-			<!-- #################################### -->
-			<div id="header">
-				<!-- Header wrapper (Style defines the height and width, and other properties) -->
-				<div class="header headergradient">
-					<!-- Header class (inside wrapper) with gradient -->
-					<a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> <!-- Logo image with link back to homepage -->
-					<!-- START Navigation Bar -->
-					<div id="navigation-bar">
-						<!-- Styles for navigation bar list -->
-						<ul>
-							<!-- Create unordered list -->
-							<li><a href="home.html">Home</a> </li>
-							<!-- List item linking to the home page -->
-							<li><a href="products.html">Products</a> </li>
-							<!-- List item linking to the product page; Active page-->
-							<li><a href="about.html">About</a> </li>
-							<!-- List item linking to the about page -->
-							<li><a href="contact.html">Contact</a> </li>
-							<!-- List item linking to the contact page -->
-							<li class="last"><a href="news.html">News</a> </li>
-							<!-- List item linking to the news page -->
-						</ul>
-						<!-- Close list -->
-					</div>
-					<!-- Close navigation bar -->
-					<!-- END Navigation Bar --> 
-				</div>
-				<!-- Close header class -->
-			</div>
-			<!-- Close header wrapper -->
-			<div id="ccontent">
-				<!-- Body wrapper (The actual content) -->
-				<div id="customer_details">
-					<h1>Customer Details</h1>
-					<form>
-						<fieldset id="details_billing">
-							<legend>Billing Information</legend>
-							<p><span>First name:</span> <input type="text" name="firstname"></p>
-							<p><span>Last name:</span><input type="text" name="lastname"></p>
-							<p><span>Address:</span><input type="text" name="address"></p>
-							<p><span>Address 2:</span><input type="text" name="address_two"></p>
-							<p><span>Suburb:</span><input type="text" name="suburb"></p>
-							<p>
-								<span>State:</span>
-								<select id="state" name="state" disabled>
-									<option>-- select country first --
-								</select>
-							</p>
-							<p><span>Postcode:</span><input type="text" name="postcode"></p>
-							<p><span>Country:</span><select id="country" name="country"></select>
-							<p><span>Phone number:</span><input type="text" name="phonenumber"></p>
-							<!-- "text" -->
-							<p><span>Email address:</span><input type="text" name="email"></p>
-						</fieldset>
-						<fieldset id="details_payment">
-							<legend>Payment Methods</legend>
-							<p><span>Payment Type:</span><input type="radio" name="paymenttype" value="creditcard" onclick="page_checkout.changeType.creditcard();">Credit Card<input type="radio" name="paymenttype" value="paypal" onclick="page_checkout.changeType.paypal();">PayPal
-							<div id="radio_creditcard">
-								<p>
-									<span>Card Type:</span>
-									<select name="creditcard_type">
-										<option selected disabled>-- card type --
-										<option value="MASTERCARD" onclick="page_checkout.changeTo.mastercard();">Mastercard
-										<option value="VISA" onclick="page_checkout.changeTo.visa();">Visa
-										<option value="AMEX" onclick="page_checkout.changeTo.amex();">American Express
-									</select>
-								</p>
-								<p><span>Card Number:</span><input type="text" name="cc_number" disabled></p>
-								<p>
-									<span>Expiry Date:</span>
-									<select name="cc_expirymonth" disabled>
-										<option selected disabled>-- month --
-										<option value="01">01
-										<option value="02">02
-										<option value="03">03
-										<option value="04">04
-										<option value="05">05
-										<option value="06">06
-										<option value="07">07
-										<option value="08">08
-										<option value="09">09
-										<option value="10">10
-										<option value="11">11
-										<option value="12">12
-									</select>
-									/
-									<select name="cc_expiryyear" disabled>
-										<option selected disabled>-- year --
-										<option value="04">2004
-										<option value="05">2005
-										<option value="06">2006
-										<option value="07">2007
-										<option value="08">2008
-										<option value="09">2009
-										<option value="10">2010
-										<option value="11">2011
-										<option value="12">2012
-										<option value="13">2013
-										<option value="14">2014
-										<option value="15">2015
-										<option value="16">2016
-										<option value="17">2017
-										<option value="18">2018
-										<option value="19">2019
-									</select>
-								</p>
-								<p><span id="card_security_code">Security Code</span><input type="text" name="card_security_code" disabled></p>
-							</div>
-							<div id="radio_paypal">
-								<p style='text-align: center' class='nomargin'>PayPal selected at the payment method. Press Next to continue the purchase.</p>
-								<img src='../assets/images/paypal.png' alt='Secured by PayPal'/>
-							</div>
-						</fieldset>
-					</form>
-					<div id="checkout_navigation">
-						<a href="#" onclick="history.go(-1);"><span>Back</span></a>
-						<a href="#" onclick='validate();'><span>Next</span></a>
-					</div>
-				</div>
-			</div>
-			<!-- Close body wrapper -->
-			<div id="footer_wrapper" class="footergradient nomargin">
-				<!-- Footer wrapper (Whole page width) -->
-				<div id="footer" class="nomargin">
-					<!-- Footer (900px page center) -->
-					<!-- START Sitemap -->
-					<div id="infocolumns" class="borderbottom">
-						<!-- Info columns & because I don't like lists -->
-						<div>
-							<!-- Column 1 - Sites -->
-							<h1>site</h1>
-							<!-- Header -->
-							<p><a href="home.html">home</a> </p>
-							<!-- Link to home page -->
-							<p><a href="products.html">products</a> </p>
-							<!-- Link to products page -->
-							<p><a href="about.html">about</a> </p>
-							<!-- Link to about page -->
-							<p><a href="contact.html">contact</a> </p>
-							<!-- Link to contact page -->
-							<p><a href="news.html">news</a> </p>
-							<!-- Link to news page -->
-						</div>
-						<!-- Close column 1 -->
-						<div>
-							<!-- Column 2 - Product Categories -->
-							<h1>products</h1>
-							<!-- Header -->
-							<p><a href="surfing">surfing</a> </p>
-							<!-- Link to surfing products -->
-							<p><a href="clothing">clothing</a> </p>
-							<!-- Link to clothing products -->
-							<p><a href="protection">protection</a> </p>
-							<!-- Link to protective products -->
-							<p><a href="scubasnorkelinggear">scuba/snorkeling gear</a> </p>
-							<!-- Link to scuba and snorkeling gear -->
-							<p><a href="recreation">recreation</a> </p>
-							<!-- Link to recreational gear -->
-							<p><a href="accessories">accessories</a> </p>
-							<!-- Link to accessories -->
-						</div>
-						<!-- Close column 2 -->
-						<!-- END Sitemap -->
-						<div>
-							<!-- Column 3 - Contact details -->
-							<h1>contact</h1>
-							<!-- Header -->
-							<p>email: contact@brokenhillsurf.com.au</p>
-							<!-- Email address - nonexistent -->
-							<p>facebook: brokenhillsurfshop</p>
-							<!-- Facebook page name - nonexistent -->
-							<p>twitter: @brokenhillsurfshop</p>
-							<!-- Twitter handle - nonexistent -->
-						</div>
-						<!-- Close column 3 -->
-					</div>
-					<!-- Close info columns -->
-				</div>
-				<!-- Close footer -->
-				<p>&copy; 2014 Andrew Wong & Ryan Oo</p>
-				<!-- Copyright -->
-			</div>
-			<!-- Close footer wrapper -->
-		</div>
-		<!-- Close wrapper div -->
-	</body>
-	<!-- Close BODY tag -->
-</html>
-<!-- Close HTML tag -->
+<html lang="en-au"> <!-- HTML tag; set language to English Australia -->
+  <head> <!-- HEAD tag -->
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" /> <!-- Declare document to be a html document, and set the character set to UTF-8 -->
+    <title>Broken Hill Surf Shop Online</title> <!-- Set the title of the webpage to Broken Hill Surf Shop Online -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" /> <!-- Set the favourite icon (Website image in the tabs) -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> <!-- Import global style sheets -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/cart.css"> <!-- Import cart page specific CSS -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/checkout.css"> <!-- Import checkout(s) page specific CSS -->
+    <script src="../assets/js/util.js" type="text/javascript"></script> <!-- Import JavaScript utility scripts -->
+    <script src="../assets/js/cart.js" type="text/javascript"></script> <!-- Import JavaScript shopping cart scripts -->
+    <script src="../assets/js/page_checkout.js" type="text/javascript"></script> <!-- Import JavaScript checkout page scripts -->
+    <script src="../assets/js/page_checkout_confirm.js" type="text/javascript"></script> <!-- Import JavaScript checkout confirmation page scripts -->
+    <script type="text/javascript"> /* SCRIPT tag */
+	beginLoad_checkout(); // Call beginLoad_checkout() function.
+    </script> <!-- Close SCRIPT tag -->
+  </head> <!-- Close HEAD tag -->
+  <body onLoad="populateCountries('country', 'state'); finishLoad(); showDocument();"> <!-- BODY tag; when the page finishes loading, call the function showDocument() function (found in the util.js) file). Also enters options into the state and country dropdown selection menus. In addition, shows payment type options, depending on how the page was visited -->
+    <div id="container"> <!-- Wrapper div (For an anchored footer) -->
+<!-- #################################### -->
+<!-- # Header (Logo) and Navigation Bar # -->
+<!-- #################################### -->
+      <div id="header"> <!-- Header wrapper (Style defines the height and width, and other properties) -->
+        <div class="header headergradient"> <!-- Header class (inside wrapper) with gradient -->
+          <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> <!-- Logo image with link back to homepage -->
+<!-- START Navigation Bar -->
+          <div id="navigation-bar"> <!-- Styles for navigation bar list -->
+            <ul> <!-- Create unordered list -->
+              <li><a href="home.html">Home</a> </li> <!-- List item linking to the home page -->
+              <li><a href="products.html">Products</a> </li> <!-- List item linking to the product page; Active page-->
+              <li><a href="about.html">About</a> </li> <!-- List item linking to the about page -->
+              <li><a href="contact.html">Contact</a> </li> <!-- List item linking to the contact page -->
+              <li class="last"><a href="news.html">News</a> </li> <!-- List item linking to the news page -->
+            </ul> <!-- Close list -->
+          </div> <!-- Close navigation bar -->
+<!-- END Navigation Bar --> 
+        </div> <!-- Close header class -->
+      </div> <!-- Close header wrapper -->
+      <div id="ccontent"> <!-- Body wrapper (The actual content) -->
+        <div id="customer_details"> <!-- Customer details -->
+          <h1>Customer Details</h1> <!-- ... -->
+          <form> <!-- Customer details form -->
+            <fieldset id="details_billing"> <!-- Billing details -->
+              <legend>Billing Information</legend> <!-- ... -->
+              <p><span>First name:</span> <input type="text" name="firstname"></p> <!-- First name of the customer -->
+              <p><span>Last name:</span><input type="text" name="lastname"></p> <!-- Last name of the customer -->
+              <p><span>Address:</span><input type="text" name="address"></p> <!-- Address 1 of the customer -->
+              <p><span>Address 2:</span><input type="text" name="address_two"></p> <!-- [OPTIONAL] Address 2 of the customer -->
+              <p><span>Suburb:</span><input type="text" name="suburb"></p> <!-- Suburb of the customer -->
+              <p><span>State:</span><select id="state" name="state" disabled><option>-- select country first --</select></p> <!-- State of the customer; [JavaScript] Insert states appropriate to country -->
+              <p><span>Postcode:</span><input type="text" name="postcode"></p> <!-- Postcode of the customer -->
+              <p><span>Country:</span><select id="country" name="country"></select> <!-- Country of the customer -->
+              <p><span>Phone number:</span><input type="text" name="phonenumber"></p> <!-- Phone number of the customer -->
+              <p><span>Email address:</span><input type="text" name="email"></p> <!-- Email address of the customer -->
+            </fieldset> <!-- Close billing details -->
+            <fieldset id="details_payment"> <!-- Payment details -->
+              <legend>Payment Methods</legend> <!-- ... -->
+              <p><span>Payment Type:</span><input type="radio" name="paymenttype" value="creditcard" onclick="page_checkout.changeType.creditcard();">Credit Card<input type="radio" name="paymenttype" value="paypal" onclick="page_checkout.changeType.paypal();">PayPal <!-- Radio button for either Credit Card or PayPal -->
+              <div id="radio_creditcard"> <!-- Only shown if creditcard selected -->
+                <p><span>Card Type:</span><select name="creditcard_type"><option selected disabled>-- card type --<option value="MASTERCARD" onclick="page_checkout.changeTo.mastercard();">Mastercard<option value="VISA" onclick="page_checkout.changeTo.visa();">Visa<option value="AMEX" onclick="page_checkout.changeTo.amex();">American Express</select></p> <!-- Dropdown selection list of the desired credit card -->
+                <p><span>Card Number:</span><input type="text" name="cc_number" disabled></p> <!-- Credit Card number -->
+                <p><span>Expiry Date:</span><select name="cc_expirymonth" disabled><option selected disabled>-- month --<option value="01">01<option value="02">02<option value="03">03<option value="04">04<option value="05">05<option value="06">06<option value="07">07<option value="08">08<option value="09">09<option value="10">10<option value="11">11<option value="12">12</select>/<select name="cc_expiryyear" disabled><option selected disabled>-- year --<option value="04">2004<option value="05">2005<option value="06">2006<option value="07">2007<option value="08">2008<option value="09">2009<option value="10">2010<option value="11">2011<option value="12">2012<option value="13">2013<option value="14">2014<option value="15">2015<option value="16">2016<option value="17">2017<option value="18">2018<option value="19">2019</select></p> <!-- Expiry month & year of the credit card -->
+                <p><span id="card_security_code">Security Code</span><input type="text" name="card_security_code" disabled></p> <!-- Credit card security code -->
+              </div> <!-- Close creditcard only -->
+              <div id="radio_paypal"> <!-- Only shown if paypal is selected -->
+                <p style='text-align: center' class='nomargin'>PayPal selected at the payment method. Press Next to continue the purchase.</p> <!-- ... -->
+                <img src='../assets/images/paypal.png' alt='Secured by PayPal'/> <!-- PayPal image -->
+              </div> <!-- Close paypal only -->
+            </fieldset> <!-- Close payment details -->
+          </form> <!-- Close customer details form -->
+          </div> <!-- Close customer details -->
+          <div id="checkout_navigation"> <!-- Navigation buttons -->
+            <a href="#" onclick="history.go(-1);"><span>Back</span></a> <!-- Go back a page -->
+            <a href="#" onclick='validate();'><span>Next</span></a> <!-- [JavaScript] Check if form is valid, and if so continue, otherwise, highlight the issues -->
+          </div> <!-- Close navigation buttons -->
+      </div> <!-- Close body wrapper -->
+      <div id="footer_wrapper" class="footergradient nomargin"> <!-- Footer wrapper (Whole page width) -->
+        <div id="footer" class="nomargin"> <!-- Footer (900px page center) -->
+<!-- START Sitemap -->
+          <div id="infocolumns" class="borderbottom"> <!-- Info columns & because I don't like lists -->
+            <div> <!-- Column 1 - Sites -->
+              <h1>site</h1> <!-- Header -->
+              <p><a href="home.html">home</a> </p> <!-- Link to home page -->
+              <p><a href="products.html">products</a> </p> <!-- Link to products page -->
+              <p><a href="about.html">about</a> </p> <!-- Link to about page -->
+              <p><a href="contact.html">contact</a> </p> <!-- Link to contact page -->
+              <p><a href="news.html">news</a> </p> <!-- Link to news page -->
+            </div> <!-- Close column 1 -->
+            <div> <!-- Column 2 - Product Categories -->
+              <h1>products</h1> <!-- Header -->
+              <p><a href="category_surfing.html">surfing</a> </p> <!-- Link to surfing products -->
+              <p><a href="category_clothing.html">clothing</a> </p> <!-- Link to clothing products -->
+              <p><a href="category_protection.html">protection</a> </p> <!-- Link to protective products -->
+              <p><a href="category_scubasnorkelinggear.html">scuba/snorkeling gear</a> </p> <!-- Link to scuba and snorkeling gear -->
+              <p><a href="category_recreation.html">recreation</a> </p> <!-- Link to recreational gear -->
+              <p><a href="category_accessories.html">accessories</a> </p> <!-- Link to accessories -->
+            </div> <!-- Close column 2 -->
+ <!-- END Sitemap -->
+            <div> <!-- Column 3 - Contact details -->
+              <h1>contact</h1> <!-- Header -->
+              <p>email: contact@brokenhillsurf.com.au</p> <!-- Email address - nonexistent -->
+              <p>facebook: brokenhillsurfshop</p> <!-- Facebook page name - nonexistent -->
+              <p>twitter: @brokenhillsurfshop</p> <!-- Twitter handle - nonexistent -->
+            </div> <!-- Close column 3 -->
+          </div> <!-- Close info columns -->
+        </div> <!-- Close footer -->
+        <p>&copy; 2014 Andrew Wong & Ryan Oo</p> <!-- Copyright -->
+      </div> <!-- Close footer wrapper -->
+    </div> <!-- Close wrapper div -->
+  </body> <!-- Close BODY tag -->
+</html> <!-- Close HTML tag -->

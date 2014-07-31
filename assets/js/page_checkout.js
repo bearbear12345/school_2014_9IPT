@@ -1,104 +1,123 @@
+function beginLoad_checkout() {
+  /* Check if the shopping cart is empty, and if it is, redirect to the homepage */
+  if (cart.isEmpty()) location.href = 'home.html';
+}
 var page_checkout = {
-	changeType: {
-		paypal: function() {
-			document.getElementById('radio_creditcard').style.display = 'none';
-			document.getElementById('radio_paypal').style.display = 'inherit';
-		},
-		creditcard: function() {
-			document.getElementById('radio_creditcard').style.display = 'inherit';
-			document.getElementById('radio_paypal').style.display = 'none';
-		},
-	},
-	changeTo: {
-		mastercard: function() {
-			document.getElementById('card_security_code').innerHTML = 'CVC';
-			document.getElementsByName('card_security_code')[0].disabled = false;
-			page_checkout.enableCreditCardInput();
-		},
-		visa: function() {
-			document.getElementById('card_security_code').innerHTML = 'CVV';
-			document.getElementsByName('card_security_code')[0].disabled = false;
-			page_checkout.enableCreditCardInput();
-		},
-		amex: function() {
-			document.getElementById('card_security_code').innerHTML = 'CID';
-			document.getElementsByName('card_security_code')[0].disabled = false;
-			page_checkout.enableCreditCardInput();
-		},
-	},
-	enableCreditCardInput: function() {
-		document.getElementsByName('card_security_code')[0].disabled = false;
-		document.getElementsByName('cc_number')[0].disabled = false;
-		document.getElementsByName('cc_expirymonth')[0].disabled = false;
-		document.getElementsByName('cc_expiryyear')[0].disabled = false;
-	},
-	enableState: function() {
-		document.getElementsByName('state')[0].disabled = false;
-	}
+  /* Custom functions */
+  changeType: {
+    paypal: function() {
+      // Show paypal only items (nothing though)
+      document.getElementById('radio_creditcard').style.display = 'none';
+      document.getElementById('radio_paypal').style.display = 'inherit';
+    },
+    creditcard: function() {
+      // Show credit card only items
+      document.getElementById('radio_creditcard').style.display = 'inherit';
+      document.getElementById('radio_paypal').style.display = 'none';
+    },
+  },
+  changeTo: {
+    mastercard: function() {
+      // Set security code text to CVC
+      document.getElementById('card_security_code').innerHTML = 'CVC';
+      document.getElementsByName('card_security_code')[0].disabled = false;
+      page_checkout.enableCreditCardInput();
+    },
+    visa: function() {
+      // Set security code text to CVV
+      document.getElementById('card_security_code').innerHTML = 'CVV';
+      document.getElementsByName('card_security_code')[0].disabled = false;
+      page_checkout.enableCreditCardInput();
+    },
+    amex: function() {
+      // Set security code text to CID
+      document.getElementById('card_security_code').innerHTML = 'CID';
+      document.getElementsByName('card_security_code')[0].disabled = false;
+      page_checkout.enableCreditCardInput();
+    },
+  },
+  enableCreditCardInput: function() {
+    // Enable the credit card details to be entered
+    document.getElementsByName('card_security_code')[0].disabled = false;
+    document.getElementsByName('cc_number')[0].disabled = false;
+    document.getElementsByName('cc_expirymonth')[0].disabled = false;
+    document.getElementsByName('cc_expiryyear')[0].disabled = false;
+  },
+  enableState: function() {
+    // Enable the state to be seleceted
+    document.getElementsByName('state')[0].disabled = false;
+  }
 }
 
 function a_error(problem, name_or_id, isPaymentType) {
-	error += 1;
-	if (typeof isPaymentType !== 'undefined' && isPaymentType) {
-		document.getElementById('details_payment').getElementsByTagName('p')[0].style.color = 'red';
-		document.getElementById('details_payment').getElementsByTagName('p')[0].getElementsByTagName('span')[0].style.color = 'black';
-	} else changeColour(problem, name_or_id, "#EEB4B4");
+  /* Add 1 to the error count, and highlight/change colour of the affected problem */
+  error += 1;
+  if (typeof isPaymentType !== 'undefined' && isPaymentType) {
+    document.getElementById('details_payment').getElementsByTagName('p')[0].style.color = 'red';
+    document.getElementById('details_payment').getElementsByTagName('p')[0].getElementsByTagName('span')[0].style.color = 'black';
+  } else changeColour(problem, name_or_id, "#EEB4B4");
 }
 
 function changeColour(element, name_or_id, colour) {
-	if (name_or_id) document.getElementsByName(element)[0].style.backgroundColor = colour;
-	else document.getElementById(element).style.backgroundColor = colour;
+  /* Change colour of an element */
+  if (name_or_id) document.getElementsByName(element)[0].style.backgroundColor = colour;
+  else document.getElementById(element).style.backgroundColor = colour;
 }
 
 function validate() {
-		error = 0;
-		if (document.getElementsByName('firstname')[0].value == "") a_error('firstname', true, '');
-		else changeColour('firstname', true, '');
-		if (document.getElementsByName('lastname')[0].value == "") a_error('lastname', true, '');
-		else changeColour('lastname', true, '');
-		if (document.getElementsByName('address')[0].value == "") a_error('address', true, '');
-		else changeColour('address', true, '');
-		if (document.getElementsByName('suburb')[0].value == "") a_error('suburb', true, '');
-		else changeColour('suburb', true, '');
-		if (document.getElementById('state').options.selectedIndex == 0) a_error('state', false, '');
-		else changeColour('state', false, '');
-		var re_digit = /^[\d ]+$/;
-		var re_postcode = /^[a-zA-Z0-9]+$/; //Apparently, according to the database, China has postcodes with letters
-		if (!re_postcode.test(document.getElementsByName('postcode')[0].value)) a_error('postcode', true, '');
-		else changeColour('postcode', true, '');
-		if (document.getElementById('country').options.selectedIndex == 0) a_error('country', false, '');
-		else changeColour('country', false, '');
-		if (!re_digit.test(document.getElementsByName('phonenumber')[0].value)) a_error('phonenumber', true, '');
-		else changeColour('phonenumber', true, '');
-		var re_email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		if (!re_email.test(document.getElementsByName('email')[0].value)) a_error('email', true, '');
-		else changeColour('email', true, '');
-		if (!document.getElementsByName('paymenttype')[0].checked && !document.getElementsByName('paymenttype')[1].checked) a_error('paymenttype', true, true, '');
-		else changeColour('paymenttype', true, '');
-		if (document.getElementsByName('paymenttype')[0].checked) {
-			document.getElementById('details_payment').getElementsByTagName('p')[0].style.color = 'black';
-			if (document.getElementsByName('creditcard_type')[0].options.selectedIndex == 0) a_error('creditcard_type', true, '');
-			else {
-				changeColour('creditcard_type', true, '');
-				if (!re_digit.test(document.getElementsByName('cc_number')[0].value)) a_error('cc_number', true, '');
-				else changeColour('cc_number', true, '');
-				if (document.getElementsByName('cc_expirymonth')[0].options.selectedIndex == 0) a_error('cc_expirymonth', true, '');
-				else changeColour('cc_expirymonth', true, '');
-				if (document.getElementsByName('cc_expiryyear')[0].options.selectedIndex == 0) a_error('cc_expiryyear', true, '');
-				else changeColour('cc_expiryyear', true, '');
-				if (document.getElementsByName('card_security_code')[0].value == "") a_error('card_security_code', true, '');
-				else changeColour('card_security_code', true, '');
-			}
-		}
-		if (error == 0) {
-			localStorage.setItem('customerdetails', String.concat(document.getElementsByName('firstname')[0].value, ' ', document.getElementsByName('lastname')[0].value, ';', document.getElementsByName('address')[0].value, '|', (document.getElementsByName('address_two')[0].value.length > 0) ? document.getElementsByName('address_two')[0].value + '|' : '', document.getElementsByName('suburb')[0].value, '|', document.getElementById('state').value, '|', document.getElementById('country').value, ';', document.getElementsByName('postcode')[0].value, ';', document.getElementsByName('phonenumber')[0].value, ';', document.getElementsByName('email')[0].value, ';', (document.getElementsByName('paymenttype')[0].checked) ? 'creditcard;'.concat(document.getElementsByName('creditcard_type')[0].value, ';', document.getElementsByName('cc_number')[0].value, ';', document.getElementsByName('cc_expirymonth')[0].value, ';', document.getElementsByName('cc_expiryyear')[0].value, ';', document.getElementsByName('card_security_code')[0].value) : 'paypal'));
-			location.href = 'checkout_confirm.html';
-		}
-	}
-	/*
-	 * http://hostcode.sourceforge.net/dl/1303
-	 */
-	//Countries
+    /* Check if form details are valid
+	   If errors are found, the affected areas will be highlighted.
+	   When no errors are found, the page will change to the confirmation page
+	*/
+    error = 0;
+    if (document.getElementsByName('firstname')[0].value == "") a_error('firstname', true, '');
+    else changeColour('firstname', true, '');
+    if (document.getElementsByName('lastname')[0].value == "") a_error('lastname', true, '');
+    else changeColour('lastname', true, '');
+    if (document.getElementsByName('address')[0].value == "") a_error('address', true, '');
+    else changeColour('address', true, '');
+    if (document.getElementsByName('suburb')[0].value == "") a_error('suburb', true, '');
+    else changeColour('suburb', true, '');
+    if (document.getElementById('state').options.selectedIndex == 0) a_error('state', false, '');
+    else changeColour('state', false, '');
+    var re_digit = /^[\d ]+$/; // Regular expression: digits + SPACEBAR
+    var re_postcode = /^[a-zA-Z0-9]+$/; // Regular expression: a-z,A-Z,0-9; Apparently, according to the report, China has postcodes with letters
+    if (!re_postcode.test(document.getElementsByName('postcode')[0].value)) a_error('postcode', true, '');
+    else changeColour('postcode', true, '');
+    if (document.getElementById('country').options.selectedIndex == 0) a_error('country', false, '');
+    else changeColour('country', false, '');
+    if (!re_digit.test(document.getElementsByName('phonenumber')[0].value)) a_error('phonenumber', true, '');
+    else changeColour('phonenumber', true, '');
+    var re_email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // Regular expression - verify correct email format
+    if (!re_email.test(document.getElementsByName('email')[0].value)) a_error('email', true, '');
+    else changeColour('email', true, '');
+    if (!document.getElementsByName('paymenttype')[0].checked && !document.getElementsByName('paymenttype')[1].checked) a_error('paymenttype', true, true, '');
+    else changeColour('paymenttype', true, '');
+    if (document.getElementsByName('paymenttype')[0].checked) {
+      document.getElementById('details_payment').getElementsByTagName('p')[0].style.color = 'black';
+      if (document.getElementsByName('creditcard_type')[0].options.selectedIndex == 0) a_error('creditcard_type', true, '');
+      else {
+        changeColour('creditcard_type', true, '');
+        if (!re_digit.test(document.getElementsByName('cc_number')[0].value)) a_error('cc_number', true, '');
+        else changeColour('cc_number', true, '');
+        if (document.getElementsByName('cc_expirymonth')[0].options.selectedIndex == 0) a_error('cc_expirymonth', true, '');
+        else changeColour('cc_expirymonth', true, '');
+        if (document.getElementsByName('cc_expiryyear')[0].options.selectedIndex == 0) a_error('cc_expiryyear', true, '');
+        else changeColour('cc_expiryyear', true, '');
+        if (document.getElementsByName('card_security_code')[0].value == "") a_error('card_security_code', true, '');
+        else changeColour('card_security_code', true, '');
+      }
+    }
+    if (error == 0) {
+      localStorage.setItem('customerdetails', String.concat(document.getElementsByName('firstname')[0].value, ' ', document.getElementsByName('lastname')[0].value, ';', document.getElementsByName('address')[0].value, '|', (document.getElementsByName('address_two')[0].value.length > 0) ? document.getElementsByName('address_two')[0].value + '|' : '', document.getElementsByName('suburb')[0].value, '|', document.getElementById('state').value, '|', document.getElementById('country').value, ';', document.getElementsByName('postcode')[0].value, ';', document.getElementsByName('phonenumber')[0].value, ';', document.getElementsByName('email')[0].value, ';', (document.getElementsByName('paymenttype')[0].checked) ? 'creditcard;'.concat(document.getElementsByName('creditcard_type')[0].value, ';', document.getElementsByName('cc_number')[0].value, ';', document.getElementsByName('cc_expirymonth')[0].value, ';', document.getElementsByName('cc_expiryyear')[0].value, ';', document.getElementsByName('card_security_code')[0].value) : 'paypal'));
+      location.href = 'checkout_confirm.html';
+    }
+  }
+
+/*
+ * http://hostcode.sourceforge.net/dl/1303
+ */
+//Countries
 var country_arr = new Array("Afghanistan", "Albania", "Algeria", "American Samoa", "Angola", "Anguilla", "Antartica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Ashmore and Cartier Island", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Clipperton Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czeck Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Europa Island", "Falkland Islands (Islas Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "French Guiana", "French Polynesia", "French Southern and Antarctic Lands", "Gabon", "Gambia, The", "Gaza Strip", "Georgia", "Germany", "Ghana", "Gibraltar", "Glorioso Islands", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard Island and McDonald Islands", "Holy See (Vatican City)", "Honduras", "Hong Kong", "Howland Island", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Ireland, Northern", "Israel", "Italy", "Jamaica", "Jan Mayen", "Japan", "Jarvis Island", "Jersey", "Johnston Atoll", "Jordan", "Juan de Nova Island", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Man, Isle of", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Midway Islands", "Moldova", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcaim Islands", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romainia", "Russia", "Rwanda", "Saint Helena", "Saint Kitts and Nevis", "Saint Lucia", "Saint Pierre and Miquelon", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Scotland", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and South Sandwich Islands", "Spain", "Spratly Islands", "Sri Lanka", "Sudan", "Suriname", "Svalbard", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Tobago", "Toga", "Tokelau", "Tonga", "Trinidad", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "Uruguay", "USA", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands", "Wales", "Wallis and Futuna", "West Bank", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
 // States
 var s_a = new Array();
@@ -359,38 +378,40 @@ s_a[251] = "Central|Copperbelt|Eastern|Luapula|Lusaka|North-Western|Northern|Sou
 s_a[252] = "Bulawayo|Harare|ManicalandMashonaland Central|Mashonaland East|Mashonaland West|Masvingo|Matabeleland North|Matabeleland South|Midlands";
 
 function populateStates(countryElementId, stateElementId) {
-	var selectedCountryIndex = document.getElementById(countryElementId).selectedIndex;
-	var stateElement = document.getElementById(stateElementId);
-	stateElement.length = 0; // Fixed by Julian Woods
-	stateElement.options[0] = new Option('-- select state --', '');
-	stateElement.options[0].disabled = true;
-	stateElement.selectedIndex = 0;
-	var state_arr = s_a[selectedCountryIndex].split("|");
-	for (var i = 0; i < state_arr.length; i++) {
-		stateElement.options[stateElement.length] = new Option(state_arr[i], state_arr[i]);
-	}
+  /* Inserts the names of states of country X into the id _state */
+  var selectedCountryIndex = document.getElementById(countryElementId).selectedIndex;
+  var stateElement = document.getElementById(stateElementId);
+  stateElement.length = 0; // Fixed by Julian Woods
+  stateElement.options[0] = new Option('-- select state --', '');
+  stateElement.options[0].disabled = true;
+  stateElement.selectedIndex = 0;
+  var state_arr = s_a[selectedCountryIndex].split("|");
+  for (var i = 0; i < state_arr.length; i++) {
+    stateElement.options[stateElement.length] = new Option(state_arr[i], state_arr[i]);
+  }
 }
 
 function populateCountries(countryElementId, stateElementId) {
-	// given the id of the <select> tag as function argument, it inserts <option> tags
-	countryElement = document.getElementById(countryElementId);
-	countryElement.length = 0;
-	countryElement.options[0] = new Option('-- select country --', '-1');
-	countryElement.options[0].disabled = true;
-	countryElement.selectedIndex = 0;
-	for (var i = 0; i < country_arr.length; i++) {
-		countryElement.options[countryElement.length] = new Option(country_arr[i], country_arr[i]);
-	}
-	// Assigned all countries. Now assign event listener for the states.
-	if (stateElementId) {
-		countryElement.onchange = function() {
-			populateStates(countryElementId, stateElementId);
-			page_checkout.enableState();
-		};
-	}
+  /* Inserts the names of countries into the id _country_ */
+  countryElement = document.getElementById(countryElementId);
+  countryElement.length = 0;
+  countryElement.options[0] = new Option('-- select country --', '-1');
+  countryElement.options[0].disabled = true;
+  countryElement.selectedIndex = 0;
+  for (var i = 0; i < country_arr.length; i++) {
+    countryElement.options[countryElement.length] = new Option(country_arr[i], country_arr[i]);
+  }
+  // Assigned all countries. Now assign event listener for the states.
+  if (stateElementId) {
+    countryElement.onchange = function() {
+      populateStates(countryElementId, stateElementId);
+      page_checkout.enableState();
+    };
+  }
 }
 
 function finishLoad() {
-	if (document.getElementsByName('paymenttype')[0].checked) page_checkout.changeType.creditcard();
-	else if (document.getElementsByName('paymenttype')[1].checked) page_checkout.changeType.paypal();
+  /* Depending on how the page was entered, the radio buttons may have or may not have been selected already. If they were previously selected, show their corresponding further details */
+  if (document.getElementsByName('paymenttype')[0].checked) page_checkout.changeType.creditcard();
+  else if (document.getElementsByName('paymenttype')[1].checked) page_checkout.changeType.paypal();
 }

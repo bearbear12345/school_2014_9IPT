@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import uarl(http://fonts.googleapis.com/css?family=Open+Sans:700|Lato:400italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700|Lato:400italic);
 /* START GLOBAL CSS */
 html, body {
 	/* Align text to the center; set the font to Lato, set margins to 0 (window/container edge) */
@@ -11,10 +11,11 @@ html, body {
 	width: 100%;
 }
 #container {
+	/* Styles to make the footer anchored */
 	min-height: 100%;
 	min-width: 900px;
 	position: relative;
-	display: none;
+	display: none; /* Initially hide the page until the page finishes loading */
 }
 a:visited {
 	/* Make visited links remain black, instead of turning purple */
@@ -38,7 +39,7 @@ a {
 	background: -o-linear-gradient(top, #86cee4 0%, #85b9e2 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, #86cee4 0%, #85b9e2 100%); /* Internet Explorer 10+ */
 	background: linear-gradient(to bottom, #86cee4 0%, #85b9e2 100%); /* W3C */
- filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86cee4', endColorstr='#85b9e2', GradientType=0 ); /* Internet Explorer 6,7,8,9 */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86cee4', endColorstr='#85b9e2', GradientType=0 ); /* Internet Explorer 6,7,8,9 */
 }
 .logo {
 	/* Set logo width and height */
@@ -49,10 +50,14 @@ a {
 	/* Set footer _background_ colour to #86CEE4, keep footer at bottom of page */
 	background-color: #86CEE4;
 	position: absolute;
-	bottom: 0;
 	width: 100%;
 }
+.footer_fix {
+	/* Fix issue with footers */
+	bottom: 0;
+}
 .footergradient {
+	/* Set footer gradient */
 	background: #85b9e2;
 	background: -moz-linear-gradient(top, #85b9e2 0%, #86cee4 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #85b9e2), color-stop(100%, #86cee4));
@@ -60,51 +65,64 @@ a {
 	background: -o-linear-gradient(top, #85b9e2 0%, #86cee4 100%);
 	background: -ms-linear-gradient(top, #85b9e2 0%, #86cee4 100%);
 	background: linear-gradient(to bottom, #85b9e2 0%, #86cee4 100%);
- filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b9e2', endColorstr='#86cee4', GradientType=0 );
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b9e2', endColorstr='#86cee4', GradientType=0 );
 }
 #footer {
+	/* Set footer size */
 	width: 900px;
 	height: 145px;
 }
 #footer a {
+	/* Set footer link colour */
 	color: #000;
 }
 #infocolumns {
+	/* Set infocolumn size */
 	height: 150px;
 	padding-bottom: 10px;
 }
 #infocolumns div {
+	/* Spacing */
 	float: left;
 	margin: 0;
 	width: 300px;
 }
 #infocolumns div h1 {
+	/* Spacing */
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
 #infocolumns div p {
+	/* Spacing */
 	line-height: 5px;
 	margin: 12px;
 }
 .borderbottom {
+	/* Set 1 pixel solid line bottom border */
 	border-bottom: 1px solid;
 }
 .borderc {
+	/* Set border colour to a light-ish grey */
 	border-color: #A7A7A7;
 }
 .nomargin {
+	/* Strip margins */
 	margin: 0 auto;
 }
 #hcart {
+	/* Header cart link and count */
+	/* Initially hide and show when JavaScript changes its display value */
 	position: absolute;
 	right: 50%;
 	margin-right: -420px;
 	top: 10px;
 	display: none;
 }
+
 /* GLOBAL -> START Navigation Bar CSS */
 /* css motto - "whatever works" */
 #navigation-bar ul, #product-navigation-bar ul {
+	/* Remove list item style (bullet point) + Spacing */
 	list-style: none;
 	line-height: 1;
 	display: inline-block;
@@ -112,6 +130,7 @@ a {
 	padding: 0;
 }
 #navigation-bar ul li, #product-navigation-bar ul li {
+	/* Align left */
 	float: left;
 	display: inline-block;
 	padding: 0;
@@ -156,7 +175,7 @@ a {
 	-o-transition: width .25s;
 	transition: width .25s;
 }
-#navigation-bar ul li.last > a:after, #product-navigation-bar ul li.last > a:after, #navigation-bar ul li:last-child > a:after, #product-navigation-bar ul li:last-child > a:after {
+#navigation-bar ul li.last >  a:after, #product-navigation-bar ul li.last >  a:after, #navigation-bar ul li:last-child >  a:after, #product-navigation-bar ul li:last-child >  a:after {
 	/* Hides separator for the last item in the list */
 	display: none;
 }
@@ -169,8 +188,26 @@ a {
 	width: 100%;
 }
 /* GLOBAL -> END Navigation Bar CSS */
-/* END GLOBAL CSS */
 
+.table {
+	/* Set a border of 2px and have the borders go full size */
+	border: 2px solid;
+	border-collapse: collapse;
+	margin: auto;
+}
+.table td {
+	/* Border + Spacing */
+	border: 1px solid;
+	padding: 5px;
+}
+.table th {
+	/* Border + Spacing */
+	border: 1px solid;
+	border-bottom: 2px solid;
+	padding: 5px;
+}
+/* END GLOBAL CSS */
+  
 /* START Excluding Product Page CSS */
 #header {
 	/* Set background colour to #86CEE4 and always stay ontop */
@@ -184,7 +221,7 @@ a {
 }
 #content {
 	/* Set background colour to #86CEE4, shadow around edge of container*/
-	margin: 140px auto;
+	margin: 140px auto 0 auto;
 	padding-top: 30px;
 	padding-bottom: 180px;
 	width: 900px;
@@ -192,25 +229,3 @@ a {
 	box-shadow: 0px 0px 8px #888888;
 }
 /* END Excluding Product Page CSS */
-
-/* If desktop (screen) and the max width is up to 768 CSS pixels */
-@media screen and (max-width: 768px) {
-   #navigation-bar ul li, #product-navigation-bar ul li {
-      float: none;
-   }
-   #navigation-bar ul li a, #product-navigation-bar ul li a {
-      width: 100%;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-   }
-   #navigation-bar ul li a:before, #product-navigation-bar ul li a:before {
-      height: 1px;
-      background: #fff;
-      width: 100%;
-      opacity: .2;
-   }
-   #navigation-bar ul li a:after, #product-navigation-bar ul li a:after, #navigation-bar ul li.last > a:before, #product-navigation-bar ul li.last > a:before, #navigation-bar ul li:last-child > a:before, #product-navigation-bar ul li:last-child > a:before {
-      display: none;
-   }
-}

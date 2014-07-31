@@ -1,5 +1,5 @@
-/* START Home Page Specific CSS */
 .himage {
+	/* Set size and border of the top products */
 	border: 1px solid;
 	border-color: #A7A7A7;
 	height: 150px;
@@ -12,4 +12,3 @@
 	margin-left: -420px;
 	top: 10px;
 }
-/* END Home Page Specific CSS */

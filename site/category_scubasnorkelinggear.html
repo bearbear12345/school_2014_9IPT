@@ -1,0 +1,106 @@
+<!DOCTYPE html> <!-- Delcare document type -->
+<html lang="en-au"> <!-- HTML tag; set language to English Australia -->
+  <head> <!-- HEAD tag -->
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" /> <!-- Declare document to be a html document, and set the character set to UTF-8 -->
+    <title>Broken Hill Surf Shop Online</title> <!-- Set the title of the webpage to Broken Hill Surf Shop Online -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" /> <!-- Set the favourite icon (Website image in the tabs) -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> <!-- Import global style sheets -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/products.css"> <!-- Import product page style sheets -->
+    <script src="../assets/js/util.js"></script> <!-- Import JavaScript utility scripts -->
+    <script src="../assets/js/cart.js"></script> <!-- Import JavaScript shopping cart scripts -->
+  </head> <!-- Close HEAD tag -->
+  <body onLoad="showDocument(); document.getElementById('ccontent').style.display='inherit';"> <!-- BODY tag; when the page finishes loading, call the function showDocument() function (found in the util.js) file). Also show the content container -->
+    <div id="container"> <!-- Wrapper div (For an anchored footer) -->
+<!-- #################################### -->
+<!-- # Header (Logo) and Navigation Bar # -->
+<!-- #################################### -->
+      <div id="cheader"> <!-- Header wrapper (Style defines the height and width, and other properties) -->
+        <div class="header"> <!-- Header class (inside wrapper) -->
+          <div class="headergradient"> <!-- Give background gradient to the area inside the div -->
+            <a href="home.html"> <img src="../assets/images/logo.png" class="logo" alt="Broken Hill Surf Shop Logo" /> </a> <!-- Logo image with link back to homepage -->
+            <div id="hcart"><a href="cart.html">Shopping Cart (<span id="cart_count">0</span>)</a></div> <!-- Shopping cart div (Will usually only appear if there are items in the cart -->
+            <script type="text/javascript">cart.updateCartCount(true);</script> <!-- Update id _cart_count_ (Previous line) -->
+<!-- START Navigation Bar -->
+            <div id="navigation-bar"> <!-- Styles for navigation bar list -->
+              <ul> <!-- Create unordered list -->
+                <li><a href="home.html">Home</a> </li> <!-- List item linking to the home page -->
+                <li class="active"><a href="products.html">Products</a> </li> <!-- List item linking to the product page; Active page -->
+                <li><a href="about.html">About</a> </li> <!-- List item linking to the about page -->
+                <li><a href="contact.html">Contact</a> </li> <!-- List item linking to the contact page -->
+                <li class="last"><a href="news.html">News</a> </li> <!-- List item linking to the news page -->
+              </ul> <!-- Close list -->
+            </div> <!-- Close navigation bar -->
+<!-- END Navigation Bar --> 
+          </div> <!-- Stop gradient -->
+<!-- START Product Navigation Bar -->
+          <div id="product-navigation-bar"> <!-- Styles for product navigation bar list -->
+            <ul> <!-- Create unordered list -->
+              <li id="product_category_surfing"><a href="category_surfing.html">Surfing</a> </li> <!-- List item linking to the surfing products -->
+              <li id="product_category_clothing"><a href="category_clothing.html">Clothing</a> </li> <!-- List item linking to the clothing products -->
+              <li id="product_category_protection"><a href="category_protection.html">Protection</a> </li> <!-- List item linking to the protection category -->
+              <li id="product_category_scubasnorkeling_gear" class="active"><a href="category_scubasnorkelinggear.html">Scuba/Snorkeling Gear</a> </li> <!-- List item linking to the scuba and snorkeling products -->
+              <li id="product_category_recreation"><a href="category_recreation.html">Recreation</a> </li> <!-- List item linking to the recreational products -->
+              <li id="product_category_accessories" class="last"><a href="category_accessories.html">Accessories</a> </li> <!-- List item linking to the accessories -->
+            </ul> <!-- Close list -->
+          </div> <!-- Close product navigation bar -->
+<!--END Product Navigation Bar--> 
+        </div> <!-- Closing header -->
+      </div> <!-- Close header -->
+      <div id="ccontent"> <!-- Body wrapper (The actual content) -->
+        <table class="table"> <!-- Create product table -->
+          <tr><th>Product Code</th><th>Image</th><th>Product Name</th><th>Price</th></tr> <!-- Table headings -->
+          <tr><td><a href='products.html?50110011'>50110011</a></td><td><a href='products.html?50110011'><img height='75px' width='75px' src='products/50110011/product.jpg'/></a></td><td><a href='products.html?50110011'>Oxygen Tank</a></td><td><a href='products.html?50110011'><strike>$80</strike> $64</a></td></tr> <!-- Table content - product 50110011 -->
+          <tr><td><a href='products.html?50120012'>50120012</a></td><td><a href='products.html?50120012'><img height='75px' width='75px' src='products/50120012/product.jpg'/></a></td><td><a href='products.html?50120012'>Goggles</a></td><td><a href='products.html?50120012'>$22</a></td></tr> <!-- Table content - product 50120012 -->
+          <tr><td><a href='products.html?50130013'>50130013</a></td><td><a href='products.html?50130013'><img height='75px' width='75px' src='products/50130013/product.jpg'/></a></td><td><a href='products.html?50130013'>Wet Suit</a></td><td><a href='products.html?50130013'>$439</a></td></tr> <!-- Table content - product 50130013 -->
+          <tr><td><a href='products.html?50140014'>50140014</a></td><td><a href='products.html?50140014'><img height='75px' width='75px' src='products/50140014/product.jpg'/></a></td><td><a href='products.html?50140014'>Wet Suit Hood</a></td><td><a href='products.html?50140014'>$22</a></td></tr> <!-- Table content - product 50140014 -->
+          <tr><td><a href='products.html?50150015'>50150015</a></td><td><a href='products.html?50150015'><img height='75px' width='75px' src='products/50150015/product.jpg'/></a></td><td><a href='products.html?50150015'>Wet Suit Glove</a></td><td><a href='products.html?50150015'>$33</a></td></tr> <!-- Table content - product 50150015 -->
+          <tr><td><a href='products.html?50160016'>50160016</a></td><td><a href='products.html?50160016'><img height='75px' width='75px' src='products/50160016/product.jpg'/></a></td><td><a href='products.html?50160016'>Wet Suit Boot</a></td><td><a href='products.html?50160016'>$39</a></td></tr> <!-- Table content - product 50160016 -->
+          <tr><td><a href='products.html?50170017'>50170017</a></td><td><a href='products.html?50170017'><img height='75px' width='75px' src='products/50170017/product.jpg'/></a></td><td><a href='products.html?50170017'>Fins</a></td><td><a href='products.html?50170017'>$29</a></td></tr> <!-- Table content - product 50170017 -->
+          <tr><td><a href='products.html?50180018'>50180018</a></td><td><a href='products.html?50180018'><img height='75px' width='75px' src='products/50180018/product.jpg'/></a></td><td><a href='products.html?50180018'>Mask</a></td><td><a href='products.html?50180018'>$23</a></td></tr> <!-- Table content - product 50180018 -->
+          <tr><td><a href='products.html?50190019'>50190019</a></td><td><a href='products.html?50190019'><img height='75px' width='75px' src='products/50190019/product.jpg'/></a></td><td><a href='products.html?50190019'>Buoyancy Compensator</a></td><td><a href='products.html?50190019'><strike>$350</strike> $280</a></td></tr> <!-- Table content - product 50190019 -->
+          <tr><td><a href='products.html?50200020'>50200020</a></td><td><a href='products.html?50200020'><img height='75px' width='75px' src='products/50200020/product.jpg'/></a></td><td><a href='products.html?50200020'>Regulator</a></td><td><a href='products.html?50200020'>$249</a></td></tr> <!-- Table content - product 50200020 -->
+          <tr><td><a href='products.html?50210021'>50210021</a></td><td><a href='products.html?50210021'><img height='75px' width='75px' src='products/50210021/product.jpg'/></a></td><td><a href='products.html?50210021'>Flashlight</a></td><td><a href='products.html?50210021'>$59</a></td></tr> <!-- Table content - product 50210021 -->
+          <tr><td><a href='products.html?50220022'>50220022</a></td><td><a href='products.html?50220022'><img height='75px' width='75px' src='products/50220022/product.jpg'/></a></td><td><a href='products.html?50220022'>Snorkeling Vest</a></td><td><a href='products.html?50220022'>$60</a></td></tr> <!-- Table content - product 50220022 -->
+          <tr><td><a href='products.html?50230023'>50230023</a></td><td><a href='products.html?50230023'><img height='75px' width='75px' src='products/50230023/product.jpg'/></a></td><td><a href='products.html?50230023'>Swimming Goggles</a></td><td><a href='products.html?50230023'>$14</a></td></tr> <!-- Table content - product 50230023 -->
+          <tr><td><a href='products.html?50240024'>50240024</a></td><td><a href='products.html?50240024'><img height='75px' width='75px' src='products/50240024/product.jpg'/></a></td><td><a href='products.html?50240024'>Steamer</a></td><td><a href='products.html?50240024'>$449</a></td></tr> <!-- Table content - product 50240024 -->
+          <tr><td><a href='products.html?50250025'>50250025</a></td><td><a href='products.html?50250025'><img height='75px' width='75px' src='products/50250025/product.jpg'/></a></td><td><a href='products.html?50250025'>Flippers</a></td><td><a href='products.html?50250025'>$29</a></td></tr> <!-- Table content - product 50250025 -->
+          <tr><td><a href='products.html?50260026'>50260026</a></td><td><a href='products.html?50260026'><img height='75px' width='75px' src='products/50260026/product.jpg'/></a></td><td><a href='products.html?50260026'>Snorkeling Mask</a></td><td><a href='products.html?50260026'>$23</a></td></tr> <!-- Table content - product 50260026 -->
+          <tr><td><a href='products.html?50270027'>50270027</a></td><td><a href='products.html?50270027'><img height='75px' width='75px' src='products/50270027/product.jpg'/></a></td><td><a href='products.html?50270027'>Goggles</a></td><td><a href='products.html?50270027'>$20</a></td></tr> <!-- Table content - product 50270027 -->
+          <tr><td><a href='products.html?50280028'>50280028</a></td><td><a href='products.html?50280028'><img height='75px' width='75px' src='products/50280028/product.jpg'/></a></td><td><a href='products.html?50280028'>Snorkeling Mask with Polarised Shades</a></td><td><a href='products.html?50280028'>$49</a></td></tr> <!-- Table content - product 50280028 -->
+        </table> <!-- Close product table -->
+      </div> <!-- Close body wrapper -->
+      <div id="footer_wrapper" class="footergradient nomargin"> <!-- Footer wrapper (Whole page width) -->
+        <div id="footer" class="nomargin"> <!-- Footer (900px page center) -->
+<!-- START Sitemap -->
+          <div id="infocolumns" class="borderbottom"> <!-- Info columns & because I don't like lists -->
+            <div> <!-- Column 1 - Sites -->
+              <h1>site</h1> <!-- Header -->
+              <p><a href="home.html">home</a> </p> <!-- Link to home page -->
+              <p><a href="products.html">products</a> </p> <!-- Link to products page -->
+              <p><a href="about.html">about</a> </p> <!-- Link to about page -->
+              <p><a href="contact.html">contact</a> </p> <!-- Link to contact page -->
+              <p><a href="news.html">news</a> </p> <!-- Link to news page -->
+            </div> <!-- Close column 1 -->
+            <div> <!-- Column 2 - Product Categories -->
+              <h1>products</h1> <!-- Header -->
+              <p><a href="category_surfing.html">surfing</a> </p> <!-- Link to surfing products -->
+              <p><a href="category_clothing.html">clothing</a> </p> <!-- Link to clothing products -->
+              <p><a href="category_protection.html">protection</a> </p> <!-- Link to protective products -->
+              <p><a href="category_scubasnorkelinggear.html">scuba/snorkeling gear</a> </p> <!-- Link to scuba and snorkeling gear -->
+              <p><a href="category_recreation.html">recreation</a> </p> <!-- Link to recreational gear -->
+              <p><a href="category_accessories.html">accessories</a> </p> <!-- Link to accessories -->
+            </div> <!-- Close column 2 -->
+ <!-- END Sitemap -->
+            <div> <!-- Column 3 - Contact details -->
+              <h1>contact</h1> <!-- Header -->
+              <p>email: contact@brokenhillsurf.com.au</p> <!-- Email address - nonexistent -->
+              <p>facebook: brokenhillsurfshop</p> <!-- Facebook page name - nonexistent -->
+              <p>twitter: @brokenhillsurfshop</p> <!-- Twitter handle - nonexistent -->
+            </div> <!-- Close column 3 -->
+          </div> <!-- Close info columns -->
+        </div> <!-- Close footer -->
+        <p>&copy; 2014 Andrew Wong & Ryan Oo</p> <!-- Copyright -->
+      </div> <!-- Close footer wrapper -->
+    </div> <!-- Close wrapper div -->
+  </body> <!-- Close BODY tag -->
+</html> <!-- Close HTML tag -->
